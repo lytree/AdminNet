@@ -1,0 +1,6 @@
+[submodule "framework"]
+	path = framework
+	url = https://github.com/lytree/FrameworkLib.git
+[submodule "plugins"]
+	path = plugins
+	url = https://github.com/lytree/Admin.Plugins.git
