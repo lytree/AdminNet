@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace ZhonTai.Admin.Domain.Region;
+namespace Server.Repository.Domain;
 
 /// <summary>
 /// 地区级别

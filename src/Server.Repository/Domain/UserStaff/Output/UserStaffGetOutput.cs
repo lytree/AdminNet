@@ -1,7 +1,6 @@
 ﻿
-using ZhonTai.Admin.Domain.UserStaff.Input;
 
-namespace ZhonTai.Admin.Domain.UserStaff.Output;
+namespace Server.Repository.Domain;
 
 public class UserStaffGetOutput : UserStaffUpdateInput
 {

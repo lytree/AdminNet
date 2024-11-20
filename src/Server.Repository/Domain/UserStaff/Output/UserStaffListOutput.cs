@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ZhonTai.Admin.Domain.UserStaff.Output;
+namespace Server.Repository.Domain.UserStaff.Output;
 
 public class UserStaffListOutput
 {

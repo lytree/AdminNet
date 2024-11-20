@@ -1,5 +1,4 @@
-﻿
-namespace ZhonTai.Admin.Domain.Api.Dto;
+﻿namespace Server.Repository.Domain;
 
 public class ApiGetPageDto
 {

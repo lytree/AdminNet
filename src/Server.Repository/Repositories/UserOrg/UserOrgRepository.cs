@@ -1,15 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using Server.Repository.Domain;
+using Server.Repository.Repositories;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Core.Db.Transaction;
-using ZhonTai.Admin.Domain.UserOrg;
 
-namespace ZhonTai.Admin.Repositories;
+
+namespace Server.Repository.Repositories;
 
 public class UserOrgRepository : AdminRepositoryBase<UserOrgEntity>, IUserOrgRepository
 {
     public UserOrgRepository(UnitOfWorkManagerCloud uowm) : base(uowm)
     {
-        
+
     }
 
     /// <summary>

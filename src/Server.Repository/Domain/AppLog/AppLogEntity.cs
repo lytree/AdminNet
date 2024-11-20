@@ -1,7 +1,7 @@
 ﻿using FreeSql.DataAnnotations;
 using System;
 
-namespace ZhonTai.Admin.Domain.AppLog;
+namespace Server.Repository.Domain;
 
 /// <summary>
 /// 应用程序日志

@@ -1,9 +1,8 @@
 ﻿using FreeSql.DataAnnotations;
 using System;
 using System.Collections.Generic;
-using ZhonTai.Admin.Domain.Org;
 
-namespace ZhonTai.Admin.Domain.UserStaff.Input;
+namespace Server.Repository.Domain;
 
 /// <summary>
 /// 添加

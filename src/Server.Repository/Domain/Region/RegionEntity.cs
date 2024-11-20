@@ -1,9 +1,9 @@
-using ZhonTai.Admin.Core.Entities;
+using Framework.Repository.Entities;
 using FreeSql.DataAnnotations;
 using System;
 using System.Collections.Generic;
 
-namespace ZhonTai.Admin.Domain.Region;
+namespace Server.Repository.Domain;
 
 /// <summary>
 /// 地区

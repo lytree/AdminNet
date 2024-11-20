@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Domain.User;
+﻿namespace Server.Repository.Domain;
 
 /// <summary>
 /// 用户类型

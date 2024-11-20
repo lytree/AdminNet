@@ -1,14 +1,11 @@
-﻿using ZhonTai.Admin.Core.Entities;
+﻿using Framework.Repository.Entities;
 using FreeSql;
 using FreeSql.DataAnnotations;
-using ZhonTai.Admin.Domain.User;
-using ZhonTai.Admin.Domain.Org;
 using System.Collections.Generic;
-using ZhonTai.Admin.Domain.TenantPkg;
-using ZhonTai.Admin.Domain.Pkg;
-using ZhonTai.Admin.Core.Attributes;
+using Framework.Repository.Attributes;
 
-namespace ZhonTai.Admin.Domain.Tenant;
+
+namespace Server.Repository.Domain;
 
 /// <summary>
 /// 租户
@@ -41,7 +38,7 @@ public partial class TenantEntity : EntityBase
     /// <summary>
     /// 租户类型
     /// </summary>
-    public TenantType? TenantType { get; set; } = Tenant.TenantType.Tenant;
+    public TenantType? TenantType { get; set; } = Server.Repository.Domain.TenantType.Tenant;
 
     /// <summary>
     /// 域名

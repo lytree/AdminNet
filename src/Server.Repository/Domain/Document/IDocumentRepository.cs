@@ -1,6 +1,6 @@
-﻿using ZhonTai.Admin.Core.Repositories;
+﻿using Framework.Repository.Repositories;
 
-namespace ZhonTai.Admin.Domain.Document;
+namespace Server.Repository.Domain.Document;
 
 public interface IDocumentRepository : IRepositoryBase<DocumentEntity>
 {

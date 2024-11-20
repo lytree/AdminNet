@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Domain.Document;
+﻿namespace Server.Repository.Domain.Document;
 
 /// <summary>
 /// 文档类型

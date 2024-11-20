@@ -1,7 +1,8 @@
-﻿using ZhonTai.Admin.Core.Db.Transaction;
-using ZhonTai.Admin.Domain.Document;
+﻿using Server.Repository.Domain.Document;
+using Server.Repository.Repositories;
 
-namespace ZhonTai.Admin.Repositories;
+
+namespace Server.Repository.Repositories;
 
 public class DocumentRepository : AdminRepositoryBase<DocumentEntity>, IDocumentRepository
 {

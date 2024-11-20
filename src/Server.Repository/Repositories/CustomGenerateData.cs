@@ -1,39 +1,16 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ZhonTai.Admin.Core.Db;
-using ZhonTai.Admin.Domain.DictType;
-using ZhonTai.Admin.Domain.Dict;
-using ZhonTai.Admin.Domain.Api;
-using ZhonTai.Admin.Domain.Permission;
-using ZhonTai.Admin.Domain.User;
-using ZhonTai.Admin.Domain.Role;
-using ZhonTai.Admin.Domain.UserRole;
-using ZhonTai.Admin.Domain.RolePermission;
-using ZhonTai.Admin.Domain.Tenant;
-using ZhonTai.Admin.Domain.TenantPermission;
-using ZhonTai.Admin.Domain.PermissionApi;
-using ZhonTai.Admin.Domain.View;
-using ZhonTai.Admin.Core.Configs;
-using ZhonTai.Common.Extensions;
-using ZhonTai.Admin.Domain.UserStaff;
-using ZhonTai.Admin.Domain.Org;
-using ZhonTai.Admin.Core.Db.Data;
-using FreeSql;
-using ZhonTai.Admin.Domain.UserOrg;
+﻿using FreeSql;
 using System.Reflection;
-using ZhonTai.Admin.Core.Attributes;
-using ZhonTai.Admin.Core.Helpers;
-using ZhonTai.Admin.Domain.Region;
+using Framework.Repository.Data;
+using Server.Repository.Domain;
 
-namespace ZhonTai.Admin.Repositories;
+namespace Server.Repository.Repositories;
 
 /// <summary>
 /// 生成数据
 /// </summary>
 public class CustomGenerateData : GenerateData, IGenerateData
 {
-    public virtual async Task GenerateDataAsync(IFreeSql db, AppConfig appConfig)
+    public virtual async Task GenerateDataAsync(IFreeSql db)
     {
         #region 读取数据
         #region 城市字典
@@ -223,7 +200,7 @@ public class CustomGenerateData : GenerateData, IGenerateData
         SaveDataToJsonFile<RoleEntity>(roles, isTenant);
         SaveDataToJsonFile<OrgEntity>(orgTree, isTenant);
         SaveDataToJsonFile<UserStaffEntity>(staffs, isTenant);
-        
+
         SaveDataToJsonFile<DictEntity>(dictionaries);
         SaveDataToJsonFile<DictTypeEntity>(dictionaryTypes);
         SaveDataToJsonFile<UserRoleEntity>(userRoles);

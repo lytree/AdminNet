@@ -1,6 +1,6 @@
-﻿using ZhonTai.Admin.Core.Repositories;
+﻿using Framework.Repository.Repositories;
 
-namespace ZhonTai.Admin.Domain.RoleOrg;
+namespace Server.Repository.Domain;
 
 public interface IRoleOrgRepository : IRepositoryBase<RoleOrgEntity>
 {

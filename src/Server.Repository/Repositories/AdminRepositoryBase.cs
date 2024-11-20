@@ -1,18 +1,16 @@
-﻿using ZhonTai.Admin.Core.Consts;
-using ZhonTai.Admin.Core.Db.Transaction;
-using ZhonTai.Admin.Core.Repositories;
+﻿
+using Framework.Repository.Repositories;
 
-namespace ZhonTai.Admin.Repositories
+namespace Server.Repository.Repositories;
+
+/// <summary>
+/// 权限库基础仓储
+/// </summary>
+/// <typeparam name="TEntity"></typeparam>
+public class AdminRepositoryBase<TEntity> : RepositoryBase<TEntity> where TEntity : class
 {
-    /// <summary>
-    /// 权限库基础仓储
-    /// </summary>
-    /// <typeparam name="TEntity"></typeparam>
-    public class AdminRepositoryBase<TEntity> : RepositoryBase<TEntity> where TEntity : class
+    public AdminRepositoryBase(UnitOfWorkManagerCloud uowm) : base(uowm.GetUnitOfWorkManager(DbKeys.AppDb))
     {
-        public AdminRepositoryBase(UnitOfWorkManagerCloud uowm) : base(DbKeys.AppDb, uowm) 
-        {
-            
-        }
+
     }
 }

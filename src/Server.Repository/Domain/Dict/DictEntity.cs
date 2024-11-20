@@ -1,9 +1,10 @@
-﻿using ZhonTai.Admin.Core.Entities;
+﻿using Framework.Repository.Attributes;
+using Framework.Repository.Entities;
 using FreeSql.DataAnnotations;
-using ZhonTai.Admin.Domain.DictType;
-using ZhonTai.Admin.Core.Attributes;
 
-namespace ZhonTai.Admin.Domain.Dict;
+using Server.Repository.Domain.DictType;
+
+namespace Server.Repository.Domain.Dict;
 
 /// <summary>
 /// 数据字典

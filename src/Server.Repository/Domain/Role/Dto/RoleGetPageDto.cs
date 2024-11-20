@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Domain.Role.Dto;
+﻿namespace Server.Repository.Domain;
 
 public partial class RoleGetPageDto
 {

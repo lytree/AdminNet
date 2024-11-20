@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace ZhonTai.Admin.Domain.UserStaff;
+namespace Server.Repository.Domain;
 
 /// <summary>
 /// 性别

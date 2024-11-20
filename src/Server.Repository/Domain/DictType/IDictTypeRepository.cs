@@ -1,6 +1,6 @@
-﻿using ZhonTai.Admin.Core.Repositories;
+﻿using Framework.Repository.Repositories;
 
-namespace ZhonTai.Admin.Domain.DictType;
+namespace Server.Repository.Domain.DictType;
 
 public interface IDictTypeRepository : IRepositoryBase<DictTypeEntity>
 {

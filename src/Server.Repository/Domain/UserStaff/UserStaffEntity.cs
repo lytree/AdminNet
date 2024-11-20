@@ -1,8 +1,8 @@
-﻿using ZhonTai.Admin.Core.Entities;
+﻿using Framework.Repository.Entities;
 using FreeSql.DataAnnotations;
 using System;
 
-namespace ZhonTai.Admin.Domain.UserStaff;
+namespace Server.Repository.Domain;
 
 /// <summary>
 /// 用户员工

@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Server.Repository.Domain;
+using Server.Repository.Repositories;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Core.Db.Transaction;
-using ZhonTai.Admin.Domain.Org;
 
-namespace ZhonTai.Admin.Repositories;
+
+namespace Server.Repository.Repositories;
 
 public class OrgRepository : AdminRepositoryBase<OrgEntity>, IOrgRepository
 {

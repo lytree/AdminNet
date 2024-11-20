@@ -1,7 +1,8 @@
-﻿using ZhonTai.Admin.Core.Repositories;
-using ZhonTai.Admin.Domain;
+﻿
+using Framework.Repository.Repositories;
+using Server.Repository.Domain;
 
-namespace ZhonTai.Admin.Repositories;
+namespace Server.Repository.Repositories;
 
 public interface ITaskExtRepository : IRepositoryBase<TaskInfoExt>
 {

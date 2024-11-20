@@ -1,9 +1,9 @@
-﻿using ZhonTai.Admin.Core.Entities;
+﻿using Framework.Repository.Entities;
 using FreeSql.DataAnnotations;
 using System;
 using System.Collections.Generic;
 
-namespace ZhonTai.Admin.Domain.View;
+namespace Server.Repository.Domain;
 
 /// <summary>
 /// 视图管理

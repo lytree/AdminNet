@@ -1,8 +1,8 @@
-﻿using ZhonTai.Admin.Core.Entities;
+﻿using Framework.Repository.Entities;
 using FreeSql.DataAnnotations;
-using ZhonTai.Admin.Domain.Document;
+using Server.Repository.Domain.Document;
 
-namespace ZhonTai.Admin.Domain.DocumentImage;
+namespace Server.Repository.Domain.DocumentImage;
 
 /// <summary>
 /// 文档图片

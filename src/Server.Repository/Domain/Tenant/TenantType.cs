@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Domain.Tenant;
+﻿namespace Server.Repository.Domain;
 
 /// <summary>
 /// 租户类型

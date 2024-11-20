@@ -1,10 +1,8 @@
-﻿using ZhonTai.Admin.Core.Entities;
+﻿using Framework.Repository.Entities;
 using FreeSql.DataAnnotations;
-using ZhonTai.Admin.Domain.Org;
-using ZhonTai.Admin.Domain.User;
-using ZhonTai.Admin.Core.Attributes;
+using Framework.Repository.Attributes;
 
-namespace ZhonTai.Admin.Domain.UserOrg;
+namespace Server.Repository.Domain;
 
 /// <summary>
 /// 用户所属部门

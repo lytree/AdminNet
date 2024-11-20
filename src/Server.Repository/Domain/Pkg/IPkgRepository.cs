@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Core.Repositories;
+using Framework.Repository.Repositories;
 
-namespace ZhonTai.Admin.Domain.Pkg;
+namespace Server.Repository.Domain;
 
 public interface IPkgRepository : IRepositoryBase<PkgEntity>
 {

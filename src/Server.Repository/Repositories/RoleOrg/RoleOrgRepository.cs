@@ -1,8 +1,8 @@
-﻿using ZhonTai.Admin.Core.Db.Transaction;
-using ZhonTai.Admin.Domain;
-using ZhonTai.Admin.Domain.RoleOrg;
+﻿using Server.Repository.Domain;
+using Server.Repository.Repositories;
 
-namespace ZhonTai.Admin.Repositories;
+
+namespace Server.Repository.Repositories;
 
 public class RoleOrgRepository : AdminRepositoryBase<RoleOrgEntity>, IRoleOrgRepository
 {

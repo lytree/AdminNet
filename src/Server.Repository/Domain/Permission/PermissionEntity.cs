@@ -1,12 +1,9 @@
-﻿using ZhonTai.Admin.Core.Entities;
+﻿using Framework.Repository.Entities;
 using FreeSql.DataAnnotations;
 using System.Collections.Generic;
-using ZhonTai.Admin.Domain.Api;
-using ZhonTai.Admin.Domain.View;
-using ZhonTai.Admin.Domain.PermissionApi;
-using ZhonTai.Admin.Core.Attributes;
+using Framework.Repository.Attributes;
 
-namespace ZhonTai.Admin.Domain.Permission;
+namespace Server.Repository.Domain;
 
 /// <summary>
 /// 权限

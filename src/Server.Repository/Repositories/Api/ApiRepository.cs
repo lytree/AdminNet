@@ -1,7 +1,8 @@
-﻿using ZhonTai.Admin.Core.Db.Transaction;
-using ZhonTai.Admin.Domain.Api;
+﻿
 
-namespace ZhonTai.Admin.Repositories;
+using Server.Repository.Domain;
+
+namespace Server.Repository.Repositories.Api;
 
 public class ApiRepository : AdminRepositoryBase<ApiEntity>, IApiRepository
 {

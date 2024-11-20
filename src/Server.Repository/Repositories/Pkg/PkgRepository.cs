@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Server.Repository.Domain;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Core.Db.Transaction;
-using ZhonTai.Admin.Domain.Pkg;
 
-namespace ZhonTai.Admin.Repositories;
+
+namespace Server.Repository.Repositories;
 
 public class PkgRepository : AdminRepositoryBase<PkgEntity>, IPkgRepository
 {

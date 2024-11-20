@@ -1,5 +1,4 @@
-﻿
-namespace ZhonTai.Admin.Domain.Tenant.Dto;
+﻿namespace Server.Repository.Domain.Tenant.Dto;
 
 public class TenantGetPageDto
 {

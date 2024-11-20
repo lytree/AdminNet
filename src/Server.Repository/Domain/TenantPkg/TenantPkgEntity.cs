@@ -1,9 +1,7 @@
-﻿using ZhonTai.Admin.Core.Entities;
+﻿using Framework.Repository.Entities;
 using FreeSql.DataAnnotations;
-using ZhonTai.Admin.Domain.Tenant;
-using ZhonTai.Admin.Domain.Pkg;
 
-namespace ZhonTai.Admin.Domain.TenantPkg;
+namespace Server.Repository.Domain;
 
 /// <summary>
 /// 租户套餐

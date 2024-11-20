@@ -1,7 +1,7 @@
 ﻿using FreeSql.DataAnnotations;
 using System;
 
-namespace ZhonTai.Admin.Domain;
+namespace Server.Repository.Domain;
 
 /// <summary>
 /// 任务邮件

@@ -1,6 +1,6 @@
-﻿using ZhonTai.Admin.Core.Repositories;
+﻿using Framework.Repository.Repositories;
 
-namespace ZhonTai.Admin.Domain.UserStaff;
+namespace Server.Repository.Domain;
 
 public interface IUserStaffRepository : IRepositoryBase<UserStaffEntity>
 {

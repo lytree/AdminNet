@@ -1,7 +1,8 @@
-﻿using ZhonTai.Admin.Core.Db.Transaction;
-using ZhonTai.Admin.Domain.DocumentImage;
+﻿using Server.Repository.Domain.DocumentImage;
+using Server.Repository.Repositories;
 
-namespace ZhonTai.Admin.Repositories;
+
+namespace Server.Repository.Repositories;
 
 public class DocumentImageRepository : AdminRepositoryBase<DocumentImageEntity>, IDocumentImageRepository
 {

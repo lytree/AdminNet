@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Domain.Role;
+﻿namespace Server.Repository.Domain;
 
 /// <summary>
 /// 数据范围

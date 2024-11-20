@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Domain.User;
+﻿namespace Server.Repository.Domain;
 
 /// <summary>
 /// 密码加密类型

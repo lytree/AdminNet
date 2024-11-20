@@ -1,7 +1,8 @@
-﻿using ZhonTai.Admin.Core.Db.Transaction;
-using ZhonTai.Admin.Domain.Tenant;
+﻿using Server.Repository.Domain;
+using Server.Repository.Repositories;
 
-namespace ZhonTai.Admin.Repositories;
+
+namespace Server.Repository.Repositories;
 
 public class TenantRepository : AdminRepositoryBase<TenantEntity>, ITenantRepository
 {

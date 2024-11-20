@@ -1,30 +1,12 @@
-﻿using System.Threading.Tasks;
-using ZhonTai.Admin.Domain.DictType;
-using ZhonTai.Admin.Domain.Dict;
-using ZhonTai.Admin.Domain.Api;
-using ZhonTai.Admin.Domain.Permission;
-using ZhonTai.Admin.Domain.User;
-using ZhonTai.Admin.Domain.Role;
-using ZhonTai.Admin.Domain.UserRole;
-using ZhonTai.Admin.Domain.RolePermission;
-using ZhonTai.Admin.Domain.Tenant;
-using ZhonTai.Admin.Domain.TenantPermission;
-using ZhonTai.Admin.Domain.PermissionApi;
-using ZhonTai.Admin.Domain.View;
-using ZhonTai.Admin.Core.Configs;
-using ZhonTai.Admin.Domain.Org;
-using ZhonTai.Admin.Domain.UserStaff;
-using ZhonTai.Admin.Core.Db.Data;
-using ZhonTai.Admin.Domain.UserOrg;
-using System.Linq;
-using ZhonTai.Common.Extensions;
+﻿
 using System;
+using Framework.Repository.Data;
 using FreeSql;
 using Mapster;
-using System.Collections.Generic;
-using ZhonTai.Admin.Domain.Region;
+using Server.Repository.Domain;
 
-namespace ZhonTai.Admin.Repositories;
+
+namespace Server.Repository.Repositories;
 
 /// <summary>
 /// 同步数据
@@ -45,7 +27,7 @@ public class CustomSyncData : SyncData, ISyncData
     /// <param name="unitOfWork"></param>
     /// <param name="dbConfig"></param>
     /// <returns></returns>
-    private async Task InitUserRoleAsync(IFreeSql db, IRepositoryUnitOfWork unitOfWork, DbConfig dbConfig)
+    private async Task InitUserRoleAsync(IFreeSql db, IRepositoryUnitOfWork unitOfWork)
     {
         var tableName = GetTableName<UserRoleEntity>();
         try
@@ -72,7 +54,7 @@ public class CustomSyncData : SyncData, ISyncData
             var dataList = await rep.Where(a => rep.Orm.Select<UserRoleRecord>().WithMemory(userRoleRecordList).Where(b => b.UserId == a.UserId && b.RoleId == a.RoleId).Any()).ToListAsync();
 
             //新增
-            var insertDataList = sourceDataList.Where(a => !(dataList.Where(b => a.UserId == b.UserId && a.RoleId == b.RoleId).Any())).ToList();
+            var insertDataList = sourceDataList.Where(a => !dataList.Where(b => a.UserId == b.UserId && a.RoleId == b.RoleId).Any()).ToList();
             if (insertDataList.Any())
             {
                 await rep.InsertAsync(insertDataList);
@@ -129,7 +111,7 @@ public class CustomSyncData : SyncData, ISyncData
             var dataList = await rep.Where(a => rep.Orm.Select<UserOrgRecord>().WithMemory(userOrgRecordList).Where(b => b.UserId == a.UserId && b.OrgId == a.OrgId).Any()).ToListAsync();
 
             //新增
-            var insertDataList = sourceDataList.Where(a => !(dataList.Where(b => a.UserId == b.UserId && a.OrgId == b.OrgId).Any())).ToList();
+            var insertDataList = sourceDataList.Where(a => !dataList.Where(b => a.UserId == b.UserId && a.OrgId == b.OrgId).Any()).ToList();
             if (insertDataList.Any())
             {
                 await rep.InsertAsync(insertDataList);
@@ -186,7 +168,7 @@ public class CustomSyncData : SyncData, ISyncData
             var dataList = await rep.Where(a => rep.Orm.Select<RolePermissionRecord>().WithMemory(rolePermissionRecordList).Where(b => b.RoleId == a.RoleId && b.PermissionId == a.PermissionId).Any()).ToListAsync();
 
             //新增
-            var insertDataList = sourceDataList.Where(a => !(dataList.Where(b => a.RoleId == b.RoleId && a.PermissionId == b.PermissionId).Any())).ToList();
+            var insertDataList = sourceDataList.Where(a => !dataList.Where(b => a.RoleId == b.RoleId && a.PermissionId == b.PermissionId).Any()).ToList();
             if (insertDataList.Any())
             {
                 await rep.InsertAsync(insertDataList);
@@ -243,7 +225,7 @@ public class CustomSyncData : SyncData, ISyncData
             var dataList = await rep.Where(a => rep.Orm.Select<TenantPermissionRecord>().WithMemory(tenantPermissionRecordList).Where(b => b.TenantId == a.TenantId && b.PermissionId == a.PermissionId).Any()).ToListAsync();
 
             //新增
-            var insertDataList = sourceDataList.Where(a => !(dataList.Where(b => a.TenantId == b.TenantId && a.PermissionId == b.PermissionId).Any())).ToList();
+            var insertDataList = sourceDataList.Where(a => !dataList.Where(b => a.TenantId == b.TenantId && a.PermissionId == b.PermissionId).Any()).ToList();
             if (insertDataList.Any())
             {
                 await rep.InsertAsync(insertDataList);

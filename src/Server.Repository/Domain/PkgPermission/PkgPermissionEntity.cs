@@ -1,9 +1,7 @@
-﻿using ZhonTai.Admin.Core.Entities;
+﻿using Framework.Repository.Entities;
 using FreeSql.DataAnnotations;
-using ZhonTai.Admin.Domain.Permission;
-using ZhonTai.Admin.Domain.Pkg;
 
-namespace ZhonTai.Admin.Domain.PkgPermission;
+namespace Server.Repository.Domain;
 
 /// <summary>
 /// 套餐权限

@@ -1,7 +1,7 @@
 ﻿using FreeScheduler;
-using ZhonTai.Admin.Core.Repositories;
+using Framework.Repository.Repositories;
 
-namespace ZhonTai.Admin.Repositories;
+namespace Server.Repository.Repositories;
 
 public interface ITaskRepository : IRepositoryBase<TaskInfo>
 {

@@ -1,6 +1,6 @@
-﻿using ZhonTai.Admin.Core.Repositories;
+﻿using Framework.Repository.Repositories;
 
-namespace ZhonTai.Admin.Domain.RolePermission;
+namespace Server.Repository.Domain;
 
 public interface IRolePermissionRepository : IRepositoryBase<RolePermissionEntity>
 {

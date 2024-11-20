@@ -1,7 +1,7 @@
 ﻿
 using FreeSql;
 
-namespace ZhonTai.Admin.Domain.Tenant.Dto;
+namespace Server.Repository.Domain;
 
 public class CreateFreeSqlTenantDto
 {

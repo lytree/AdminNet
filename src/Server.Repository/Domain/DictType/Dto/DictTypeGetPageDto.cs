@@ -1,5 +1,4 @@
-﻿
-namespace ZhonTai.Admin.Domain.DictType.Dto;
+﻿namespace Server.Repository.Domain.DictType.Dto;
 
 public partial class DictTypeGetPageDto
 {

@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using ZhonTai.Admin.Domain.Role;
+﻿
+using System.Collections.Generic;
 
-namespace ZhonTai.Admin.Domain.User.Dto;
+namespace Server.Repository.Domain;
 
 public class DataPermissionDto
 {

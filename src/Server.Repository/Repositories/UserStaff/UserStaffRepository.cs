@@ -1,7 +1,8 @@
-﻿using ZhonTai.Admin.Core.Db.Transaction;
-using ZhonTai.Admin.Domain.UserStaff;
+﻿using Server.Repository.Domain;
+using Server.Repository.Repositories;
 
-namespace ZhonTai.Admin.Repositories;
+
+namespace Server.Repository.Repositories;
 
 public class UserStaffRepository : AdminRepositoryBase<UserStaffEntity>, IUserStaffRepository
 {

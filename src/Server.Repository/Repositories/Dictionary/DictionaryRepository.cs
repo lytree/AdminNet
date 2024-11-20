@@ -1,7 +1,6 @@
-﻿using ZhonTai.Admin.Core.Db.Transaction;
-using ZhonTai.Admin.Domain.Dict;
+﻿using Server.Repository.Domain.Dict;
 
-namespace ZhonTai.Admin.Repositories;
+namespace Server.Repository.Repositories.Dictionary;
 
 public class DictionaryRepository : AdminRepositoryBase<DictEntity>, IDictRepository
 {

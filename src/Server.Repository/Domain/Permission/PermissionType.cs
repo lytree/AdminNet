@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Domain.Permission;
+﻿namespace Server.Repository.Domain;
 
 /// <summary>
 /// 权限类型

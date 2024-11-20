@@ -1,10 +1,9 @@
-﻿
-namespace ZhonTai.Admin.Domain.UserStaff.Input;
+﻿namespace Server.Repository.Domain;
 
 /// <summary>
 /// 修改
 /// </summary>
-public class UserStaffUpdateInput: UserStaffAddInput
+public class UserStaffUpdateInput : UserStaffAddInput
 {
     /// <summary>
     /// 编号

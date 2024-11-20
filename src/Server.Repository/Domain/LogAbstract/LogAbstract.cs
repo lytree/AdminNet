@@ -1,7 +1,7 @@
-﻿using ZhonTai.Admin.Core.Entities;
+﻿using Framework.Repository.Entities;
 using FreeSql.DataAnnotations;
 
-namespace ZhonTai.Admin.Domain;
+namespace Server.Repository.Domain;
 
 /// <summary>
 /// 日志

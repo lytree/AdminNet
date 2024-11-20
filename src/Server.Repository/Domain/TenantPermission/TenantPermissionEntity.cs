@@ -1,10 +1,8 @@
-﻿using ZhonTai.Admin.Core.Entities;
+﻿using Framework.Repository.Entities;
 using FreeSql.DataAnnotations;
-using ZhonTai.Admin.Domain.Tenant;
-using ZhonTai.Admin.Domain.Permission;
-using ZhonTai.Admin.Core.Attributes;
+using Framework.Repository.Attributes;
 
-namespace ZhonTai.Admin.Domain.TenantPermission;
+namespace Server.Repository.Domain;
 
 /// <summary>
 /// 租户权限

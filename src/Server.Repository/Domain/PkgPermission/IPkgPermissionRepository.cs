@@ -1,6 +1,6 @@
-﻿using ZhonTai.Admin.Core.Repositories;
+﻿using Framework.Repository.Repositories;
 
-namespace ZhonTai.Admin.Domain.PkgPermission;
+namespace Server.Repository.Domain;
 
 public interface IPkgPermissionRepository : IRepositoryBase<PkgPermissionEntity>
 {

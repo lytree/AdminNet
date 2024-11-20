@@ -1,10 +1,10 @@
-﻿using ZhonTai.Admin.Core.Entities;
+﻿using Framework.Repository.Entities;
 using FreeSql.DataAnnotations;
 using OnceMi.AspNetCore.OSS;
-using ZhonTai.Admin.Core.Attributes;
+using Framework.Repository.Attributes;
 using System;
 
-namespace ZhonTai.Admin.Domain;
+namespace Server.Repository.Domain;
 
 /// <summary>
 /// 文件

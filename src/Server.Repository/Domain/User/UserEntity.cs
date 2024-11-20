@@ -1,16 +1,10 @@
 ﻿using FreeSql.DataAnnotations;
 using System;
 using System.Collections.Generic;
-using ZhonTai.Admin.Core.Entities;
-using ZhonTai.Admin.Domain.Tenant;
-using ZhonTai.Admin.Domain.Role;
-using ZhonTai.Admin.Domain.UserRole;
-using ZhonTai.Admin.Domain.UserStaff;
-using ZhonTai.Admin.Domain.Org;
-using ZhonTai.Admin.Domain.UserOrg;
-using ZhonTai.Admin.Core.Attributes;
+using Framework.Repository.Entities;
+using Framework.Repository.Attributes;
 
-namespace ZhonTai.Admin.Domain.User;
+namespace Server.Repository.Domain;
 
 /// <summary>
 /// 用户

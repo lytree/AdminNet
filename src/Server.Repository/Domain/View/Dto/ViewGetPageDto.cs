@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Domain.View.Dto;
+﻿namespace Server.Repository.Domain;
 
 public class ViewGetPageDto
 {
