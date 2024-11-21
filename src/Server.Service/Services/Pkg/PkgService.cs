@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ZhonTai.Admin.Core.Dto;
-using ZhonTai.Admin.Core.Consts;
-using ZhonTai.Admin.Core.Attributes;
-using ZhonTai.Admin.Domain.Pkg;
-using ZhonTai.Admin.Domain.PkgPermission;
-using ZhonTai.Admin.Domain.TenantPkg;
-using ZhonTai.Admin.Domain.Tenant;
-using ZhonTai.Admin.Domain.RolePermission;
-using ZhonTai.Admin.Domain.User;
-using ZhonTai.Admin.Domain.Org;
-using ZhonTai.Admin.Resources;
-using ZhonTai.Admin.Services.Pkg.Dto;
+using Server.Service.Core.Dto;
+using Server.Service.Core.Consts;
+using Server.Service.Core.Attributes;
+using Server.Service.Domain.Pkg;
+using Server.Service.Domain.PkgPermission;
+using Server.Service.Domain.TenantPkg;
+using Server.Service.Domain.Tenant;
+using Server.Service.Domain.RolePermission;
+using Server.Service.Domain.User;
+using Server.Service.Domain.Org;
+using Server.Service.Resources;
+using Server.Service.Services.Pkg.Dto;
 using ZhonTai.DynamicApi;
 using ZhonTai.DynamicApi.Attributes;
 
-namespace ZhonTai.Admin.Services.Pkg;
+namespace Server.Service.Services.Pkg;
 
 /// <summary>
 /// 套餐服务

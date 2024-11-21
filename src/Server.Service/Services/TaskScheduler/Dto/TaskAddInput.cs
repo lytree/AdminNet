@@ -1,6 +1,6 @@
 ﻿using FreeScheduler;
 
-namespace ZhonTai.Admin.Services.TaskScheduler.Dto;
+namespace Server.Service.Services.TaskScheduler.Dto;
 
 /// <summary>
 /// 添加

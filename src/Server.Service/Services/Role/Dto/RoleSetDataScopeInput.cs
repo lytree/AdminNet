@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using ZhonTai.Admin.Core.Validators;
-using ZhonTai.Admin.Domain.Role;
+using Server.Service.Core.Validators;
+using Server.Service.Domain.Role;
 
-namespace ZhonTai.Admin.Services.Role.Dto;
+namespace Server.Service.Services.Role.Dto;
 
 /// <summary>
 /// 设置数据范围

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Localization;
 using System.Collections.Generic;
 
-namespace ZhonTai.Admin.Resources;
+namespace Server.Service.Resources;
 
 public abstract class ModuleLocalizer : IModuleLocalizer
 {

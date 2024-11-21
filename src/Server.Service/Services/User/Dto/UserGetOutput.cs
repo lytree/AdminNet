@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace ZhonTai.Admin.Services.User.Dto;
+namespace Server.Service.Services.User.Dto;
 
 public class UserGetOutput : UserUpdateInput
 {

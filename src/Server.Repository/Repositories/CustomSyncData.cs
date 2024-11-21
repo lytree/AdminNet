@@ -27,12 +27,12 @@ public class CustomSyncData : SyncData, ISyncData
     /// <param name="unitOfWork"></param>
     /// <param name="dbConfig"></param>
     /// <returns></returns>
-    private async Task InitUserRoleAsync(IFreeSql db, IRepositoryUnitOfWork unitOfWork)
+    private async Task InitUserRoleAsync(IFreeSql db, IRepositoryUnitOfWork unitOfWork,DbConfig dbConfig)
     {
         var tableName = GetTableName<UserRoleEntity>();
         try
         {
-            if (!IsSyncData(tableName, dbConfig))
+            if (!IsSyncData(tableName,dbConfig.SyncDataIncludeTables,dbConfig.SyncDataExcludeTables))
             {
                 return;
             }
@@ -89,7 +89,7 @@ public class CustomSyncData : SyncData, ISyncData
         var tableName = GetTableName<UserOrgEntity>();
         try
         {
-            if (!IsSyncData(tableName, dbConfig))
+            if (!IsSyncData(tableName, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataIncludeTables))
             {
                 return;
             }
@@ -146,7 +146,7 @@ public class CustomSyncData : SyncData, ISyncData
         var tableName = GetTableName<RolePermissionEntity>();
         try
         {
-            if (!IsSyncData(tableName, dbConfig))
+            if (!IsSyncData(tableName, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataIncludeTables))
             {
                 return;
             }
@@ -203,7 +203,7 @@ public class CustomSyncData : SyncData, ISyncData
         var tableName = GetTableName<TenantPermissionEntity>();
         try
         {
-            if (!IsSyncData(tableName, dbConfig))
+            if (!IsSyncData(tableName, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataExcludeTables))
             {
                 return;
             }
@@ -248,30 +248,30 @@ public class CustomSyncData : SyncData, ISyncData
     /// <param name="dbConfig"></param>
     /// <param name="appConfig"></param>
     /// <returns></returns>
-    public virtual async Task SyncDataAsync(IFreeSql db, DbConfig dbConfig = null, AppConfig appConfig = null)
+    public virtual async Task SyncDataAsync(IFreeSql db, IDbConfig config = null)
     {
         using var unitOfWork = db.CreateUnitOfWork();
-
+        var dbConfig = config as DbConfig;
         try
         {
-            var isTenant = appConfig.Tenant;
+            var isTenant = dbConfig?.Tenant;
 
-            await SyncEntityAsync<RegionEntity>(db, unitOfWork, dbConfig, appConfig, processChilds: true);
-            await SyncEntityAsync<DictTypeEntity>(db, unitOfWork, dbConfig, appConfig);
-            await SyncEntityAsync<DictEntity>(db, unitOfWork, dbConfig, appConfig);
-            await SyncEntityAsync<UserEntity>(db, unitOfWork, dbConfig, appConfig);
-            await SyncEntityAsync<UserStaffEntity>(db, unitOfWork, dbConfig, appConfig);
-            await SyncEntityAsync<DictTypeEntity>(db, unitOfWork, dbConfig, appConfig);
-            await SyncEntityAsync<OrgEntity>(db, unitOfWork, dbConfig, appConfig, processChilds: true);
-            await SyncEntityAsync<RoleEntity>(db, unitOfWork, dbConfig, appConfig);
-            await SyncEntityAsync<ApiEntity>(db, unitOfWork, dbConfig, appConfig, processChilds: true);
-            await SyncEntityAsync<ViewEntity>(db, unitOfWork, dbConfig, appConfig, processChilds: true);
-            await SyncEntityAsync<PermissionEntity>(db, unitOfWork, dbConfig, appConfig, processChilds: true);
-            await SyncEntityAsync<PermissionApiEntity>(db, unitOfWork, dbConfig, appConfig);
+            await SyncEntityAsync<RegionEntity>(db, unitOfWork, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataPath, processChilds: true);
+            await SyncEntityAsync<DictTypeEntity>(db, unitOfWork, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataPath);
+            await SyncEntityAsync<DictEntity>(db, unitOfWork, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataPath);
+            await SyncEntityAsync<UserEntity>(db, unitOfWork, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataPath);
+            await SyncEntityAsync<UserStaffEntity>(db, unitOfWork, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataPath);
+            await SyncEntityAsync<DictTypeEntity>(db, unitOfWork, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataPath);
+            await SyncEntityAsync<OrgEntity>(db, unitOfWork, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataPath, processChilds: true);
+            await SyncEntityAsync<RoleEntity>(db, unitOfWork, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataPath);
+            await SyncEntityAsync<ApiEntity>(db, unitOfWork, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataPath, processChilds: true);
+            await SyncEntityAsync<ViewEntity>(db, unitOfWork, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataPath, processChilds: true);
+            await SyncEntityAsync<PermissionEntity>(db, unitOfWork, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataPath, processChilds: true);
+            await SyncEntityAsync<PermissionApiEntity>(db, unitOfWork, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataPath);
             await InitUserRoleAsync(db, unitOfWork, dbConfig);
             await InitUserOrgAsync(db, unitOfWork, dbConfig);
             await InitRolePermissionAsync(db, unitOfWork, dbConfig);
-            await SyncEntityAsync<TenantEntity>(db, unitOfWork, dbConfig, appConfig);
+            await SyncEntityAsync<TenantEntity>(db, unitOfWork, dbConfig.SyncDataIncludeTables, dbConfig.SyncDataIncludeTables,dbConfig.SyncDataPath);
             await InitTenantPermissionAsync(db, unitOfWork, dbConfig);
 
             unitOfWork.Commit();
@@ -282,4 +282,6 @@ public class CustomSyncData : SyncData, ISyncData
             throw;
         }
     }
+
+
 }

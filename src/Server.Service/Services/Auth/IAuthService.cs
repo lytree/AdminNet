@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Services.Auth.Dto;
+using Server.Service.Services.Auth.Dto;
 
-namespace ZhonTai.Admin.Services.Auth;
+namespace Server.Service.Services.Auth;
 
 /// <summary>
 /// 认证授权接口

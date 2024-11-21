@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Services.Region;
+﻿namespace Server.Service.Services.Region;
 
 /// <summary>
 /// 设置热门

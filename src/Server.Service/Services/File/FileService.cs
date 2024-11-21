@@ -9,20 +9,20 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using ZhonTai.Admin.Domain;
-using ZhonTai.Admin.Services.Dto;
-using ZhonTai.Admin.Core.Helpers;
-using ZhonTai.Admin.Core.Configs;
-using ZhonTai.Admin.Core.Consts;
-using ZhonTai.Admin.Core.Dto;
-using ZhonTai.Admin.Domain.Dto;
+using Server.Service.Domain;
+using Server.Service.Services.Dto;
+using Server.Service.Core.Helpers;
+using Server.Service.Core.Configs;
+using Server.Service.Core.Consts;
+using Server.Service.Core.Dto;
+using Server.Service.Domain.Dto;
 using ZhonTai.Common.Files;
 using ZhonTai.Common.Helpers;
 using ZhonTai.DynamicApi;
 using ZhonTai.DynamicApi.Attributes;
-using ZhonTai.Admin.Resources;
+using Server.Service.Resources;
 
-namespace ZhonTai.Admin.Services;
+namespace Server.Service.Services;
 
 /// <summary>
 /// 文件服务

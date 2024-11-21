@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Core.Dto;
-using ZhonTai.Admin.Domain.Role.Dto;
-using ZhonTai.Admin.Services.Role.Dto;
+using Server.Service.Core.Dto;
+using Server.Service.Domain.Role.Dto;
+using Server.Service.Services.Role.Dto;
 
-namespace ZhonTai.Admin.Services.Role;
+namespace Server.Service.Services.Role;
 
 /// <summary>
 /// 角色接口

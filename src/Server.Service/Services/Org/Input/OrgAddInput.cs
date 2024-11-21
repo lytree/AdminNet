@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Services.Org.Input;
+﻿namespace Server.Service.Services.Org.Input;
 
 /// <summary>
 /// 添加

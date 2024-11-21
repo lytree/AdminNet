@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Core.Attributes;
-using ZhonTai.Admin.Core.Consts;
-using ZhonTai.Admin.Core.Dto;
-using ZhonTai.Admin.Domain.View;
-using ZhonTai.Admin.Resources;
-using ZhonTai.Admin.Services.View.Dto;
+using Server.Service.Core.Attributes;
+using Server.Service.Core.Consts;
+using Server.Service.Core.Dto;
+using Server.Service.Domain.View;
+using Server.Service.Resources;
+using Server.Service.Services.View.Dto;
 using ZhonTai.DynamicApi;
 using ZhonTai.DynamicApi.Attributes;
 
-namespace ZhonTai.Admin.Services.View;
+namespace Server.Service.Services.View;
 
 /// <summary>
 /// 视图服务

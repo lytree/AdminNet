@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ZhonTai.Admin.Services.Auth.Dto;
+namespace Server.Service.Services.Auth.Dto;
 
 /// <summary>
 /// 邮箱更改密码

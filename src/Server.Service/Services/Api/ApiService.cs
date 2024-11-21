@@ -2,25 +2,13 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ZhonTai.Admin.Core.Attributes;
-using ZhonTai.Admin.Core.Dto;
-using ZhonTai.Admin.Domain.Api;
-using ZhonTai.Admin.Services.Api.Dto;
-using ZhonTai.Admin.Domain.Api.Dto;
-using ZhonTai.DynamicApi;
-using ZhonTai.DynamicApi.Attributes;
-using ZhonTai.Admin.Core.Consts;
-using ZhonTai.Admin.Repositories;
-using System;
-using ZhonTai.Admin.Core.Configs;
-using Microsoft.AspNetCore.Authorization;
-using System.Reflection;
-using ZhonTai.Common.Extensions;
-using ZhonTai.Common.Helpers;
-using ZhonTai.Admin.Resources;
-using ZhonTai.Admin.Core.Db;
+using Server.Service.Resources;
 
-namespace ZhonTai.Admin.Services.Api;
+using Plugin.DynamicApi.Attributes;
+using Plugin.DynamicApi;
+using Server.Repository.Repositories;
+
+namespace Server.Service.Services.Api;
 
 /// <summary>
 /// 接口服务

@@ -6,7 +6,7 @@ namespace Server.Repository.Repositories;
 
 public class TaskRepository : RepositoryBase<TaskInfo>, ITaskRepository
 {
-    public TaskRepository(UnitOfWorkManagerCloud uowm) : base(DbKeys.TaskDb, uowm)
+    public TaskRepository(UnitOfWorkManagerCloud uowm) : base(uowm.GetUnitOfWorkManager(DbKeys.TaskDb))
     {
     }
 }

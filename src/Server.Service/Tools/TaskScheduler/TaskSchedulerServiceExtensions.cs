@@ -9,17 +9,15 @@ using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using ZhonTai.Admin.Core;
-using ZhonTai.Admin.Core.Configs;
-using ZhonTai.Admin.Core.Consts;
-using ZhonTai.Admin.Core.Db;
-using ZhonTai.Admin.Domain;
-using ZhonTai.Admin.Services.Msg;
-using ZhonTai.Admin.Services.Msg.Events;
-using ZhonTai.Admin.Services.TaskScheduler;
-using ZhonTai.Admin.Services.TaskScheduler.Dto;
+using Server.Service.Domain;
+using Server.Service.Services.Msg;
+using Server.Service.Services.Msg.Events;
+using Server.Service.Services.TaskScheduler;
+using Server.Service.Services.TaskScheduler.Dto;
+using Server.Repository.Domain;
+using Server.Repository;
 
-namespace ZhonTai.Admin.Tools.TaskScheduler;
+namespace Server.Service.Tools.TaskScheduler;
 
 public static class TaskSchedulerServiceExtensions
 {

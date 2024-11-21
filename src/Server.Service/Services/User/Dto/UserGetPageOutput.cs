@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using ZhonTai.Admin.Domain.Role;
-using ZhonTai.Admin.Domain.User;
+using Server.Service.Domain.Role;
+using Server.Service.Domain.User;
 
-namespace ZhonTai.Admin.Services.User.Dto;
+namespace Server.Service.Services.User.Dto;
 
 public class UserGetPageOutput
 {

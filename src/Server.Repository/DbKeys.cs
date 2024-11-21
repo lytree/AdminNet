@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Server.Repository.Repositories;
+namespace Server.Repository;
 /// <summary>
 /// 数据库键名
 /// </summary>

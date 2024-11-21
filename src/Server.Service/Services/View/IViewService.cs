@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Services.View.Dto;
+using Server.Service.Services.View.Dto;
 
-namespace ZhonTai.Admin.Services.View;
+namespace Server.Service.Services.View;
 
 /// <summary>
 /// 视图接口

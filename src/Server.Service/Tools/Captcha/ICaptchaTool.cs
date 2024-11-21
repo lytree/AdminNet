@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace ZhonTai.Admin.Tools.Captcha;
+namespace Server.Service.Tools.Captcha;
 
 /// <summary>
 /// 验证接口

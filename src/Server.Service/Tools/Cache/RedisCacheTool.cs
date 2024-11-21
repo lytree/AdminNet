@@ -3,10 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using ZhonTai.Common.Extensions;
 
-namespace ZhonTai.Admin.Tools.Cache;
+namespace Server.Service.Tools.Cache;
 
 /// <summary>
 /// Redis缓存
@@ -91,7 +89,7 @@ public partial class RedisCacheTool : ICacheTool
 
     public Task SetAsync(string key, object value, TimeSpan? expire = null)
     {
-        return _redisClient.SetAsync(key, value, expire.HasValue ? expire.Value.TotalSeconds.ToInt() : 0);
+        return _redisClient.SetAsync(key, value, expire.HasValue ? expire.Value.TotalSeconds.ConvertTo<int>() : 0);
     }
 
     public async Task<T> GetOrSetAsync<T>(string key, Func<Task<T>> func, TimeSpan? expire = null)
@@ -110,7 +108,7 @@ public partial class RedisCacheTool : ICacheTool
 
         var result = await func.Invoke();
 
-        await _redisClient.SetAsync(key, result, expire.HasValue ? expire.Value.TotalSeconds.ToInt() : 0);
+        await _redisClient.SetAsync(key, result, expire.HasValue ? expire.Value.TotalSeconds.ConvertTo<int>() : 0);
 
         return result;
     }

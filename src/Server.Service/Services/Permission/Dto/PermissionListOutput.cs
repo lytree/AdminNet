@@ -1,6 +1,6 @@
-﻿using ZhonTai.Admin.Domain.Permission;
+﻿using Server.Service.Domain.Permission;
 
-namespace ZhonTai.Admin.Services.Permission.Dto;
+namespace Server.Service.Services.Permission.Dto;
 
 public class PermissionListOutput
 {

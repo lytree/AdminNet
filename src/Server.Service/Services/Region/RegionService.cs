@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Yitter.IdGenerator;
 using ToolGood.Words.Pinyin;
-using ZhonTai.Admin.Core.Consts;
-using ZhonTai.Admin.Core.Dto;
-using ZhonTai.Admin.Domain.Region;
-using ZhonTai.Admin.Repositories;
+using Server.Service.Core.Consts;
+using Server.Service.Core.Dto;
+using Server.Service.Domain.Region;
+using Server.Service.Repositories;
 using ZhonTai.Common.Extensions;
 using ZhonTai.DynamicApi;
 using ZhonTai.DynamicApi.Attributes;
-using ZhonTai.Admin.Resources;
+using Server.Service.Resources;
 
-namespace ZhonTai.Admin.Services.Region;
+namespace Server.Service.Services.Region;
 
 /// <summary>
 /// 地区服务

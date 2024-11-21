@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace ZhonTai.Admin.Services.Pkg.Dto;
+namespace Server.Service.Services.Pkg.Dto;
 
 public class PkgSetPkgPermissionsInput
 {

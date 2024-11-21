@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ZhonTai.Admin.Services.Auth.Dto;
+namespace Server.Service.Services.Auth.Dto;
 
 /// <summary>
 /// 用户个人信息

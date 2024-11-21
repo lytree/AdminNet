@@ -2,15 +2,15 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Domain.Document;
-using ZhonTai.Admin.Domain.DocumentImage;
-using ZhonTai.Admin.Services.Document.Dto;
+using Server.Service.Domain.Document;
+using Server.Service.Domain.DocumentImage;
+using Server.Service.Services.Document.Dto;
 using ZhonTai.DynamicApi;
 using ZhonTai.DynamicApi.Attributes;
-using ZhonTai.Admin.Core.Consts;
+using Server.Service.Core.Consts;
 using System.Collections.Generic;
 
-namespace ZhonTai.Admin.Services.Document;
+namespace Server.Service.Services.Document;
 
 /// <summary>
 /// 文档服务

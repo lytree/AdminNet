@@ -2,6 +2,7 @@
 using System.Reflection;
 using Framework.Repository.Data;
 using Server.Repository.Domain;
+using Framework.System.Collections.Generic;
 
 namespace Server.Repository.Repositories;
 
@@ -10,7 +11,7 @@ namespace Server.Repository.Repositories;
 /// </summary>
 public class CustomGenerateData : GenerateData, IGenerateData
 {
-    public virtual async Task GenerateDataAsync(IFreeSql db)
+    public virtual async Task GenerateDataAsync(IFreeSql db,IDbConfig dbConfig)
     {
         #region 读取数据
         #region 城市字典
@@ -172,7 +173,7 @@ public class CustomGenerateData : GenerateData, IGenerateData
 
         #region 生成数据
 
-        var isTenant = appConfig.Tenant;
+        var isTenant = (dbConfig as DbConfig).Tenant;
 
         if (isTenant)
         {

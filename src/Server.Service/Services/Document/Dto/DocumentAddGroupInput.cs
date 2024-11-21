@@ -1,6 +1,6 @@
-﻿using ZhonTai.Admin.Domain.Document;
+﻿using Server.Service.Domain.Document;
 
-namespace ZhonTai.Admin.Services.Document.Dto;
+namespace Server.Service.Services.Document.Dto;
 
 public class DocumentAddGroupInput
 {

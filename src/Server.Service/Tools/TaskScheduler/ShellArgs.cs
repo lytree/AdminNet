@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Tools.TaskScheduler;
+﻿namespace Server.Service.Tools.TaskScheduler;
 
 public class ShellArgs
 {

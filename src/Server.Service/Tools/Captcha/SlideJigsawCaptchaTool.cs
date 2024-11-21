@@ -9,10 +9,9 @@ using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.Drawing;
 using SixLabors.ImageSharp.PixelFormats;
-using ZhonTai.Admin.Core.Attributes;
-using ZhonTai.Admin.Tools.Cache;
+using Server.Service.Tools.Cache;
 
-namespace ZhonTai.Admin.Tools.Captcha;
+namespace Server.Service.Tools.Captcha;
 
 /// <summary>
 /// 滑块拼图验证

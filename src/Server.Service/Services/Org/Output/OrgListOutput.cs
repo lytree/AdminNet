@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ZhonTai.Admin.Services.Org.Output;
+namespace Server.Service.Services.Org.Output;
 
 public class OrgListOutput
 {

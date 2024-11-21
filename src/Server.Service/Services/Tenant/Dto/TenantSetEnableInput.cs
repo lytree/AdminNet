@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Services.Tenant.Dto;
+﻿namespace Server.Service.Services.Tenant.Dto;
 
 /// <summary>
 /// 设置启用

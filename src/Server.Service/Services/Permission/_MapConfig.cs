@@ -1,9 +1,9 @@
 ﻿using Mapster;
 using System.Linq;
-using ZhonTai.Admin.Domain.Permission;
-using ZhonTai.Admin.Services.Permission.Dto;
+using Server.Service.Domain.Permission;
+using Server.Service.Services.Permission.Dto;
 
-namespace ZhonTai.Admin.Services.Admin.Permission;
+namespace Server.Service.Services.Admin.Permission;
 
 /// <summary>
 /// 映射配置

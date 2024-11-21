@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using MimeKit;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Core.Configs;
-using ZhonTai.Admin.Core.Consts;
-using ZhonTai.Admin.Services.Msg.Events;
+using Server.Service.Core.Configs;
+using Server.Service.Core.Consts;
+using Server.Service.Services.Msg.Events;
 
-namespace ZhonTai.Admin.Services.Msg;
+namespace Server.Service.Services.Msg;
 
 public class EmailService: ICapSubscribe
 {

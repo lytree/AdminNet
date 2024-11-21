@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ZhonTai.Admin.Services.Cache;
+namespace Server.Service.Services.Cache;
 
 /// <summary>
 /// 缓存接口

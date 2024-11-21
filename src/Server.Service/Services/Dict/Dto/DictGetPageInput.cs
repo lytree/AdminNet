@@ -1,5 +1,5 @@
 ﻿
-namespace ZhonTai.Admin.Domain.Dict.Dto;
+namespace Server.Service.Domain.Dict.Dto;
 
 public partial class DictGetPageInput
 {

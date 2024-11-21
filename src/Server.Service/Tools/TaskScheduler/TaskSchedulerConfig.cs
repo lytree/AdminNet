@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Tools.TaskScheduler;
+﻿namespace Server.Service.Tools.TaskScheduler;
 
 /// <summary>
 /// 任务调度配置

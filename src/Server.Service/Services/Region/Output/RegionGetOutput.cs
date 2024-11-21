@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ZhonTai.Admin.Services.Region;
+namespace Server.Service.Services.Region;
 
 public class RegionGetOutput : RegionUpdateInput
 {

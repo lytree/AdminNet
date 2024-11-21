@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ZhonTai.Admin.Services.LoginLog.Dto;
+namespace Server.Service.Services.LoginLog.Dto;
 
 public class LoginLogGetPageOutput
 {

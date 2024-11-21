@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ZhonTai.Admin.Services.Dict.Dto;
+namespace Server.Service.Services.Dict.Dto;
 
 public class DictGetListDto
 {

@@ -5,10 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using ZhonTai.Common.Extensions;
 
-namespace ZhonTai.Admin.Tools.Cache;
+namespace Server.Service.Tools.Cache;
 
 /// <summary>
 /// 内存缓存
@@ -41,7 +39,7 @@ public partial class MemoryCacheTool : ICacheTool
             _memoryCache.Remove(k);
         }
 
-        return Task.FromResult(key.Length.ToLong());
+        return Task.FromResult((key.Length).ConvertTo<long>());
     }
 
     public async Task<long> DelByPatternAsync(string pattern)

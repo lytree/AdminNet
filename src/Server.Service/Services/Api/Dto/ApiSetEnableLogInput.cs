@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Services.Api.Dto;
+﻿namespace Server.Service.Services.Api.Dto;
 
 /// <summary>
 /// 设置启用请求日志

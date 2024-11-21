@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Services.View.Dto;
+﻿namespace Server.Service.Services.View.Dto;
 
 /// <summary>
 /// 添加

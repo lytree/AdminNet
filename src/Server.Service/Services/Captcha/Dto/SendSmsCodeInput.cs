@@ -1,7 +1,7 @@
 ﻿using Lazy.SlideCaptcha.Core.Validator;
 using System.ComponentModel.DataAnnotations;
 
-namespace ZhonTai.Admin.Services.Captcha.Dto;
+namespace Server.Service.Services.Captcha.Dto;
 
 /// <summary>
 /// 发送短信验证码

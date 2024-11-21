@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace ZhonTai.Admin.Services.Dict.Dto;
+namespace Server.Service.Dict.Dto;
 
 /// <summary>
 /// 布尔值映射

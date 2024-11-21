@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
-using ZhonTai.Admin.Core.Dto;
-using ZhonTai.Admin.Domain.Tenant.Dto;
-using ZhonTai.Admin.Services.Tenant.Dto;
+using Server.Service.Core.Dto;
+using Server.Service.Domain.Tenant.Dto;
+using Server.Service.Services.Tenant.Dto;
 
-namespace ZhonTai.Admin.Services.Tenant;
+namespace Server.Service.Services.Tenant;
 
 /// <summary>
 /// 租户接口

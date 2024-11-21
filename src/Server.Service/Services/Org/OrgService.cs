@@ -1,20 +1,20 @@
-﻿using ZhonTai.Admin.Core.Dto;
-using ZhonTai.Admin.Services.Org.Input;
-using ZhonTai.Admin.Services.Org.Output;
+﻿using Server.Service.Core.Dto;
+using Server.Service.Services.Org.Input;
+using Server.Service.Services.Org.Output;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Domain.Org;
-using ZhonTai.Admin.Core.Consts;
+using Server.Service.Domain.Org;
+using Server.Service.Core.Consts;
 using ZhonTai.DynamicApi.Attributes;
 using ZhonTai.DynamicApi;
-using ZhonTai.Admin.Core.Attributes;
-using ZhonTai.Admin.Domain.RoleOrg;
-using ZhonTai.Admin.Domain.UserOrg;
+using Server.Service.Core.Attributes;
+using Server.Service.Domain.RoleOrg;
+using Server.Service.Domain.UserOrg;
 using System.Collections.Generic;
 using System.Linq;
-using ZhonTai.Admin.Domain.Role;
-using ZhonTai.Admin.Resources;
+using Server.Service.Domain.Role;
+using Server.Service.Resources;
 
-namespace ZhonTai.Admin.Services.Org;
+namespace Server.Service.Services.Org;
 
 /// <summary>
 /// 部门服务

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using ZhonTai.Admin.Core.Validators;
+using Server.Service.Core.Validators;
 
-namespace ZhonTai.Admin.Services.User.Dto;
+namespace Server.Service.Services.User.Dto;
 
 /// <summary>
 /// 修改会员

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ZhonTai.Admin.Services.Role.Dto;
+namespace Server.Service.Services.Role.Dto;
 
 public class RoleGetPageOutput
 {

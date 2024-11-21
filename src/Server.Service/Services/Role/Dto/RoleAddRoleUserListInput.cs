@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ZhonTai.Admin.Services.Role.Dto;
+namespace Server.Service.Services.Role.Dto;
 
 /// <summary>
 /// 添加角色用户列表

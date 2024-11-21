@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using ZhonTai.Admin.Core.Dto;
-using ZhonTai.Admin.Services.OperationLog.Dto;
+using Server.Service.Core.Dto;
+using Server.Service.Services.OperationLog.Dto;
 
-namespace ZhonTai.Admin.Services.OperationLog;
+namespace Server.Service.Services.OperationLog;
 
 /// <summary>
 /// 操作日志接口

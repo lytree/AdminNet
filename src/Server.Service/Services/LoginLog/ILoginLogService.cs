@@ -1,8 +1,8 @@
-﻿using ZhonTai.Admin.Core.Dto;
+﻿using Server.Service.Core.Dto;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Services.LoginLog.Dto;
+using Server.Service.Services.LoginLog.Dto;
 
-namespace ZhonTai.Admin.Services.LoginLog;
+namespace Server.Service.Services.LoginLog;
 
 /// <summary>
 /// 登录日志接口

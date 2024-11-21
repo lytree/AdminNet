@@ -1,6 +1,6 @@
 ﻿using Mapster;
 
-namespace ZhonTai.Admin.Services.Pkg;
+namespace Server.Service.Services.Pkg;
 
 /// <summary>
 /// 映射配置

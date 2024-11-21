@@ -2,10 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Core.Dto;
-using ZhonTai.Admin.Services.Document.Dto;
+using Server.Service.Core.Dto;
+using Server.Service.Services.Document.Dto;
 
-namespace ZhonTai.Admin.Services.Document;
+namespace Server.Service.Services.Document;
 
 /// <summary>
 /// 文档接口

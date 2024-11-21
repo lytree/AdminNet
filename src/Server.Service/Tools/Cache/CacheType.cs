@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Tools.Cache;
+﻿namespace Server.Service.Tools.Cache;
 
 /// <summary>
 /// 缓存类型

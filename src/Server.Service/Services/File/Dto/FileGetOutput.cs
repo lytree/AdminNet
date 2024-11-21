@@ -1,5 +1,5 @@
 ﻿
-namespace ZhonTai.Admin.Services.Dto;
+namespace Server.Service.Services.Dto;
 
 public class FileGetOutput
 {

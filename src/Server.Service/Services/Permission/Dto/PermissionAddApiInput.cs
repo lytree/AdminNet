@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Services.Permission.Dto;
+﻿namespace Server.Service.Services.Permission.Dto;
 
 public class PermissionAddApiInput
 {

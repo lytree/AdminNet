@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using ZhonTai.Admin.Domain.User;
+using Server.Service.Domain.User;
 
-namespace ZhonTai.Admin.Services.Auth.Dto;
+namespace Server.Service.Services.Auth.Dto;
 
 /// <summary>
 /// 登录信息

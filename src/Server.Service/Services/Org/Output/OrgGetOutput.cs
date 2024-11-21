@@ -1,6 +1,6 @@
-﻿using ZhonTai.Admin.Services.Org.Input;
+﻿using Server.Service.Services.Org.Input;
 
-namespace ZhonTai.Admin.Services.Org.Output;
+namespace Server.Service.Services.Org.Output;
 
 public class OrgGetOutput : OrgUpdateInput
 {

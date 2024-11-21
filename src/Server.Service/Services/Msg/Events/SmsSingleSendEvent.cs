@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Services.Msg.Events;
+﻿namespace Server.Service.Services.Msg.Events;
 
 /// <summary>
 /// 短信单发事件

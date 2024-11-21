@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using ZhonTai.Admin.Domain.Org;
-using ZhonTai.Admin.Domain.Role;
+using Server.Service.Domain.Org;
+using Server.Service.Domain.Role;
 
-namespace ZhonTai.Admin.Services.Role.Dto;
+namespace Server.Service.Services.Role.Dto;
 
 /// <summary>
 /// 添加

@@ -1,6 +1,6 @@
-﻿using ZhonTai.Admin.Core.Entities;
+﻿using Server.Service.Core.Entities;
 
-namespace ZhonTai.Admin.Services.User.Dto;
+namespace Server.Service.Services.User.Dto;
 
 /// <summary>
 /// 重置密码

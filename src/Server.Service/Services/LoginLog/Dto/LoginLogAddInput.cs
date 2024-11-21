@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Services.LoginLog.Dto;
+﻿namespace Server.Service.Services.LoginLog.Dto;
 
 /// <summary>
 /// 添加

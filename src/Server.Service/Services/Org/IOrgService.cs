@@ -1,9 +1,9 @@
-﻿using ZhonTai.Admin.Services.Org.Input;
+﻿using Server.Service.Services.Org.Input;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using ZhonTai.Admin.Services.Org.Output;
+using Server.Service.Services.Org.Output;
 
-namespace ZhonTai.Admin.Services.Org;
+namespace Server.Service.Services.Org;
 
 public partial interface IOrgService
 {

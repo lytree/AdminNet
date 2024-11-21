@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Localization;
 
-namespace ZhonTai.Admin.Resources;
+namespace Server.Service.Resources;
 
 /// <summary>
 /// Admin国际化

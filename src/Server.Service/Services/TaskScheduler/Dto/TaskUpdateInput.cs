@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ZhonTai.Admin.Services.TaskScheduler.Dto;
+namespace Server.Service.Services.TaskScheduler.Dto;
 
 /// <summary>
 /// 修改

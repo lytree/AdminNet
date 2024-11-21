@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Services;
+﻿namespace Server.Service.Services;
 
 public interface IBaseService
 {

@@ -1,5 +1,5 @@
 ﻿
-namespace ZhonTai.Admin.Services.Pkg.Dto;
+namespace Server.Service.Services.Pkg.Dto;
 
 public class PkgGetOutput : PkgUpdateInput
 {

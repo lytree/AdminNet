@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ZhonTai.Admin.Services.User.Dto;
+namespace Server.Service.Services.User.Dto;
 
 public class UserGetBasicOutput
 {

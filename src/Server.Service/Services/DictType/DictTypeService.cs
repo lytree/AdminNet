@@ -1,20 +1,20 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Core.Attributes;
-using ZhonTai.Admin.Core.Dto;
-using ZhonTai.Admin.Services.DictType.Dto;
-using ZhonTai.Admin.Domain.DictType;
-using ZhonTai.Admin.Domain.Dict;
-using ZhonTai.Admin.Domain.DictType.Dto;
+using Server.Service.Core.Attributes;
+using Server.Service.Core.Dto;
+using Server.Service.Services.DictType.Dto;
+using Server.Service.Domain.DictType;
+using Server.Service.Domain.Dict;
+using Server.Service.Domain.DictType.Dto;
 using ZhonTai.DynamicApi;
 using ZhonTai.DynamicApi.Attributes;
 using Microsoft.AspNetCore.Mvc;
-using ZhonTai.Admin.Core.Consts;
-using ZhonTai.Admin.Repositories;
+using Server.Service.Core.Consts;
+using Server.Service.Repositories;
 using System;
-using ZhonTai.Admin.Resources;
+using Server.Service.Resources;
 
-namespace ZhonTai.Admin.Services.DictType;
+namespace Server.Service.Services.DictType;
 
 /// <summary>
 /// 数据字典类型服务

@@ -2,19 +2,19 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Mapster;
-using ZhonTai.Admin.Core.Consts;
-using ZhonTai.Admin.Core.Dto;
-using ZhonTai.Admin.Core.Validators;
-using ZhonTai.Admin.Domain;
-using ZhonTai.Admin.Domain.Task.Dto;
-using ZhonTai.Admin.Services.TaskScheduler.Dto;
-using ZhonTai.Admin.Repositories;
-using ZhonTai.Admin.Resources;
+using Server.Service.Core.Consts;
+using Server.Service.Core.Dto;
+using Server.Service.Core.Validators;
+using Server.Service.Domain;
+using Server.Service.Domain.Task.Dto;
+using Server.Service.Services.TaskScheduler.Dto;
+using Server.Service.Repositories;
+using Server.Service.Resources;
 using ZhonTai.DynamicApi;
 using ZhonTai.DynamicApi.Attributes;
 using FreeScheduler;
 
-namespace ZhonTai.Admin.Services.TaskScheduler;
+namespace Server.Service.Services.TaskScheduler;
 
 /// <summary>
 /// 任务服务

@@ -4,12 +4,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using MapsterMapper;
-using ZhonTai.Admin.Core.Auth;
-using ZhonTai.Admin.Tools.Cache;
+using Server.Service.Core.Auth;
+using Server.Service.Tools.Cache;
 using ZhonTai.Common.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ZhonTai.Admin.Services;
+namespace Server.Service.Services;
 
 public abstract class BaseService: IBaseService
 {

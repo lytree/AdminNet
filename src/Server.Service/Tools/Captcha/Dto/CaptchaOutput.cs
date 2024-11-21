@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Tools.Captcha;
+﻿namespace Server.Service.Tools.Captcha;
 
 /// <summary>
 /// 验证数据

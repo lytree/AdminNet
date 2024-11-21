@@ -7,10 +7,8 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text;
-using ZhonTai.Admin.Core.Attributes;
-using ZhonTai.Admin.Core.Configs;
 
-namespace ZhonTai.Admin.Tools.Captcha;
+namespace Server.Service.Tools.Captcha;
 
 [InjectSingleton]
 public class VerifyCodeHelper

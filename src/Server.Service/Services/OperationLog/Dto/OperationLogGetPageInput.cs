@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ZhonTai.Admin.Services.OperationLog.Dto;
+namespace Server.Service.Services.OperationLog.Dto;
 
 public class OperationLogGetPageInput
 {

@@ -1,7 +1,7 @@
-﻿using ZhonTai.Admin.Core.Entities;
+﻿using Server.Service.Core.Entities;
 using System.ComponentModel.DataAnnotations;
 
-namespace ZhonTai.Admin.Services.User.Dto;
+namespace Server.Service.Services.User.Dto;
 
 /// <summary>
 /// 更新基本信息

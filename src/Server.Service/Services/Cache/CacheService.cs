@@ -5,14 +5,14 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Core.Attributes;
-using ZhonTai.Admin.Core.Configs;
+using Server.Service.Core.Attributes;
+using Server.Service.Core.Configs;
 using ZhonTai.DynamicApi;
 using ZhonTai.DynamicApi.Attributes;
-using ZhonTai.Admin.Core.Consts;
+using Server.Service.Core.Consts;
 using ZhonTai.Common.Helpers;
 
-namespace ZhonTai.Admin.Services.Cache;
+namespace Server.Service.Services.Cache;
 
 /// <summary>
 /// 缓存服务

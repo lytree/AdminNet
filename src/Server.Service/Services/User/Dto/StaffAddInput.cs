@@ -1,7 +1,7 @@
 ﻿using System;
-using ZhonTai.Admin.Domain.UserStaff;
+using Server.Service.Domain.UserStaff;
 
-namespace ZhonTai.Admin.Domain.User;
+namespace Server.Service.Domain.User;
 
 /// <summary>
 /// 员工添加

@@ -1,11 +1,11 @@
-﻿using ZhonTai.Admin.Core.Dto;
+﻿using Server.Service.Core.Dto;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Services.Api.Dto;
-using ZhonTai.Admin.Domain.Api.Dto;
+using Server.Service.Services.Api.Dto;
+using Server.Service.Domain.Api.Dto;
 using System.Collections.Generic;
-using ZhonTai.Admin.Domain.Api;
+using Server.Service.Domain.Api;
 
-namespace ZhonTai.Admin.Services.Api;
+namespace Server.Service.Services.Api;
 
 /// <summary>
 /// api接口

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using ZhonTai.Admin.Domain.Pkg;
+using Server.Service.Domain.Pkg;
 
-namespace ZhonTai.Admin.Services.Tenant.Dto;
+namespace Server.Service.Services.Tenant.Dto;
 
 public class TenantListOutput
 {

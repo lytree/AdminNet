@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 using ZhonTai.Common.Helpers;
-using ZhonTai.Admin.Core.Dto;
-using ZhonTai.Admin.Domain.LoginLog;
-using ZhonTai.Admin.Services.LoginLog.Dto;
+using Server.Service.Core.Dto;
+using Server.Service.Domain.LoginLog;
+using Server.Service.Services.LoginLog.Dto;
 using ZhonTai.DynamicApi;
 using ZhonTai.DynamicApi.Attributes;
 using Microsoft.AspNetCore.Mvc;
-using ZhonTai.Admin.Core.Consts;
+using Server.Service.Core.Consts;
 
-namespace ZhonTai.Admin.Services.LoginLog;
+namespace Server.Service.Services.LoginLog;
 
 /// <summary>
 /// 登录日志服务

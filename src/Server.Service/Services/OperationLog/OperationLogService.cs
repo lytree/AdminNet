@@ -1,20 +1,20 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using ZhonTai.Common.Helpers;
-using ZhonTai.Admin.Core.Dto;
-using ZhonTai.Admin.Services.OperationLog.Dto;
-using ZhonTai.Admin.Domain.OperationLog;
+using Server.Service.Core.Dto;
+using Server.Service.Services.OperationLog.Dto;
+using Server.Service.Domain.OperationLog;
 using ZhonTai.DynamicApi;
 using ZhonTai.DynamicApi.Attributes;
 using Microsoft.AspNetCore.Mvc;
-using ZhonTai.Admin.Core.Consts;
+using Server.Service.Core.Consts;
 using Microsoft.Extensions.Options;
-using ZhonTai.Admin.Core.Configs;
+using Server.Service.Core.Configs;
 using IP2Region.Net.Abstractions;
-using ZhonTai.Admin.Core;
-using LocationInfo = ZhonTai.Admin.Core.Records.LocationInfo;
+using Server.Service.Core;
+using LocationInfo = Server.Service.Core.Records.LocationInfo;
 
-namespace ZhonTai.Admin.Services.OperationLog;
+namespace Server.Service.Services.OperationLog;
 
 /// <summary>
 /// 操作日志服务

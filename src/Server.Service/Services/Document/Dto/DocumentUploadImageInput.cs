@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace ZhonTai.Admin.Services.Document.Dto;
+namespace Server.Service.Services.Document.Dto;
 
 public class DocumentUploadImageInput
 {

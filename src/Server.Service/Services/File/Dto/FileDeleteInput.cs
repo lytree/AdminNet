@@ -1,8 +1,8 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
-using ZhonTai.Admin.Core.Validators;
+using Server.Service.Core.Validators;
 
-namespace ZhonTai.Admin.Services.Dto;
+namespace Server.Service.Services.Dto;
 
 public class FileDeleteInput
 {

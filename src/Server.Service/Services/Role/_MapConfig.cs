@@ -1,8 +1,8 @@
 ﻿using Mapster;
 using System.Linq;
-using ZhonTai.Admin.Services.Role.Dto;
+using Server.Service.Services.Role.Dto;
 
-namespace ZhonTai.Admin.Services.Role;
+namespace Server.Service.Services.Role;
 
 /// <summary>
 /// 映射配置

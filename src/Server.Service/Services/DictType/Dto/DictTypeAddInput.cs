@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ZhonTai.Admin.Services.DictType.Dto;
+namespace Server.Service.Services.DictType.Dto;
 
 /// <summary>
 /// 添加字典类型

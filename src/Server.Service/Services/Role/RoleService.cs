@@ -2,23 +2,23 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ZhonTai.Admin.Core.Dto;
-using ZhonTai.Admin.Core.Consts;
-using ZhonTai.Admin.Core.Attributes;
-using ZhonTai.Admin.Domain;
-using ZhonTai.Admin.Domain.UserRole;
-using ZhonTai.Admin.Domain.User;
-using ZhonTai.Admin.Domain.Org;
-using ZhonTai.Admin.Domain.Role;
-using ZhonTai.Admin.Domain.RolePermission;
-using ZhonTai.Admin.Domain.Role.Dto;
-using ZhonTai.Admin.Domain.RoleOrg;
-using ZhonTai.Admin.Services.Role.Dto;
+using Server.Service.Core.Dto;
+using Server.Service.Core.Consts;
+using Server.Service.Core.Attributes;
+using Server.Service.Domain;
+using Server.Service.Domain.UserRole;
+using Server.Service.Domain.User;
+using Server.Service.Domain.Org;
+using Server.Service.Domain.Role;
+using Server.Service.Domain.RolePermission;
+using Server.Service.Domain.Role.Dto;
+using Server.Service.Domain.RoleOrg;
+using Server.Service.Services.Role.Dto;
 using ZhonTai.DynamicApi;
 using ZhonTai.DynamicApi.Attributes;
-using ZhonTai.Admin.Resources;
+using Server.Service.Resources;
 
-namespace ZhonTai.Admin.Services.Role;
+namespace Server.Service.Services.Role;
 
 /// <summary>
 /// 角色服务

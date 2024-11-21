@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Domain.Task.Dto;
+﻿namespace Server.Service.Domain.Task.Dto;
 
 public partial class TaskLogGetPageDto
 {

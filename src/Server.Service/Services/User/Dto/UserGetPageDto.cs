@@ -1,4 +1,4 @@
-﻿namespace ZhonTai.Admin.Services.User.Dto;
+﻿namespace Server.Service.Services.User.Dto;
 
 /// <summary>
 /// 用户分页查询条件

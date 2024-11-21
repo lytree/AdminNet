@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Core.Dto;
-using ZhonTai.Admin.Services.Permission.Dto;
+using Server.Service.Core.Dto;
+using Server.Service.Services.Permission.Dto;
 
-namespace ZhonTai.Admin.Services.Permission;
+namespace Server.Service.Services.Permission;
 
 /// <summary>
 /// 权限接口

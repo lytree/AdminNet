@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Core.Dto;
-using ZhonTai.Admin.Domain;
-using ZhonTai.Admin.Domain.Dto;
-using ZhonTai.Admin.Services.Dto;
+using Server.Service.Core.Dto;
+using Server.Service.Domain;
+using Server.Service.Domain.Dto;
+using Server.Service.Services.Dto;
 
-namespace ZhonTai.Admin.Services;
+namespace Server.Service.Services;
 
 /// <summary>
 /// 文件接口

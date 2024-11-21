@@ -1,5 +1,5 @@
 ﻿
-namespace ZhonTai.Admin.Domain.User;
+namespace Server.Service.Domain.User;
 
 /// <summary>
 /// 修改

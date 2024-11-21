@@ -1,4 +1,4 @@
-﻿using Server.Repository.Domain.DictType;
+﻿using Server.Repository.Domain;
 using Server.Repository.Repositories;
 
 namespace Server.Repository.Repositories;

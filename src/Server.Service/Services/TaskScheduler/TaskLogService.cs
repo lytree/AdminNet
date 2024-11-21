@@ -1,17 +1,17 @@
-﻿using ZhonTai.Admin.Core.Dto;
-using ZhonTai.Admin.Domain.Task.Dto;
+﻿using Server.Service.Core.Dto;
+using Server.Service.Domain.Task.Dto;
 using ZhonTai.DynamicApi;
 using ZhonTai.DynamicApi.Attributes;
 using Microsoft.AspNetCore.Mvc;
-using ZhonTai.Admin.Core.Consts;
+using Server.Service.Core.Consts;
 using FreeScheduler;
 using Mapster;
 using System.Collections.Generic;
-using ZhonTai.Admin.Resources;
+using Server.Service.Resources;
 using System;
-using ZhonTai.Admin.Repositories;
+using Server.Service.Repositories;
 
-namespace ZhonTai.Admin.Services.TaskScheduler;
+namespace Server.Service.Services.TaskScheduler;
 
 /// <summary>
 /// 任务日志服务

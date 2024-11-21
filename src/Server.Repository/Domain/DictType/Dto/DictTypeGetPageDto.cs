@@ -1,4 +1,4 @@
-﻿namespace Server.Repository.Domain.DictType.Dto;
+﻿namespace Server.Repository.Domain;
 
 public partial class DictTypeGetPageDto
 {

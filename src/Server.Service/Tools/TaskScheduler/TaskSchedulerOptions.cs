@@ -1,8 +1,8 @@
 ﻿using FreeSql;
+using Server.Repository;
 using System;
-using ZhonTai.Admin.Core.Consts;
 
-namespace ZhonTai.Admin.Tools.TaskScheduler;
+namespace Server.Service.Tools.TaskScheduler;
 
 /// <summary>
 /// TaskScheduler配置

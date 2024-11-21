@@ -2,12 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Core.Dto;
-using ZhonTai.Admin.Domain.User.Dto;
-using ZhonTai.Admin.Services.Auth.Dto;
-using ZhonTai.Admin.Services.User.Dto;
+using Server.Service.Core.Dto;
+using Server.Service.Domain.User.Dto;
+using Server.Service.Services.Auth.Dto;
+using Server.Service.Services.User.Dto;
 
-namespace ZhonTai.Admin.Services.User;
+namespace Server.Service.Services.User;
 
 /// <summary>
 /// 用户接口

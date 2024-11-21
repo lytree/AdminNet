@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ZhonTai.Admin.Services.Auth.Dto;
+namespace Server.Service.Services.Auth.Dto;
 
 public class AuthGetUserInfoOutput
 {

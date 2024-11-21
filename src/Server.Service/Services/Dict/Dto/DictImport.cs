@@ -5,7 +5,7 @@ using Magicodes.ExporterAndImporter.Excel;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace ZhonTai.Admin.Services.Dict.Dto;
+namespace Server.Service.Services.Dict.Dto;
 
 /// <summary>
 /// 字典导入列头筛选器

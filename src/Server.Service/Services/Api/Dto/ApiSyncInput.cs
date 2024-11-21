@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ZhonTai.Admin.Services.Api.Dto;
+namespace Server.Service.Services.Api.Dto;
 
 /// <summary>
 /// 接口同步

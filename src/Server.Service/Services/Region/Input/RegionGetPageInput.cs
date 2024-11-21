@@ -1,6 +1,6 @@
-﻿using ZhonTai.Admin.Domain.Region;
+﻿using Server.Service.Domain.Region;
 
-namespace ZhonTai.Admin.Services.Region;
+namespace Server.Service.Services.Region;
 
 public class RegionGetPageInput
 {

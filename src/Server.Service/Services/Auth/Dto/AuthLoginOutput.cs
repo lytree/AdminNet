@@ -1,7 +1,7 @@
-﻿using ZhonTai.Admin.Domain.Tenant;
-using ZhonTai.Admin.Domain.User;
+﻿using Server.Service.Domain.Tenant;
+using Server.Service.Domain.User;
 
-namespace ZhonTai.Admin.Services.Auth.Dto;
+namespace Server.Service.Services.Auth.Dto;
 
 public class AuthLoginOutput
 {

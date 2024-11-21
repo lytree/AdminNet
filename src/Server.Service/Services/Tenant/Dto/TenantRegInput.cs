@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ZhonTai.Admin.Services.Tenant.Dto;
+namespace Server.Service.Services.Tenant.Dto;
 
 /// <summary>
 /// 注册

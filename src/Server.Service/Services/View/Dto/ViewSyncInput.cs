@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ZhonTai.Admin.Services.View.Dto;
+namespace Server.Service.Services.View.Dto;
 
 public class ViewSyncInput
 {

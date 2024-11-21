@@ -1,9 +1,9 @@
-﻿using ZhonTai.Admin.Core.Dto;
+﻿using Server.Service.Core.Dto;
 using System.Threading.Tasks;
-using ZhonTai.Admin.Services.DictType.Dto;
-using ZhonTai.Admin.Domain.DictType.Dto;
+using Server.Service.Services.DictType.Dto;
+using Server.Service.Domain.DictType.Dto;
 
-namespace ZhonTai.Admin.Services.DictType;
+namespace Server.Service.Services.DictType;
 
 /// <summary>
 /// 数据字典类型接口

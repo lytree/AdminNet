@@ -1,6 +1,6 @@
-﻿using ZhonTai.Admin.Domain.Role;
+﻿using Server.Service.Domain.Role;
 
-namespace ZhonTai.Admin.Services.Role.Dto;
+namespace Server.Service.Services.Role.Dto;
 
 public class RoleGetListOutput
 {

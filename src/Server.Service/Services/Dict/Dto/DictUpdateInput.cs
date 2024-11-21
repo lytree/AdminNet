@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using ZhonTai.Admin.Core.Validators;
+using Server.Service.Core.Validators;
 
-namespace ZhonTai.Admin.Services.Dict.Dto;
+namespace Server.Service.Services.Dict.Dto;
 
 /// <summary>
 /// 修改

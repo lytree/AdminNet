@@ -1,8 +1,8 @@
 ﻿using Mapster;
 using System.Linq;
-using ZhonTai.Admin.Services.Tenant.Dto;
+using Server.Service.Services.Tenant.Dto;
 
-namespace ZhonTai.Admin.Services.Tenant;
+namespace Server.Service.Services.Tenant;
 
 /// <summary>
 /// 映射配置
