@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{915C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{9866E751-D1C6-4310-9858-07452035AE70}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{37913B13-6F84-48E3-8F6D-4F1507C7790B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{37913B13-6F84-48E3-8F6D-4F1507C7790B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{D824763F-1721-4048-96BF-3FB2054FDDDD}"
 EndProject
@@ -27,11 +27,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Logging", "framew
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.WebApi", "src\Client.WebApi\Client.WebApi.csproj", "{E669E012-AA1B-44B5-918D-33C4A6C8F57B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Service", "src\Server.Service\Server.Service.csproj", "{008F7442-B447-4FD7-B870-299D6A45D43A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Service", "src\App.Service\App.Service.csproj", "{008F7442-B447-4FD7-B870-299D6A45D43A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Repository", "src\Server.Repository\Server.Repository.csproj", "{8A3F960B-B3A9-4B0A-A9F7-16A68DF23ED9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Repository", "src\App.Repository\App.Repository.csproj", "{8A3F960B-B3A9-4B0A-A9F7-16A68DF23ED9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.Blazor", "src\Client.Blazor\Client.Blazor.csproj", "{CE28F106-3499-4F7A-80A2-ED82814321ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Core", "src\App.Core\App.Core.csproj", "{922ECF37-320C-4F28-8E3E-200A03F32BA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.OSS", "framework\Framework.OSS\Framework.OSS.csproj", "{BCF5FEF5-6559-437C-8D93-999AF6DE5ABA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Document", "Document", "{09F61E8F-FCA8-45CF-AF76-D81E804FFF52}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		.gitmodules = .gitmodules
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +95,14 @@ Global
 		{CE28F106-3499-4F7A-80A2-ED82814321ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE28F106-3499-4F7A-80A2-ED82814321ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE28F106-3499-4F7A-80A2-ED82814321ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{922ECF37-320C-4F28-8E3E-200A03F32BA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{922ECF37-320C-4F28-8E3E-200A03F32BA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{922ECF37-320C-4F28-8E3E-200A03F32BA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{922ECF37-320C-4F28-8E3E-200A03F32BA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCF5FEF5-6559-437C-8D93-999AF6DE5ABA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCF5FEF5-6559-437C-8D93-999AF6DE5ABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCF5FEF5-6559-437C-8D93-999AF6DE5ABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCF5FEF5-6559-437C-8D93-999AF6DE5ABA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,5 +119,7 @@ Global
 		{008F7442-B447-4FD7-B870-299D6A45D43A} = {37913B13-6F84-48E3-8F6D-4F1507C7790B}
 		{8A3F960B-B3A9-4B0A-A9F7-16A68DF23ED9} = {37913B13-6F84-48E3-8F6D-4F1507C7790B}
 		{CE28F106-3499-4F7A-80A2-ED82814321ED} = {D824763F-1721-4048-96BF-3FB2054FDDDD}
+		{922ECF37-320C-4F28-8E3E-200A03F32BA5} = {37913B13-6F84-48E3-8F6D-4F1507C7790B}
+		{BCF5FEF5-6559-437C-8D93-999AF6DE5ABA} = {9866E751-D1C6-4310-9858-07452035AE70}
 	EndGlobalSection
 EndGlobal

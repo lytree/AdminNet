@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Autofac" Version="8.1.1" />
+		<PackageReference Include="Castle.Core" Version="5.1.1" />
+		<PackageReference Include="FreeSql.Cloud" Version="1.9.1" />
+		<PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.3.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\framework\Framework.OSS\Framework.OSS.csproj" />
+	  <ProjectReference Include="..\..\framework\Framework.Repository\Framework.Repository.csproj" />
+	  <ProjectReference Include="..\..\framework\Framework\Framework.csproj" />
+	</ItemGroup>
+
+</Project>
