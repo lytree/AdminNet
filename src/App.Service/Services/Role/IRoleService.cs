@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using App.Service.Core.Dto;
-using App.Service.Domain.Role.Dto;
-using App.Service.Services.Role.Dto;
+﻿using App.Core.Dto;
+using App.Repository.Domain;
+using System.Collections.Generic;
+
 
 namespace App.Service.Services;
 

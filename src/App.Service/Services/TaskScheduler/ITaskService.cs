@@ -1,7 +1,6 @@
-﻿using System.Threading.Tasks;
-using App.Service.Core.Dto;
-using App.Service.Domain.Task.Dto;
-using App.Service.Services.TaskScheduler.Dto;
+﻿
+
+using App.Core.Dto;
 
 namespace App.Service.Services;
 

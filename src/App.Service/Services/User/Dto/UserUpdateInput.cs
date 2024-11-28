@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-using App.Service.Core.Validators;
+
 
 namespace App.Service.Services;
 

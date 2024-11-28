@@ -1,5 +1,6 @@
 ﻿using FreeScheduler;
 using System;
+using TaskStatus = FreeScheduler.TaskStatus;
 
 namespace App.Service.Services;
 

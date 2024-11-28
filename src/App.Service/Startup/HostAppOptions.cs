@@ -1,9 +1,11 @@
 ﻿using App.Core.Configs;
+using App.Repository;
 using Autofac;
 using Framework.Repository.Data;
 using FreeSql;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Yitter.IdGenerator;
 
 namespace App.Core.Startup;
 
@@ -79,15 +81,15 @@ public class HostAppOptions
     public Action<IFreeSql, DbConfig> ConfigureFreeSql { get; set; }
 
 
-    /// <summary>
-    /// 配置动态Api
-    /// </summary>
-    public Action<DynamicApiOptions> ConfigureDynamicApi { get; set; }
+    ///// <summary>
+    ///// 配置动态Api
+    ///// </summary>
+    //public Action<DynamicApiOptions> ConfigureDynamicApi { get; set; }
 
     /// <summary>
     /// 配置SwaggerUI
     /// </summary>
-    public Action<SwaggerUIOptions> ConfigureSwaggerUI { get; set; }
+    //public Action<SwaggerUIOptions> ConfigureSwaggerUI { get; set; }
 
     /// <summary>
     /// 配置雪花漂移算法

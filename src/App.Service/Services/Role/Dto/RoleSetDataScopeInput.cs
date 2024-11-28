@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using App.Service.Core.Validators;
+
 using App.Service.Domain.Role;
 
 namespace App.Service.Services;

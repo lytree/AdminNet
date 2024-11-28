@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using App.Repository.Domain;
 using Newtonsoft.Json;
-using App.Service.Domain.Pkg;
+
 
 namespace App.Service.Services;
 
@@ -22,7 +24,8 @@ public class TenantListOutput
     /// </summary>
     public string Code { get; set; }
 
-    [JsonIgnore]
+    [System.Text.Json.Serialization.JsonIgnore]
+    [Newtonsoft.Json.JsonIgnore]
     public ICollection<PkgEntity> Pkgs { get; set; }
 
     /// <summary>
@@ -53,7 +56,8 @@ public class TenantListOutput
     /// <summary>
     /// 数据库
     /// </summary>
-    [JsonIgnore]
+    [System.Text.Json.Serialization.JsonIgnore]
+    [Newtonsoft.Json.JsonIgnore]
     public FreeSql.DataType? DbType { get; set; }
 
     /// <summary>

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Mapster;
 using App.Service.Core.Consts;
 using App.Service.Core.Dto;
-using App.Service.Core.Validators;
+
 using App.Service.Domain;
 using App.Service.Domain.Task.Dto;
 using App.Service.Services.TaskScheduler.Dto;

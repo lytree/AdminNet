@@ -6,30 +6,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Yitter.IdGenerator;
-using App.Service.Core.Attributes;
-using App.Service.Core.Consts;
-using App.Service.Core.Configs;
-using App.Service.Core.Dto;
-using App.Service.Core.Helpers;
-using App.Service.Domain.Role;
-using App.Service.Domain.RolePermission;
-using App.Service.Domain.Tenant;
-using App.Service.Domain.User;
-using App.Service.Domain.UserRole;
-using App.Service.Domain.Tenant.Dto;
-using App.Service.Domain.Org;
-using App.Service.Domain.UserStaff;
-using App.Service.Domain.UserOrg;
-using App.Service.Domain.Pkg;
-using App.Service.Domain.TenantPkg;
-using App.Service.Services.Tenant.Dto;
-using App.Service.Services.Pkg;
-using ZhonTai.Common.Helpers;
-using ZhonTai.DynamicApi;
-using ZhonTai.DynamicApi.Attributes;
+
 using App.Service.Resources;
 using Mapster;
-using App.Service.Core;
+using App.Core.Configs;
+using App.Repository.Domain;
+using App.Service.Helpers;
+using App.Repository.Consts;
+using App.Core.Dto;
+using App.Service.Attributes;
+using Framework;
+
 
 namespace App.Service.Services;
 
@@ -255,7 +242,7 @@ public class TenantService : BaseService, ITenantService
         }
         else
         {
-            user.Password = MD5Encrypt.Encrypt32(input.Password);
+            user.Password =Helper.MD5Encrypt32(input.Password);
             user.PasswordEncryptType = PasswordEncryptType.MD5Encrypt32;
         }
         await _userRep.InsertAsync(user);
@@ -427,7 +414,7 @@ public class TenantService : BaseService, ITenantService
         }
         else
         {
-            user.Password = MD5Encrypt.Encrypt32(input.Password);
+            user.Password = Helper.MD5Encrypt32(input.Password);
             user.PasswordEncryptType = PasswordEncryptType.MD5Encrypt32;
         }
         await _userRep.InsertAsync(user);

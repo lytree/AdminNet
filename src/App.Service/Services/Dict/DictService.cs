@@ -8,6 +8,7 @@ using Mapster;
 using App.Repository.Repositories;
 using App.Repository.Domain;
 using App.Service.Helpers;
+using App.Core.Dto;
 
 namespace App.Service.Services;
 

@@ -3,6 +3,7 @@ using Yitter.IdGenerator;
 using App.Service.Resources;
 using App.Repository.Repositories;
 using App.Repository.Domain;
+using App.Core.Dto;
 
 namespace App.Service.Services;
 

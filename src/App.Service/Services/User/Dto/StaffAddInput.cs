@@ -1,5 +1,6 @@
-﻿using System;
-using App.Service.Domain.UserStaff;
+﻿using App.Repository.Domain;
+using System;
+
 
 namespace App.Service.Domain.User;
 

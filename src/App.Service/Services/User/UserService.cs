@@ -12,6 +12,12 @@ using App.Repository.Domain;
 using App.Core.Configs;
 using App.Service.Helpers;
 using App.Service.Resources;
+using App.Core.Dto;
+using App.Repository.Consts;
+using App.Service.Consts;
+using FreeSql;
+using App.Service.Attributes;
+using Framework;
 
 namespace App.Service.Services;
 
@@ -432,7 +438,7 @@ public partial class UserService : BaseService, IUserService
         }
         else
         {
-            entity.Password = MD5Encrypt.Encrypt32(input.Password);
+            entity.Password = Helper.MD5Encrypt32(input.Password);
             entity.PasswordEncryptType = PasswordEncryptType.MD5Encrypt32;
         }
         var user = await _userRep.InsertAsync(entity);
@@ -619,7 +625,7 @@ public partial class UserService : BaseService, IUserService
         }
         else
         {
-            entity.Password = MD5Encrypt.Encrypt32(input.Password);
+            entity.Password = Helper.MD5Encrypt32(input.Password);
             entity.PasswordEncryptType = PasswordEncryptType.MD5Encrypt32;
         }
         var user = await _userRep.InsertAsync(entity);
@@ -701,7 +707,7 @@ public partial class UserService : BaseService, IUserService
         _userHelper.CheckPassword(input.NewPassword);
 
         var entity = await _userRep.GetAsync(User.Id);
-        var oldPassword = MD5Encrypt.Encrypt32(input.OldPassword);
+        var oldPassword = Helper.MD5Encrypt32(input.OldPassword);
         if (oldPassword != entity.Password)
         {
             throw ResultOutput.Exception(_adminLocalizer["旧密码不正确"]);
@@ -713,7 +719,7 @@ public partial class UserService : BaseService, IUserService
         }
         else
         {
-            entity.Password = MD5Encrypt.Encrypt32(input.NewPassword);
+            entity.Password = Helper.MD5Encrypt32(input.NewPassword);
         }
 
         await _userRep.UpdateAsync(entity);
@@ -747,7 +753,7 @@ public partial class UserService : BaseService, IUserService
         }
         else
         {
-            entity.Password = MD5Encrypt.Encrypt32(password);
+            entity.Password = Helper.MD5Encrypt32(password);
         }
         await _userRep.UpdateAsync(entity);
         return password;

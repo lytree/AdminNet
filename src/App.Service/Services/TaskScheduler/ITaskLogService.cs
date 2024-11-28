@@ -1,6 +1,6 @@
-﻿using FreeScheduler;
-using App.Service.Core.Dto;
-using App.Service.Domain.Task.Dto;
+﻿using App.Core.Dto;
+using FreeScheduler;
+
 
 namespace App.Service.Services;
 

@@ -1,4 +1,5 @@
-﻿using App.Service.Domain.Document;
+﻿using App.Repository.Domain;
+using App.Service.Domain;
 
 namespace App.Service.Services;
 
