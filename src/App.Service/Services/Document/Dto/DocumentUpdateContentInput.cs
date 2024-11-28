@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using App.Service.Core.Validators;
 
 namespace App.Service.Services;
 
@@ -9,7 +8,6 @@ public class DocumentUpdateContentInput
     /// 编号
     /// </summary>
     [Required]
-    [ValidateRequired("请选择文档")]
     public long Id { get; set; }
 
     /// <summary>

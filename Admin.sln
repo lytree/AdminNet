@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{37913B13-6F8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{D824763F-1721-4048-96BF-3FB2054FDDDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.ApiUI", "..\dotnet\plugins\Plugin.ApiUI\Plugin.ApiUI.csproj", "{B03E90EA-43D4-4CDD-9DD6-040EF4EDE8BE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "framework\Framework\Framework.csproj", "{BE888C2D-D71E-4DF1-8061-3EBFB17360BE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.SlideCaptcha", "plugins\Plugin.SlideCaptcha\Plugin.SlideCaptcha.csproj", "{9682B1FB-1C11-4B89-BFCF-B3F809FD9E0E}"
@@ -43,7 +41,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Document", "Document", "{09
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		.gitmodules = .gitmodules
+		src\Directory.Packages.props = src\Directory.Packages.props
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.ApiUI", "plugins\Plugin.ApiUI\Plugin.ApiUI.csproj", "{F6820C13-EFB3-42FE-99F2-CF204987D188}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +52,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B03E90EA-43D4-4CDD-9DD6-040EF4EDE8BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B03E90EA-43D4-4CDD-9DD6-040EF4EDE8BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B03E90EA-43D4-4CDD-9DD6-040EF4EDE8BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B03E90EA-43D4-4CDD-9DD6-040EF4EDE8BE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BE888C2D-D71E-4DF1-8061-3EBFB17360BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BE888C2D-D71E-4DF1-8061-3EBFB17360BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE888C2D-D71E-4DF1-8061-3EBFB17360BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -103,12 +100,15 @@ Global
 		{BCF5FEF5-6559-437C-8D93-999AF6DE5ABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCF5FEF5-6559-437C-8D93-999AF6DE5ABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCF5FEF5-6559-437C-8D93-999AF6DE5ABA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6820C13-EFB3-42FE-99F2-CF204987D188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6820C13-EFB3-42FE-99F2-CF204987D188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6820C13-EFB3-42FE-99F2-CF204987D188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6820C13-EFB3-42FE-99F2-CF204987D188}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{B03E90EA-43D4-4CDD-9DD6-040EF4EDE8BE} = {915C34A7-4FE9-4E15-9F7C-48D5FAA3FE16}
 		{BE888C2D-D71E-4DF1-8061-3EBFB17360BE} = {9866E751-D1C6-4310-9858-07452035AE70}
 		{9682B1FB-1C11-4B89-BFCF-B3F809FD9E0E} = {915C34A7-4FE9-4E15-9F7C-48D5FAA3FE16}
 		{97950CD6-D468-4F21-BBA9-40896DDB8946} = {915C34A7-4FE9-4E15-9F7C-48D5FAA3FE16}
@@ -121,5 +121,6 @@ Global
 		{CE28F106-3499-4F7A-80A2-ED82814321ED} = {D824763F-1721-4048-96BF-3FB2054FDDDD}
 		{922ECF37-320C-4F28-8E3E-200A03F32BA5} = {37913B13-6F84-48E3-8F6D-4F1507C7790B}
 		{BCF5FEF5-6559-437C-8D93-999AF6DE5ABA} = {9866E751-D1C6-4310-9858-07452035AE70}
+		{F6820C13-EFB3-42FE-99F2-CF204987D188} = {915C34A7-4FE9-4E15-9F7C-48D5FAA3FE16}
 	EndGlobalSection
 EndGlobal

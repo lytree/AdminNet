@@ -24,6 +24,7 @@ using App.Core.Dto;
 using App.Repository.Consts;
 using static Plugin.SlideCaptcha.ValidateResult;
 using Plugin.SlideCaptcha.Validator;
+using App.Service.Helpers;
 
 namespace App.Service.Services;
 
@@ -39,7 +40,7 @@ public class AuthService : BaseService, IAuthService
     private readonly Lazy<ITenantRepository> _tenantRep;
     private readonly Lazy<IPermissionRepository> _permissionRep;
     private readonly Lazy<IPasswordHasher<UserEntity>> _passwordHasher;
-    private readonly Lazy<ISlideCaptcha> _captcha;
+    private readonly Lazy<Plugin.SlideCaptcha> _captcha;
     private readonly Lazy<ITenantService> _tenantService;
     private readonly UserHelper _userHelper;
     private readonly AdminLocalizer _adminLocalizer;
@@ -127,7 +128,7 @@ public class AuthService : BaseService, IAuthService
         var update = _userRep.Value.UpdateDiy.Set(a => new UserEntity
         {
             LastLoginIP = ip,
-            LastLoginTime = DbHelper.AppTime,
+            LastLoginTime = DbHelper.ServerTime,
         });
 
         if (_appConfig.Value.Value.IP2Region.Enable)

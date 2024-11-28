@@ -1,7 +1,7 @@
 ﻿using Framework.Repository.Entities;
 using FreeSql.DataAnnotations;
 
-namespace App.Repository.Domain.Document;
+namespace App.Repository.Domain;
 
 /// <summary>
 /// 文档

@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using App.Repository.Domain;
+using Newtonsoft.Json;
 using System.Collections.Generic;
-using App.Service.Domain.Org;
-using App.Service.Domain.Role;
+
 
 namespace App.Service.Services;
 

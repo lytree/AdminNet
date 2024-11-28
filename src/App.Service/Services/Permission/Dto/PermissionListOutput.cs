@@ -1,4 +1,4 @@
-﻿using App.Service.Domain.Permission;
+﻿using App.Repository.Domain;
 
 namespace App.Service.Services;
 

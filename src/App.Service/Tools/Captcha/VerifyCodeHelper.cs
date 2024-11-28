@@ -1,4 +1,5 @@
-﻿using App.Service.Core;
+﻿using App.Core.Attributes;
+using App.Core.Configs;
 using SixLabors.Fonts;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Drawing.Processing;

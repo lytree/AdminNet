@@ -12,6 +12,11 @@ using Yitter.IdGenerator;
 using Framework;
 using Framework.Repository;
 using FreeSql.DataAnnotations;
+using App.Core.Startup;
+using App.Core.Configs;
+using App.Service;
+using App.Repository.Consts;
+using App.Repository.Domain;
 
 namespace App.Repository;
 
@@ -260,7 +265,7 @@ public class DbHelper
     /// <param name="msg"></param>
     /// <param name="dbConfig"></param>
     /// <param name="configureFreeSqlSyncStructure"></param>
-    public static void SyncStructure(IFreeSql db, string msg = null, DbConfig dbConfig = null, Action<IFreeSql, IDbConfig> configureFreeSqlSyncStructure = null)
+    public static void SyncStructure(IFreeSql db, string msg = null, DbConfig dbConfig = null, Action<IFreeSql, DbConfig> configureFreeSqlSyncStructure = null)
     {
         //打印结构比对脚本
         //var dDL = db.CodeFirst.GetComparisonDDLStatements<PermissionEntity>();
@@ -513,8 +518,8 @@ public class DbHelper
     /// <param name="hostAppOptions"></param>
     public static void RegisterDb(
         FreeSqlCloud freeSqlCloud,
-        IUser user,
-        DbConfig dbConfig
+        User user,AppConfig appConfig,
+        DbConfig dbConfig, HostAppOptions hostAppOptions
     )
     {
         //注册数据库
@@ -585,7 +590,7 @@ public class DbHelper
             //同步数据
             if (dbConfig.SyncData)
             {
-                SyncDataAsync(fsql, dbConfig, appConfig).Wait();
+                SyncDataAsync(fsql, dbConfig).Wait();
             }
 
             //审计数据

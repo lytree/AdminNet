@@ -1,8 +1,5 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using App.Service.Domain.Role;
-using App.Service.Domain.User;
+﻿
+using App.Repository.Domain;
 
 namespace App.Service.Services;
 
@@ -38,7 +35,8 @@ public class UserGetPageOutput
     /// </summary>
     public UserType Type { get; set; }
 
-    [JsonIgnore]
+    [System.Text.Json.Serialization.JsonIgnore]
+    [Newtonsoft.Json.JsonIgnore]
     public ICollection<RoleEntity> Roles { get; set; }
 
     /// <summary>

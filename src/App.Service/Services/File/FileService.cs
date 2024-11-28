@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-
 using App.Service.Resources;
 using App.Repository.Domain;
 using Framework.OSS.Interface;
@@ -51,7 +50,7 @@ public class FileService : BaseService, IFileService
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    
+
     public async Task<PageOutput<FileGetPageOutput>> GetPageAsync(PageInput<FileGetPageDto> input)
     {
         var fileName = input.Filter?.FileName;
@@ -78,7 +77,7 @@ public class FileService : BaseService, IFileService
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    
+
     public async Task DeleteAsync(FileDeleteInput input)
     {
         var file = await _fileRep.GetAsync(input.Id);

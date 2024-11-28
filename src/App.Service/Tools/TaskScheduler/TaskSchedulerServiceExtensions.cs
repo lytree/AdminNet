@@ -9,13 +9,9 @@ using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using App.Service.Domain;
-using App.Service.Services.Msg;
-using App.Service.Services.Msg.Events;
-using App.Service.Services.TaskScheduler;
-using App.Service.Services.TaskScheduler.Dto;
 using App.Repository.Domain;
 using App.Repository;
+using App.Service.Services;
 
 namespace App.Service.Tools.TaskScheduler;
 

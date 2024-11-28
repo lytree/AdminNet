@@ -1,7 +1,6 @@
-﻿using System.Threading.Tasks;
-using App.Service.Core.Dto;
-using App.Service.Domain.Tenant.Dto;
-using App.Service.Services.Tenant.Dto;
+﻿using App.Core.Dto;
+using System.Threading.Tasks;
+
 
 namespace App.Service.Services;
 

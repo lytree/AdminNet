@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using App.Service.Core.Validators;
+
 
 namespace App.Service.Services;
 
@@ -12,6 +12,5 @@ public partial class PkgUpdateInput : PkgAddInput
     /// 套餐Id
     /// </summary>
     [Required]
-    [ValidateRequired("请选择套餐")]
     public long Id { get; set; }
 }

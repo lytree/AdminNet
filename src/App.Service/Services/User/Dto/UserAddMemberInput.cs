@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using App.Repository.Domain;
 using App.Service.Domain.User;
 
 namespace App.Service.Services;

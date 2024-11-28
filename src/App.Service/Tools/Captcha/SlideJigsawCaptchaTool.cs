@@ -10,6 +10,7 @@ using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.Drawing;
 using SixLabors.ImageSharp.PixelFormats;
 using App.Service.Tools.Cache;
+using App.Core.Attributes;
 
 namespace App.Service.Tools.Captcha;
 

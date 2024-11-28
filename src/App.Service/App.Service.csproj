@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>$(DotnetVersion)</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
@@ -10,22 +10,24 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Magicodes.IE.Excel" Version="2.7.5.2" />
-		<PackageReference Include="Magicodes.IE.Excel.AspNetCore" Version="2.7.5.2" />
-		<PackageReference Include="MimeKit" Version="4.8.0" />
-		<PackageReference Include="System.Linq.Dynamic.Core" Version="1.4.9" />
-		<PackageReference Include="System.Net.Http" Version="4.3.4" />
-		<PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
-		<PackageReference Include="UAParser" Version="3.1.47" />
-		<PackageReference Include="Cronos" Version="0.8.4" />
-		<PackageReference Include="Yitter.IdGenerator" Version="1.0.14" />
-		<PackageReference Include="Microsoft.Extensions.DependencyModel" Version="9.0.0" />
-		<PackageReference Include="SixLabors.ImageSharp" Version="3.1.6" />
-		<PackageReference Include="SixLabors.ImageSharp.Drawing" Version="2.1.4" />
+		<PackageReference Include="Magicodes.IE.Excel" VersionOverride="2.7.5.2" />
+		<PackageReference Include="Magicodes.IE.Excel.AspNetCore" VersionOverride="2.7.5.2" />
+		<PackageReference Include="MimeKit" VersionOverride="4.8.0" />
+		<PackageReference Include="System.Linq.Dynamic.Core" VersionOverride="1.4.9" />
+		<PackageReference Include="System.Net.Http" VersionOverride="4.3.4" />
+		<PackageReference Include="System.Text.RegularExpressions" VersionOverride="4.3.1" />
+		<PackageReference Include="UAParser" />
+		<PackageReference Include="Cronos" />
+		<PackageReference Include="Yitter.IdGenerator" />
+		<PackageReference Include="Microsoft.Extensions.DependencyModel" />
+		<PackageReference Include="SixLabors.ImageSharp" />
+		<PackageReference Include="SixLabors.ImageSharp.Drawing" />
+		<PackageReference Include="IP2Region" VersionOverride="1.2.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\plugins\Plugin.SlideCaptcha\Plugin.SlideCaptcha.csproj" />
-	  <ProjectReference Include="..\App.Repository\App.Repository.csproj" />
+		<ProjectReference Include="..\..\plugins\Plugin.SlideCaptcha\Plugin.SlideCaptcha.csproj" />
+		<ProjectReference Include="..\App.Core\App.Core.csproj" />
+		<ProjectReference Include="..\App.Repository\App.Repository.csproj" />
 	</ItemGroup>
 </Project>

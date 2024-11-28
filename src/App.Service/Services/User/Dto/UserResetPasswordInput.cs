@@ -1,4 +1,6 @@
-﻿using App.Service.Core.Entities;
+﻿
+
+using Framework.Repository.Entities;
 
 namespace App.Service.Services;
 
