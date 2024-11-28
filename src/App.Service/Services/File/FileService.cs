@@ -2,25 +2,19 @@
 using System.Linq;
 using System.IO;
 using System.ComponentModel.DataAnnotations;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using OnceMi.AspNetCore.OSS;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using App.Service.Domain;
-using App.Service.Services.Dto;
-using App.Service.Core.Helpers;
-using App.Service.Core.Configs;
-using App.Service.Core.Consts;
-using App.Service.Core.Dto;
-using App.Service.Domain.Dto;
-using ZhonTai.Common.Files;
-using ZhonTai.Common.Helpers;
-using ZhonTai.DynamicApi;
-using ZhonTai.DynamicApi.Attributes;
+
 using App.Service.Resources;
+using App.Repository.Domain;
+using Framework.OSS.Interface;
+using App.Core.Configs;
+using App.Core.Dto;
+using Framework;
+using Framework.OSS;
+using App.Service.Helpers;
 
 namespace App.Service.Services;
 
@@ -156,7 +150,7 @@ public class FileService : BaseService, IFileService
         var md5 = string.Empty;
         if (enableMd5)
         {
-            md5 = MD5Encrypt.GetHash(file.OpenReadStream());
+            md5 = Helper.GetHash(file.OpenReadStream());
             var md5FileEntity = await _fileRep.WhereIf(enableOss, a => a.Provider == oSSOptions.Provider).Where(a => a.Md5 == md5).FirstAsync();
             if (md5FileEntity != null)
             {

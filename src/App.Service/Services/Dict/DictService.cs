@@ -8,6 +8,7 @@ using Mapster;
 using App.Repository.Repositories;
 using App.Repository.Domain;
 using App.Service.Helpers;
+using App.Core.Dto;
 
 namespace App.Service.Services;
 
@@ -140,7 +141,6 @@ public class DictService : BaseService, IDictService
     /// </summary>
     /// <returns></returns>
     
-    [NonFormatResult]
     public async Task<ActionResult> DownloadTemplateAsync()
     {
         var fileName = _adminLocalizer["数据字典模板{0}.xlsx", DateTime.Now.ToString("yyyyMMddHHmmss")];
@@ -154,7 +154,6 @@ public class DictService : BaseService, IDictService
     /// <param name="fileName"></param>
     /// <returns></returns>
     
-    [NonFormatResult]
     public async Task<ActionResult> DownloadErrorMarkAsync(string fileId, string fileName)
     {
         if (fileName.IsNull())
@@ -169,7 +168,6 @@ public class DictService : BaseService, IDictService
     /// </summary>
     /// <returns></returns>
     
-    [NonFormatResult]
     public async Task<ActionResult> ExportDataAsync(ExportInput input)
     {
         using var _ = _dictRep.DataFilter.DisableAll();
