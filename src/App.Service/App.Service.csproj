@@ -16,16 +16,18 @@
 		<PackageReference Include="System.Linq.Dynamic.Core" VersionOverride="1.4.9" />
 		<PackageReference Include="System.Net.Http" VersionOverride="4.3.4" />
 		<PackageReference Include="System.Text.RegularExpressions" VersionOverride="4.3.1" />
-		<PackageReference Include="UAParser"/>
+		<PackageReference Include="UAParser" />
 		<PackageReference Include="Cronos" />
 		<PackageReference Include="Yitter.IdGenerator" />
 		<PackageReference Include="Microsoft.Extensions.DependencyModel" />
 		<PackageReference Include="SixLabors.ImageSharp" />
 		<PackageReference Include="SixLabors.ImageSharp.Drawing" />
+		<PackageReference Include="IP2Region" VersionOverride="1.2.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\plugins\Plugin.SlideCaptcha\Plugin.SlideCaptcha.csproj" />
+		<ProjectReference Include="..\App.Core\App.Core.csproj" />
 		<ProjectReference Include="..\App.Repository\App.Repository.csproj" />
 	</ItemGroup>
 </Project>

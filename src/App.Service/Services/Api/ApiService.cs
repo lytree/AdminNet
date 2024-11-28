@@ -13,6 +13,7 @@ using App.Repository.Consts;
 using App.Repository;
 using App.Core.Attributes;
 using App.Service.Consts;
+using App.Service.Attributes;
 
 namespace App.Service.Services;
 
@@ -161,7 +162,7 @@ public class ApiService : BaseService, IApiService
             ModifiedUserId = User.Id,
             ModifiedUserName = User.UserName,
             //ModifiedUserRealName = User.Name,
-            ModifiedTime = DbHelper.AppTime
+            ModifiedTime = DbHelper.ServerTime
         })
         .WhereDynamic(input.ApiId)
         .ExecuteAffrowsAsync();
@@ -180,8 +181,8 @@ public class ApiService : BaseService, IApiService
             EnabledParams = input.EnabledParams,
             ModifiedUserId = User.Id,
             ModifiedUserName = User.UserName,
-            ModifiedUserRealName = User.Name,
-            ModifiedTime = DbHelper.AppTime
+            //ModifiedUserRealName = User.Name,
+            ModifiedTime = DbHelper.ServerTime
         })
         .WhereDynamic(input.ApiId)
         .ExecuteAffrowsAsync();
@@ -202,7 +203,7 @@ public class ApiService : BaseService, IApiService
             ModifiedUserId = User.Id,
             ModifiedUserName = User.UserName,
             //ModifiedUserRealName = User.Name,
-            //ModifiedTime = DbHelper.AppTime
+            ModifiedTime = DbHelper.ServerTime
         })
         .WhereDynamic(input.ApiId)
         .ExecuteAffrowsAsync();
