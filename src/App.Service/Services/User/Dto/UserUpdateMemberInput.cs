@@ -12,6 +12,5 @@ public class UserUpdateMemberInput: UserMemberFormInput
     /// 主键Id
     /// </summary>
     [Required]
-    [ValidateRequired("请选择会员")]
     public override long Id { get; set; }
 }

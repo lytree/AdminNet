@@ -51,7 +51,7 @@ public class DictService : BaseService, IDictService
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    
+
     public async Task<PageOutput<DictGetPageOutput>> GetPageAsync(PageInput<DictGetPageInput> input)
     {
         var key = input.Filter?.Name;
@@ -94,7 +94,7 @@ public class DictService : BaseService, IDictService
     /// <param name="codes">字典类型编码列表</param>
     /// <returns></returns>
 
-    
+
     public async Task<Dictionary<string, List<DictGetListDto>>> GetListAsync(string[] codes)
     {
         var list = await _dictRep.Select
@@ -118,7 +118,7 @@ public class DictService : BaseService, IDictService
     /// <param name="names">字典类型名称列表</param>
     /// <returns></returns>
 
-    
+
     public async Task<Dictionary<string, List<DictGetListDto>>> GetListByNamesAsync(string[] names)
     {
         var list = await _dictRep.Select
@@ -140,7 +140,7 @@ public class DictService : BaseService, IDictService
     /// 下载导入模板
     /// </summary>
     /// <returns></returns>
-    
+
     public async Task<ActionResult> DownloadTemplateAsync()
     {
         var fileName = _adminLocalizer["数据字典模板{0}.xlsx", DateTime.Now.ToString("yyyyMMddHHmmss")];
@@ -153,7 +153,7 @@ public class DictService : BaseService, IDictService
     /// <param name="fileId"></param>
     /// <param name="fileName"></param>
     /// <returns></returns>
-    
+
     public async Task<ActionResult> DownloadErrorMarkAsync(string fileId, string fileName)
     {
         if (fileName.IsNull())
@@ -167,20 +167,15 @@ public class DictService : BaseService, IDictService
     /// 导出数据
     /// </summary>
     /// <returns></returns>
-    
+
     public async Task<ActionResult> ExportDataAsync(ExportInput input)
     {
         using var _ = _dictRep.DataFilter.DisableAll();
 
         var select = _dictRep.Select;
-        if (input.SortList != null && input.SortList.Count > 0)
-        {
-            select = select.SortList(input.SortList);
-        }
-        else
-        {
-            select = select.OrderBy(a => a.DictType.Sort).OrderBy(a => a.Sort);
-        }
+
+        select = select.OrderBy(a => a.DictType.Sort).OrderBy(a => a.Sort);
+
 
         //查询数据
         var dataList = await select.WhereDynamicFilter(input.DynamicFilter).ToListAsync(a => new DictExport { DictTypeName = a.DictType.Name });
@@ -200,7 +195,7 @@ public class DictService : BaseService, IDictService
     /// <param name="duplicateAction"></param>
     /// <param name="fileId"></param>
     /// <returns></returns>
-    
+
     public async Task<ImportOutput> ImportDataAsync([Required] IFormFile file, int duplicateAction, string fileId)
     {
         var importResult = await _iEHelper.ImportDataAsync<DictImport>(file, fileId, async (importResult) =>
@@ -297,7 +292,7 @@ public class DictService : BaseService, IDictService
         if (output.Total > 0)
         {
             //新增
-            var insetImportDataList = importDataList.Where(a=>a.Id == 0).ToList();
+            var insetImportDataList = importDataList.Where(a => a.Id == 0).ToList();
             var insetDataList = insetImportDataList.Adapt<List<DictEntity>>();
             output.InsertCount = insetDataList.Count;
             await _dictRep.InsertAsync(insetDataList);

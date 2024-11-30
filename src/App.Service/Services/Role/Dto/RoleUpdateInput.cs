@@ -12,6 +12,5 @@ public partial class RoleUpdateInput : RoleAddInput
     /// 角色Id
     /// </summary>
     [Required]
-    [ValidateRequired("请选择角色")]
     public long Id { get; set; }
 }

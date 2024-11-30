@@ -2,6 +2,8 @@
 using App.Service.Consts;
 using DotNetCore.CAP;
 using Microsoft.Extensions.Options;
+using MimeKit;
+using MailKit.Net.Smtp;
 
 namespace App.Service.Services;
 

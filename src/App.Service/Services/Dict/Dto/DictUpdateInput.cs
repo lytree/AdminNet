@@ -12,6 +12,5 @@ public class DictUpdateInput : DictAddInput
     /// 主键Id
     /// </summary>
     [Required]
-    [ValidateRequired("请选择数据字典")]
     public long Id { get; set; }
 }

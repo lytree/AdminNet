@@ -12,6 +12,5 @@ public class ViewUpdateInput : ViewAddInput
     /// 视图Id
     /// </summary>
     [Required]
-    [ValidateRequired("请选择视图")]
     public long Id { get; set; }
 }

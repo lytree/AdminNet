@@ -2,17 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Mapster;
-using App.Service.Core.Consts;
-using App.Service.Core.Dto;
-
-using App.Service.Domain;
-using App.Service.Domain.Task.Dto;
-using App.Service.Services.TaskScheduler.Dto;
-using App.Service.Repositories;
-using App.Service.Resources;
-using ZhonTai.DynamicApi;
-using ZhonTai.DynamicApi.Attributes;
 using FreeScheduler;
+using App.Repository.Repositories;
+using App.Service.Resources;
+using App.Core.Dto;
+using App.Repository.Domain;
 
 namespace App.Service.Services;
 
@@ -225,7 +219,7 @@ public class TaskService : BaseService, ITaskService
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    public void Pause([BindRequired][ValidateRequired("请选择任务")]string id)
+    public void Pause([BindRequired]string id)
     {
         var scheduler = _scheduler;
         scheduler.PauseTask(id);
@@ -236,7 +230,7 @@ public class TaskService : BaseService, ITaskService
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    public void Resume([BindRequired][ValidateRequired("请选择任务")] string id)
+    public void Resume([BindRequired] string id)
     {
         var scheduler = _scheduler;
         scheduler.ResumeTask(id);
@@ -247,7 +241,7 @@ public class TaskService : BaseService, ITaskService
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    public void Run([BindRequired][ValidateRequired("请选择任务")] string id)
+    public void Run([BindRequired] string id)
     {
         var scheduler = _scheduler;
         scheduler.RunNowTask(id);
@@ -258,7 +252,7 @@ public class TaskService : BaseService, ITaskService
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    public async Task Delete([BindRequired][ValidateRequired("请选择任务")] string id)
+    public async Task Delete([BindRequired] string id)
     {
         var scheduler = _scheduler;
         scheduler.RemoveTask(id);
@@ -270,7 +264,7 @@ public class TaskService : BaseService, ITaskService
     /// 批量执行任务
     /// </summary>
     /// <param name="ids"></param>
-    public void BatchRun([BindRequired][ValidateRequired("请选择任务")] string[] ids)
+    public void BatchRun([BindRequired] string[] ids)
     {
         foreach (var id in ids)
         {
@@ -283,7 +277,7 @@ public class TaskService : BaseService, ITaskService
     /// </summary>
     /// <param name="ids"></param>
     /// <returns></returns>
-    public void BatchPause([BindRequired][ValidateRequired("请选择任务")] string[] ids)
+    public void BatchPause([BindRequired] string[] ids)
     {
         foreach (var id in ids)
         {
@@ -296,7 +290,7 @@ public class TaskService : BaseService, ITaskService
     /// </summary>
     /// <param name="ids"></param>
     /// <returns></returns>
-    public void BatchResume([BindRequired][ValidateRequired("请选择任务")] string[] ids)
+    public void BatchResume([BindRequired] string[] ids)
     {
         foreach (var id in ids)
         {
@@ -309,7 +303,7 @@ public class TaskService : BaseService, ITaskService
     /// </summary>
     /// <param name="ids"></param>
     /// <returns></returns>
-    public async Task BatchDelete([BindRequired][ValidateRequired("请选择任务")] string[] ids)
+    public async Task BatchDelete([BindRequired] string[] ids)
     {
         foreach (var id in ids)
         {

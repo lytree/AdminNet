@@ -1,8 +1,8 @@
 ﻿using Framework.Repository.Entities;
 using FreeSql.DataAnnotations;
-using App.Repository.Domain.Document;
+using App.Repository.Domain;
 
-namespace App.Repository.Domain.DocumentImage;
+namespace App.Repository.Domain;
 
 /// <summary>
 /// 文档图片

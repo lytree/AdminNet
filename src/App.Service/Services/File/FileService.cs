@@ -14,6 +14,7 @@ using App.Core.Dto;
 using Framework;
 using Framework.OSS;
 using App.Service.Helpers;
+using App.Core.Files;
 
 namespace App.Service.Services;
 

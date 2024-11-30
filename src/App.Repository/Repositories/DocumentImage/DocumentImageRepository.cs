@@ -1,4 +1,4 @@
-﻿using App.Repository.Domain.DocumentImage;
+﻿using App.Repository.Domain;
 using App.Repository.Repositories;
 
 

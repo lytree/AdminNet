@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
-using App.Service.Domain.Role;
+using App.Repository.Domain;
 
 namespace App.Service.Services;
 
@@ -13,7 +12,6 @@ public class RoleSetDataScopeInput
     /// 角色Id
     /// </summary>
     [Required]
-    [ValidateRequired("请选择角色")]
     public long RoleId { get; set; }
 
     /// <summary>

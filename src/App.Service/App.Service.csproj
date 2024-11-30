@@ -10,9 +10,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="AngleSharp" />
 		<PackageReference Include="Magicodes.IE.Excel" VersionOverride="2.7.5.2" />
 		<PackageReference Include="Magicodes.IE.Excel.AspNetCore" VersionOverride="2.7.5.2" />
 		<PackageReference Include="MimeKit" VersionOverride="4.8.0" />
+		<PackageReference Include="MailKit" VersionOverride="4.8.0" />
 		<PackageReference Include="System.Linq.Dynamic.Core" VersionOverride="1.4.9" />
 		<PackageReference Include="System.Net.Http" VersionOverride="4.3.4" />
 		<PackageReference Include="System.Text.RegularExpressions" VersionOverride="4.3.1" />
@@ -23,9 +25,15 @@
 		<PackageReference Include="SixLabors.ImageSharp" />
 		<PackageReference Include="SixLabors.ImageSharp.Drawing" />
 		<PackageReference Include="IP2Region" VersionOverride="1.2.0" />
+		<PackageReference Include="IP2Region.Net" VersionOverride="2.0.2" />
+		<PackageReference Include="ToolGood.Words.Pinyin" VersionOverride="3.1.0" />
+		<PackageReference Include="FreeScheduler" VersionOverride="2.0.30" />
+		<PackageReference Include="MiniProfiler.AspNetCore.Mvc" VersionOverride="4.3.8" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\framework\Framework.Repository\Framework.Repository.csproj" />
+		<ProjectReference Include="..\..\framework\Framework\Framework.csproj" />
 		<ProjectReference Include="..\..\plugins\Plugin.SlideCaptcha\Plugin.SlideCaptcha.csproj" />
 		<ProjectReference Include="..\App.Core\App.Core.csproj" />
 		<ProjectReference Include="..\App.Repository\App.Repository.csproj" />

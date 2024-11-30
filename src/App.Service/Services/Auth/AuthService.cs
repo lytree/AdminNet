@@ -1,20 +1,16 @@
 ﻿using FreeSql;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using System.Diagnostics;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 using App.Service.Resources;
 using App.Core.Configs;
 using App.Repository.Domain;
-using App.Core.Helpers;
 using App.Core.Records;
 using App.Repository;
 using App.Service.Auth;
@@ -25,7 +21,8 @@ using App.Repository.Consts;
 using static Plugin.SlideCaptcha.ValidateResult;
 using Plugin.SlideCaptcha.Validator;
 using App.Service.Helpers;
-
+using Org.BouncyCastle.Utilities.Encoders;
+using IP2Region.Net.Abstractions;
 namespace App.Service.Services;
 
 /// <summary>
@@ -40,7 +37,7 @@ public class AuthService : BaseService, IAuthService
     private readonly Lazy<ITenantRepository> _tenantRep;
     private readonly Lazy<IPermissionRepository> _permissionRep;
     private readonly Lazy<IPasswordHasher<UserEntity>> _passwordHasher;
-    private readonly Lazy<Plugin.SlideCaptcha> _captcha;
+    private readonly Lazy<ISlideCaptcha> _captcha;
     private readonly Lazy<ITenantService> _tenantService;
     private readonly UserHelper _userHelper;
     private readonly AdminLocalizer _adminLocalizer;
@@ -507,7 +504,7 @@ public class AuthService : BaseService, IAuthService
                     {
                         throw ResultOutput.Exception(_adminLocalizer["解密失败"]);
                     }
-                    input.Password = SM4Encryption.Decrypt(input.Password, Hex.Decode(secretKey.EncryptKey), Hex.Decode(secretKey.Iv), "CBC", true).TrimEnd('\0');//SM4解密后会有\0符号，需要去除。
+                    input.Password = Helper.SM4Decrypt(input.Password, Hex.Decode(secretKey.EncryptKey), Hex.Decode(secretKey.Iv), "CBC", true).TrimEnd('\0');//SM4解密后会有\0符号，需要去除。
                     await Cache.DelAsync(passwordEncryptKey);
                 }
                 else
@@ -572,7 +569,7 @@ public class AuthService : BaseService, IAuthService
                 }
                 else
                 {
-                    var password = MD5Encrypt.Encrypt32(input.Password);
+                    var password = Helper.MD5Encrypt32(input.Password);
                     valid = user.Password == password;
                 }
             }
@@ -911,7 +908,7 @@ public class AuthService : BaseService, IAuthService
         }
         else
         {
-            user.Password = MD5Encrypt.Encrypt32(input.NewPassword);
+            user.Password = Helper.MD5Encrypt32(input.NewPassword);
         }
 
         await userRep.UpdateAsync(user);
@@ -977,7 +974,7 @@ public class AuthService : BaseService, IAuthService
         }
         else
         {
-            user.Password = MD5Encrypt.Encrypt32(input.NewPassword);
+            user.Password = Helper.MD5Encrypt32(input.NewPassword);
         }
 
         await userRep.UpdateAsync(user);
@@ -1103,7 +1100,7 @@ public class AuthService : BaseService, IAuthService
         }
 
         var refreshExpires = userClaims.FirstOrDefault(a => a.Type == ClaimAttributes.RefreshExpires)?.Value;
-        if (refreshExpires.IsNull() || refreshExpires.ToLong() <= DateTime.Now.ToTimestamp())
+        if (refreshExpires.IsNull() || refreshExpires.ConvertTo<long>() <= DateTime.Now.ToMilliseconds())
         {
             throw ResultOutput.Exception(_adminLocalizer["登录信息已过期"]);
         }
@@ -1123,7 +1120,7 @@ public class AuthService : BaseService, IAuthService
             throw ResultOutput.Exception(_adminLocalizer["验签失败"]);
         }
 
-        var user = await LazyGetRequiredService<IUserService>().GetLoginUserAsync(userId.ToLong());
+        var user = await LazyGetRequiredService<IUserService>().GetLoginUserAsync(userId.ConvertTo<long>());
         if(!(user?.Id > 0))
         {
             throw ResultOutput.Exception(_adminLocalizer["账号不存在"]);

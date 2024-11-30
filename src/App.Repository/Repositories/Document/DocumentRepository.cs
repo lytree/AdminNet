@@ -1,4 +1,4 @@
-﻿using App.Repository.Domain.Document;
+﻿using App.Repository.Domain;
 using App.Repository.Repositories;
 
 

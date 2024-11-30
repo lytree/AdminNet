@@ -1,17 +1,16 @@
-﻿using Cronos;
-using FreeScheduler;
-using FreeSql;
-using Mapster;
+﻿using FreeSql;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json.Linq;
-using System;
 using System.Diagnostics;
-using System.Linq;
 using System.Text;
 using App.Repository.Domain;
 using App.Repository;
 using App.Service.Services;
+using FreeScheduler;
+using Cronos;
+using System.Text.Json.Nodes;
+using App.Service.Extensions;
+using Mapster;
 
 namespace App.Service.Tools.TaskScheduler;
 
@@ -55,7 +54,7 @@ public static class TaskSchedulerServiceExtensions
     public static void ExecutGrpc(TaskInfo task, string grpcAddress = "")
     {
         var taskSchedulerConfig = AppInfo.GetRequiredService<IOptions<TaskSchedulerConfig>>().Value;
-        var jsonArgs = JToken.Parse(task.Body);
+        var jsonArgs = JsonNode.Parse(task.Body);
         var shellArgs = jsonArgs.Adapt<ShellArgs>();
 
         var arguments = shellArgs.Arguments;
@@ -198,7 +197,7 @@ public static class TaskSchedulerServiceExtensions
             var topic = task.Topic;
             if (alarmEmail.NotNull())
             {
-                var jsonArgs = JToken.Parse(task.Body);
+                var jsonArgs = JsonNode.Parse(task.Body);
                 var desc = jsonArgs["desc"]?.ToString();
                 if (desc.NotNull())
                     topic = desc;

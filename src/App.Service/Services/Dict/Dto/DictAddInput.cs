@@ -11,7 +11,6 @@ public class DictAddInput
     /// <summary>
     /// 字典类型Id
     /// </summary>
-    [ValidateRequired(ErrorMessage = "请选择字典类型")]
     public long DictTypeId { get; set; }
 
     /// <summary>

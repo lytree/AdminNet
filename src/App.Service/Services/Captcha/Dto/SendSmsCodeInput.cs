@@ -1,5 +1,4 @@
-﻿using Lazy.SlideCaptcha.Core.Validator;
-using Plugin.SlideCaptcha.Validator;
+﻿using Plugin.SlideCaptcha.Validator;
 using System.ComponentModel.DataAnnotations;
 
 namespace App.Service.Services;

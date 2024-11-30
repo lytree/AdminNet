@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 
 namespace App.Service.Services;
@@ -13,6 +12,5 @@ public partial class UserUpdateInput: UserFormInput
     /// 主键Id
     /// </summary>
     [Required]
-    [ValidateRequired("请选择用户")]
     public override long Id { get; set; }
 }

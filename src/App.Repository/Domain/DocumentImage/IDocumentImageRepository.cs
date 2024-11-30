@@ -1,6 +1,7 @@
-﻿using Framework.Repository.Repositories;
+﻿using App.Repository.Domain;
+using Framework.Repository.Repositories;
 
-namespace App.Repository.Domain.DocumentImage;
+namespace App.Repository.Domain;
 
 public interface IDocumentImageRepository : IRepositoryBase<DocumentImageEntity>
 {

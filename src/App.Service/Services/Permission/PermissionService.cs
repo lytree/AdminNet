@@ -10,6 +10,7 @@ using App.Service.Consts;
 using App.Core.Dto;
 using App.Service.Attributes;
 using App.Repository.Consts;
+using FreeSql;
 
 
 namespace App.Service.Services;

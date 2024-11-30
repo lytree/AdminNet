@@ -1,23 +1,19 @@
 ﻿using Framework.Repository.Attributes;
 using Framework.Repository.Data;
 using Framework.Repository.Entities;
-using FreeSql.Aop;
 using FreeSql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using App.Repository;
-using Yitter.IdGenerator;
 using Framework;
 using Framework.Repository;
-using FreeSql.DataAnnotations;
 using App.Core.Startup;
 using App.Core.Configs;
 using App.Service;
 using App.Repository.Consts;
 using App.Repository.Domain;
-
+using FreeSql.Aop;
+using FreeSql.DataAnnotations;
+using Yitter.IdGenerator;
+using StackExchange.Profiling;
 namespace App.Repository;
 
 

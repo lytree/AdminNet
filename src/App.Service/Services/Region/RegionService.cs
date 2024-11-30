@@ -4,6 +4,9 @@ using App.Service.Resources;
 using App.Repository.Repositories;
 using App.Repository.Domain;
 using App.Core.Dto;
+using AngleSharp.Html.Dom;
+using AngleSharp;
+using ToolGood.Words.Pinyin;
 
 namespace App.Service.Services;
 

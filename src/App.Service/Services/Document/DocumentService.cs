@@ -1,5 +1,4 @@
-﻿using App.Repository.Domain.Document;
-using App.Repository.Domain.DocumentImage;
+﻿using App.Repository.Domain;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
