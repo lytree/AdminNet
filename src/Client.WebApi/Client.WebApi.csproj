@@ -10,20 +10,20 @@
 
 	<ItemGroup>
 		<PackageReference Include="AspNetCoreRateLimit" />
-		<PackageReference Include="Castle.Core"/>
-		<PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
+		<PackageReference Include="Castle.Core" />
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" />
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" />
-		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets"/>
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" />
 		<PackageReference Include="Swashbuckle.AspNetCore" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Folder Include="Client\" />
 		<Folder Include="wwwroot\" />
-		<Folder Include="Routes\" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\plugins\Plugin.DynamicApi\Plugin.DynamicApi.csproj" />
 		<ProjectReference Include="..\App.Core\App.Core.csproj" />
 		<ProjectReference Include="..\App.Service\App.Service.csproj" />
 	</ItemGroup>

@@ -1,4 +1,7 @@
-﻿using FreeSql.Internal;
+﻿using Framework.System;
+using FreeSql.Internal;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 
 namespace App.Core.Filters;

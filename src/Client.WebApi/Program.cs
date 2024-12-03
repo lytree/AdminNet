@@ -1,7 +1,7 @@
 
 using AspNetCoreRateLimit;
 using Client.WebApi.Middlewares;
-
+using Client.WebApi.Routes;
 namespace Client.WebApi
 {
     public class Program
@@ -36,7 +36,7 @@ namespace Client.WebApi
             app.UseAuthorization();
 
             app.UseStaticFiles();
-
+            app.ApiEndpoints();
             app.Run();
         }
     }

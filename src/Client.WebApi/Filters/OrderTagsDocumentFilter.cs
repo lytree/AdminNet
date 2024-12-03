@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.OpenApi.Models;
+using Plugin.DynamicApi.Attributes;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Collections.Concurrent;
 using System.Linq;
-using ZhonTai.DynamicApi.Attributes;
 
 namespace App.Core.Filters;
 
