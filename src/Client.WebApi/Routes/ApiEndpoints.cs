@@ -1,4 +1,5 @@
 ﻿using App.Service.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Client.WebApi.Routes;
 
@@ -10,7 +11,9 @@ public static partial class Endpoints
     }
     private static RouteGroupBuilder MapApi(this RouteGroupBuilder group)
     {
-        group.MapGet("/get/{id}", async (long id, HttpContext context, IApiService apiService) =>
+        group.MapGet("/", () => "hello api");
+
+        group.MapGet("/get/{id}", async (long id, HttpContext context, ApiService apiService) =>
         {
             // Get all todo items
             return await apiService.GetAsync(id);
@@ -18,7 +21,7 @@ public static partial class Endpoints
         });
 
 
-        group.MapGet("/get-list/{key}", async (string key, HttpContext context, IApiService apiService) =>
+        group.MapGet("/get-list/{key}", async (string key, HttpContext context, ApiService apiService) =>
         {
             return await apiService.GetListAsync(key);
         });

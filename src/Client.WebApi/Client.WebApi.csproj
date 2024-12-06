@@ -10,11 +10,14 @@
 
 	<ItemGroup>
 		<PackageReference Include="AspNetCoreRateLimit" />
+		<PackageReference Include="Autofac.Extensions.DependencyInjection" />
+		<PackageReference Include="BouncyCastle.Cryptography" />
 		<PackageReference Include="Castle.Core" />
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+		<PackageReference Include="NSwag.AspNetCore" />
+		<PackageReference Include="Scalar.AspNetCore" />
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" />
 		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" />
-		<PackageReference Include="Swashbuckle.AspNetCore" />
 	</ItemGroup>
 
 	<ItemGroup>

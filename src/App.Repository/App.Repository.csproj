@@ -9,7 +9,8 @@
 	<ItemGroup>
 		<PackageReference Include="Autofac" />
 		<PackageReference Include="Autofac.Extras.DynamicProxy" />
-		<PackageReference Include="Castle.Core"/>
+		<PackageReference Include="BouncyCastle.Cryptography" />
+		<PackageReference Include="Castle.Core" />
 		<PackageReference Include="Castle.Core.AsyncInterceptor" />
 		<PackageReference Include="FreeSql" />
 		<PackageReference Include="FreeSql.Cloud" />

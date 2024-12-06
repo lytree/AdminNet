@@ -11,6 +11,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="AngleSharp" />
+		<PackageReference Include="BouncyCastle.Cryptography" />
 		<PackageReference Include="Magicodes.IE.Excel" VersionOverride="2.7.5.2" />
 		<PackageReference Include="Magicodes.IE.Excel.AspNetCore" VersionOverride="2.7.5.2" />
 		<PackageReference Include="MimeKit" VersionOverride="4.8.0" />
