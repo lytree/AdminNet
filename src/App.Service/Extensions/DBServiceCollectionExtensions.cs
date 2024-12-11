@@ -28,7 +28,7 @@ public static class DBServiceCollectionExtensions
         var appConfig = AppInfo.GetOptions<AppConfig>();
         var user = services.BuildServiceProvider().GetService<IUser>();
         var freeSqlCloud = appConfig.DistributeKey.IsNull() ? new FreeSqlCloud() : new FreeSqlCloud(appConfig.DistributeKey);
-        DbHelper.RegisterDb(freeSqlCloud, user as App.Repository.User, appConfig, dbConfig, hostAppOptions);
+        DbHelper.RegisterDb(freeSqlCloud, user as User, appConfig, dbConfig, hostAppOptions);
 
         //运行主库
         var masterDb = freeSqlCloud.Use(dbConfig.Key);
@@ -40,7 +40,7 @@ public static class DBServiceCollectionExtensions
         {
             foreach (var db in dbConfig.Dbs)
             {
-                DbHelper.RegisterDb(freeSqlCloud, user as App.Repository.User, appConfig, dbConfig, null);
+                DbHelper.RegisterDb(freeSqlCloud, user as User, appConfig, dbConfig, null);
                 //运行当前库
                 var currentDb = freeSqlCloud.Use(db.Key);
                 currentDb.Select<object>();
