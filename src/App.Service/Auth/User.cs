@@ -20,7 +20,7 @@ namespace App.Repository;
 /// <summary>
 /// 用户信息
 /// </summary>
-public class User : IUser
+public class User : Server.Core.Auth.IUser
 {
     private readonly IHttpContextAccessor _accessor;
     private readonly AdminLocalizer _adminLocalizer;
@@ -224,6 +224,8 @@ public class User : IUser
     /// 用户权限
     /// </summary>
     public virtual UserGetPermissionOutput UserPermission => GetUserPermission();
+
+    UserPermissionDto Server.Core.Auth.IUser.UserPermission => throw new NotImplementedException();
 
     /// <summary>
     /// 检查用户是否拥有某个权限点
