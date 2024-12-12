@@ -1,5 +1,6 @@
 
 using App.Core.Configs;
+using App.Core.Dto;
 using App.Core.RegisterModules;
 using App.Core.Startup;
 using App.Repository;
@@ -11,6 +12,7 @@ using Autofac.Core;
 using Autofac.Extensions.DependencyInjection;
 using Client.WebApi.Middlewares;
 using Client.WebApi.Routes;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Scalar.AspNetCore;
 using System.Reflection;
@@ -96,7 +98,27 @@ namespace Client.WebApi
                 });
                 app.MapScalarApiReference();
             }
+            if (!app.Environment.IsDevelopment())
+            {
+                app.UseExceptionHandler(static appError =>
+                {
+                    appError.Run(static async context =>
+                    {
+                        context.Response.StatusCode = StatusCodes.Status200OK;
+                        context.Response.ContentType = "application/json";
 
+                        var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
+                        if (contextFeature != null)
+                        {
+                            // Log the exception somewhere
+                            // logger.LogError(contextFeature.Error, "Something went wrong");
+
+                            await context.Response.WriteAsync(ResultOutput.NotOk(contextFeature.Error.Message));
+                        }
+                    });
+                });
+                app.UseHsts();
+            }
 
 
 

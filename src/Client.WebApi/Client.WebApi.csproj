@@ -26,7 +26,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\plugins\Plugin.DynamicApi\Plugin.DynamicApi.csproj" />
 		<ProjectReference Include="..\App.Core\App.Core.csproj" />
 		<ProjectReference Include="..\App.Service\App.Service.csproj" />
 	</ItemGroup>
