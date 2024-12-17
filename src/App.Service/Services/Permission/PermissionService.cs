@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
-using App.Service.Resources;
+
 using App.Repository.Domain;
 using App.Core.Configs;
 using App.Service.Consts;
@@ -30,7 +30,7 @@ public class PermissionService : BaseService, IPermissionService
     private readonly Lazy<IRolePermissionRepository> _rolePermissionRep;
     private readonly Lazy<ITenantPermissionRepository> _tenantPermissionRep;
     private readonly Lazy<IUserRoleRepository> _userRoleRep;
-    private readonly AdminLocalizer _adminLocalizer;
+    
 
     public PermissionService(
         IPermissionRepository permissionRep,
@@ -41,7 +41,7 @@ public class PermissionService : BaseService, IPermissionService
         Lazy<IRolePermissionRepository> rolePermissionRep,
         Lazy<ITenantPermissionRepository> tenantPermissionRep,
         Lazy<IUserRoleRepository> userRoleRep,
-        AdminLocalizer adminLocalizer
+        
     )
     {
         _permissionRep = permissionRep;
@@ -52,7 +52,7 @@ public class PermissionService : BaseService, IPermissionService
         _rolePermissionRep = rolePermissionRep;
         _tenantPermissionRep = tenantPermissionRep;
         _userRoleRep = userRoleRep;
-        _adminLocalizer = adminLocalizer;
+        
     }
 
     /// <summary>
@@ -321,7 +321,7 @@ public class PermissionService : BaseService, IPermissionService
         var entity = await _permissionRep.GetAsync(input.Id);
         if (!(entity?.Id > 0))
         {
-            throw ResultOutput.Exception(_adminLocalizer["权限点不存在"]);
+            throw ResultOutput.Exception("权限点不存在"]);
         }
 
         Mapper.Map(input, entity);
@@ -394,7 +394,7 @@ public class PermissionService : BaseService, IPermissionService
         var exists = await _roleRep.Value.Select.DisableGlobalFilter(FilterNames.Tenant).WhereDynamic(input.RoleId).AnyAsync();
         if (!exists)
         {
-            throw ResultOutput.Exception(_adminLocalizer["该角色不存在或已被删除"]);
+            throw ResultOutput.Exception("该角色不存在或已被删除"]);
         }
 
         //查询角色权限

@@ -1,7 +1,7 @@
 ﻿using App.Core.Dto;
 using App.Repository.Domain;
 using App.Service.Attributes;
-using App.Service.Resources;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +16,12 @@ namespace App.Service.Services;
 public class ViewService : BaseService, IViewService
 {
     private readonly IViewRepository _viewRep;
-    private readonly AdminLocalizer _adminLocalizer;
+    
 
-    public ViewService(IViewRepository viewRep, AdminLocalizer adminLocalizer)
+    public ViewService(IViewRepository viewRep, )
     {
         _viewRep = viewRep;
-        _adminLocalizer = adminLocalizer;
+        
     }
 
     /// <summary>
@@ -79,7 +79,7 @@ public class ViewService : BaseService, IViewService
         var entity = await _viewRep.GetAsync(input.Id);
         if (!(entity?.Id > 0))
         {
-            throw ResultOutput.Exception(_adminLocalizer["视图不存在"]);
+            throw ResultOutput.Exception("视图不存在");
         }
 
         Mapper.Map(input, entity);

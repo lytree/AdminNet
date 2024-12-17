@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using App.Service.Resources;
+
 
 using App.Repository.Repositories;
 using App.Repository.Domain;
@@ -24,15 +24,15 @@ public class ApiService : BaseService, IApiService
 {
     private readonly AdminRepositoryBase<ApiEntity> _apiRep;
     private readonly Lazy<AppConfig> _appConfig;
-    private readonly AdminLocalizer _adminLocalizer;
+    
 
     public ApiService(AdminRepositoryBase<ApiEntity> apiRep, 
-        Lazy<AppConfig> appConfig,
-        AdminLocalizer adminLocalizer)
+        Lazy<AppConfig> appConfig
+        )
     {
         _apiRep = apiRep;
         _appConfig = appConfig;
-        _adminLocalizer = adminLocalizer;
+        
     }
 
     private async Task ClearCacheAsync()
@@ -141,7 +141,7 @@ public class ApiService : BaseService, IApiService
         var entity = await _apiRep.GetAsync(input.Id);
         if (!(entity?.Id > 0))
         {
-            throw ResultOutput.Exception(_adminLocalizer["接口不存在"]);
+            throw ResultOutput.Exception("接口不存在");
         }
 
         Mapper.Map(input, entity);

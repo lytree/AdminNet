@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using App.Repository.Domain;
 using App.Core.Configs;
 using App.Service.Helpers;
-using App.Service.Resources;
+
 using App.Core.Dto;
 using App.Repository.Consts;
 using App.Service.Consts;
@@ -43,7 +43,7 @@ public partial class UserService : BaseService, IUserService
     private readonly Lazy<ITenantRepository> _tenantRep;
     private readonly Lazy<IOrgRepository> _orgRep;
     private readonly Lazy<IPermissionRepository> _permissionRep;
-    private readonly AdminLocalizer _adminLocalizer;
+    
 
     public UserService(
         IUserRepository userRep,
@@ -61,7 +61,7 @@ public partial class UserService : BaseService, IUserService
         Lazy<ITenantRepository> tenantRep,
         Lazy<IOrgRepository> orgRep,
         Lazy<IPermissionRepository> permissionRep,
-        AdminLocalizer adminLocalizer
+        
     )
     {
         _appConfig = appConfig;
@@ -79,7 +79,7 @@ public partial class UserService : BaseService, IUserService
         _tenantRep = tenantRep;
         _orgRep = orgRep;
         _permissionRep = permissionRep;
-        _adminLocalizer = adminLocalizer;
+        
     }
 
     /// <summary>
@@ -300,14 +300,14 @@ public partial class UserService : BaseService, IUserService
     {
         if (!(User?.Id > 0))
         {
-            throw ResultOutput.Exception(_adminLocalizer["未登录"]);
+            throw ResultOutput.Exception("未登录"]);
         }
 
         var user = await _userRep.GetAsync<UserGetBasicOutput>(User.Id);
 
         if (user == null)
         {
-            throw ResultOutput.Exception(_adminLocalizer["用户不存在"]);
+            throw ResultOutput.Exception("用户不存在"]);
         }
 
         user.Mobile = DataMaskHelper.PhoneMask(user.Mobile);
@@ -414,17 +414,17 @@ public partial class UserService : BaseService, IUserService
         {
             if (existsUser.UserName == input.UserName)
             {
-                throw ResultOutput.Exception(_adminLocalizer["账号已存在"]);
+                throw ResultOutput.Exception("账号已存在"]);
             }
 
             if (input.Mobile.NotNull() && existsUser.Mobile == input.Mobile)
             {
-                throw ResultOutput.Exception(_adminLocalizer["手机号已存在"]);
+                throw ResultOutput.Exception("手机号已存在"]);
             }
 
             if (input.Email.NotNull() && existsUser.Email == input.Email)
             {
-                throw ResultOutput.Exception(_adminLocalizer["邮箱已存在"]);
+                throw ResultOutput.Exception("邮箱已存在"]);
             }
         }
 
@@ -484,7 +484,7 @@ public partial class UserService : BaseService, IUserService
     {
         if (input.Id == input.ManagerUserId)
         {
-            throw ResultOutput.Exception(_adminLocalizer["直属主管不能是自己"]);
+            throw ResultOutput.Exception("直属主管不能是自己"]);
         }
 
         using var _ = _userRep.DataFilter.DisableAll();
@@ -500,24 +500,24 @@ public partial class UserService : BaseService, IUserService
         {
             if (existsUser.UserName == input.UserName)
             {
-                throw ResultOutput.Exception(_adminLocalizer["账号已存在"]);
+                throw ResultOutput.Exception("账号已存在"]);
             }
 
             if (input.Mobile.NotNull() && existsUser.Mobile == input.Mobile)
             {
-                throw ResultOutput.Exception(_adminLocalizer["手机号已存在"]);
+                throw ResultOutput.Exception("手机号已存在"]);
             }
 
             if (input.Email.NotNull() && existsUser.Email == input.Email)
             {
-                throw ResultOutput.Exception(_adminLocalizer["邮箱已存在"]);
+                throw ResultOutput.Exception("邮箱已存在"]);
             }
         }
 
         var user = await _userRep.GetAsync(input.Id);
         if (!(user?.Id > 0))
         {
-            throw ResultOutput.Exception(_adminLocalizer["用户不存在"]);
+            throw ResultOutput.Exception("用户不存在"]);
         }
 
         Mapper.Map(input, user);
@@ -601,17 +601,17 @@ public partial class UserService : BaseService, IUserService
         {
             if (existsUser.UserName == input.UserName)
             {
-                throw ResultOutput.Exception(_adminLocalizer["账号已存在"]);
+                throw ResultOutput.Exception("账号已存在"]);
             }
 
             if (input.Mobile.NotNull() && existsUser.Mobile == input.Mobile)
             {
-                throw ResultOutput.Exception(_adminLocalizer["手机号已存在"]);
+                throw ResultOutput.Exception("手机号已存在"]);
             }
 
             if (input.Email.NotNull() && existsUser.Email == input.Email)
             {
-                throw ResultOutput.Exception(_adminLocalizer["邮箱已存在"]);
+                throw ResultOutput.Exception("邮箱已存在"]);
             }
         }
 
@@ -654,24 +654,24 @@ public partial class UserService : BaseService, IUserService
         {
             if (existsUser.UserName == input.UserName)
             {
-                throw ResultOutput.Exception(_adminLocalizer["账号已存在"]);
+                throw ResultOutput.Exception("账号已存在"]);
             }
 
             if (input.Mobile.NotNull() && existsUser.Mobile == input.Mobile)
             {
-                throw ResultOutput.Exception(_adminLocalizer["手机号已存在"]);
+                throw ResultOutput.Exception("手机号已存在"]);
             }
 
             if (input.Email.NotNull() && existsUser.Email == input.Email)
             {
-                throw ResultOutput.Exception(_adminLocalizer["邮箱已存在"]);
+                throw ResultOutput.Exception("邮箱已存在"]);
             }
         }
 
         var user = await _userRep.GetAsync(input.Id);
         if (!(user?.Id > 0))
         {
-            throw ResultOutput.Exception(_adminLocalizer["用户不存在"]);
+            throw ResultOutput.Exception("用户不存在"]);
         }
 
         Mapper.Map(input, user);
@@ -701,7 +701,7 @@ public partial class UserService : BaseService, IUserService
     {
         if (input.ConfirmPassword != input.NewPassword)
         {
-            throw ResultOutput.Exception(_adminLocalizer["新密码和确认密码不一致"]);
+            throw ResultOutput.Exception("新密码和确认密码不一致"]);
         }
 
         _userHelper.CheckPassword(input.NewPassword);
@@ -710,7 +710,7 @@ public partial class UserService : BaseService, IUserService
         var oldPassword = Helper.MD5Encrypt32(input.OldPassword);
         if (oldPassword != entity.Password)
         {
-            throw ResultOutput.Exception(_adminLocalizer["旧密码不正确"]);
+            throw ResultOutput.Exception("旧密码不正确"]);
         }
 
         if (entity.PasswordEncryptType == PasswordEncryptType.PasswordHasher)
@@ -781,11 +781,11 @@ public partial class UserService : BaseService, IUserService
         var entity = await _userRep.GetAsync(input.UserId);
         if (entity.Type == UserType.PlatformAdmin)
         {
-            throw ResultOutput.Exception(_adminLocalizer["平台管理员禁止禁用"]);
+            throw ResultOutput.Exception("平台管理员禁止禁用"]);
         }
         if (entity.Type == UserType.TenantAdmin)
         {
-            throw ResultOutput.Exception(_adminLocalizer["企业管理员禁止禁用"]);
+            throw ResultOutput.Exception("企业管理员禁止禁用"]);
         }
         entity.Enabled = input.Enabled;
         await _userRep.UpdateAsync(entity);
@@ -802,17 +802,17 @@ public partial class UserService : BaseService, IUserService
         var user = await _userRep.Select.WhereDynamic(id).ToOneAsync(a => new { a.Type });
         if (user == null)
         {
-            throw ResultOutput.Exception(_adminLocalizer["用户不存在"]);
+            throw ResultOutput.Exception("用户不存在"]);
         }
 
         if (user.Type == UserType.PlatformAdmin)
         {
-            throw ResultOutput.Exception(_adminLocalizer["平台管理员禁止删除"]);
+            throw ResultOutput.Exception("平台管理员禁止删除"]);
         }
 
         if (user.Type == UserType.TenantAdmin)
         {
-            throw ResultOutput.Exception(_adminLocalizer["企业管理员禁止删除"]);
+            throw ResultOutput.Exception("企业管理员禁止删除"]);
         }
 
         //删除用户角色
@@ -841,7 +841,7 @@ public partial class UserService : BaseService, IUserService
 
         if (admin)
         {
-            throw ResultOutput.Exception(_adminLocalizer["平台管理员禁止删除"]);
+            throw ResultOutput.Exception("平台管理员禁止删除"]);
         }
 
         //删除用户角色
@@ -870,12 +870,12 @@ public partial class UserService : BaseService, IUserService
         var user = await _userRep.Select.WhereDynamic(id).ToOneAsync(a => new { a.Type });
         if (user == null)
         {
-            throw ResultOutput.Exception(_adminLocalizer["用户不存在"]);
+            throw ResultOutput.Exception("用户不存在"]);
         }
 
         if (user.Type == UserType.PlatformAdmin || user.Type == UserType.TenantAdmin)
         {
-            throw ResultOutput.Exception(_adminLocalizer["平台管理员禁止删除"]);
+            throw ResultOutput.Exception("平台管理员禁止删除"]);
         }
 
         //await _userRoleRep.DeleteAsync(a => a.UserId == id);
@@ -899,7 +899,7 @@ public partial class UserService : BaseService, IUserService
 
         if (admin)
         {
-            throw ResultOutput.Exception(_adminLocalizer["平台管理员禁止删除"]);
+            throw ResultOutput.Exception("平台管理员禁止删除"]);
         }
 
         //await _userRoleRep.DeleteAsync(a => ids.Contains(a.UserId));
@@ -942,7 +942,7 @@ public partial class UserService : BaseService, IUserService
     {
         if (userName.IsNull())
         {
-            throw ResultOutput.Exception(_adminLocalizer["请选择用户"]);
+            throw ResultOutput.Exception("请选择用户"]);
         }
 
         var userRep = _userRep;
@@ -953,7 +953,7 @@ public partial class UserService : BaseService, IUserService
 
         if (user == null)
         {
-            throw ResultOutput.Exception(_adminLocalizer["用户不存在"]);
+            throw ResultOutput.Exception("用户不存在"]);
         }
 
         var authLoginOutput = Mapper.Map<AuthLoginOutput>(user);

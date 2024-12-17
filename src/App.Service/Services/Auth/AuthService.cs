@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Security.Claims;
 using System.Text;
-using App.Service.Resources;
+
 using App.Core.Configs;
 using App.Repository.Domain;
 using App.Core.Records;
@@ -40,7 +40,7 @@ public class AuthService : BaseService, IAuthService
     private readonly Lazy<ISlideCaptcha> _captcha;
     private readonly Lazy<ITenantService> _tenantService;
     private readonly UserHelper _userHelper;
-    private readonly AdminLocalizer _adminLocalizer;
+    
     private readonly ILoginLogService _loginLogService;
 
     public AuthService(
@@ -53,7 +53,7 @@ public class AuthService : BaseService, IAuthService
         Lazy<ISlideCaptcha> captcha,
         Lazy<ITenantService> tenantService,
         UserHelper userHelper,
-        AdminLocalizer adminLocalizer,
+        ,
         ILoginLogService loginLogService
     )
     {
@@ -66,7 +66,7 @@ public class AuthService : BaseService, IAuthService
         _captcha = captcha;
         _tenantService = tenantService;
         _userHelper = userHelper;
-        _adminLocalizer = adminLocalizer;
+        
         _loginLogService = loginLogService;
     }
 
@@ -215,7 +215,7 @@ public class AuthService : BaseService, IAuthService
     {
         if (!(User?.Id > 0))
         {
-            throw ResultOutput.Exception(_adminLocalizer["未登录"]);
+            throw ResultOutput.Exception("未登录"]);
         }
 
         var userRep = _userRep.Value;
@@ -257,7 +257,7 @@ public class AuthService : BaseService, IAuthService
     {
         if (!(User?.Id > 0))
         {
-            throw ResultOutput.Exception(_adminLocalizer["未登录"]);
+            throw ResultOutput.Exception("未登录"]);
         }
 
         using (_userRep.Value.DataFilter.Disable(FilterNames.Self, FilterNames.Data))
@@ -311,7 +311,7 @@ public class AuthService : BaseService, IAuthService
     {
         if (!(User?.Id > 0))
         {
-            throw ResultOutput.Exception(_adminLocalizer["未登录"]);
+            throw ResultOutput.Exception("未登录"]);
         }
 
         var userRep = _userRep.Value;
@@ -365,7 +365,7 @@ public class AuthService : BaseService, IAuthService
     {
         if (!(User?.Id > 0))
         {
-            throw ResultOutput.Exception(_adminLocalizer["未登录"]);
+            throw ResultOutput.Exception("未登录"]);
         }
 
         var userRep = _userRep.Value;
@@ -480,12 +480,12 @@ public class AuthService : BaseService, IAuthService
             {
                 if (input.CaptchaId.IsNull() || input.CaptchaData.IsNull())
                 {
-                    throw ResultOutput.Exception(_adminLocalizer["请完成安全验证"]);
+                    throw ResultOutput.Exception("请完成安全验证"]);
                 }
                 var validateResult = _captcha.Value.Validate(input.CaptchaId, JsonConvert.DeserializeObject<SlideTrack>(input.CaptchaData));
                 if (validateResult.Result != ValidateResultType.Success)
                 {
-                    throw ResultOutput.Exception(_adminLocalizer["安全{0}，请重新登录", validateResult.Message]);
+                    throw ResultOutput.Exception("安全{0}，请重新登录", validateResult.Message]);
                 }
             }
 
@@ -502,14 +502,14 @@ public class AuthService : BaseService, IAuthService
                     var secretKey = await Cache.GetAsync<AuthGetPasswordEncryptKeyOutput>(passwordEncryptKey);
                     if (secretKey.EncryptKey.IsNull())
                     {
-                        throw ResultOutput.Exception(_adminLocalizer["解密失败"]);
+                        throw ResultOutput.Exception("解密失败"]);
                     }
                     input.Password = Helper.SM4Decrypt(input.Password, Hex.Decode(secretKey.EncryptKey), Hex.Decode(secretKey.Iv), "CBC", true).TrimEnd('\0');//SM4解密后会有\0符号，需要去除。
                     await Cache.DelAsync(passwordEncryptKey);
                 }
                 else
                 {
-                    throw ResultOutput.Exception(_adminLocalizer["解密失败"]);
+                    throw ResultOutput.Exception("解密失败"]);
                 }
             }
 
@@ -527,7 +527,7 @@ public class AuthService : BaseService, IAuthService
                     {
                         if (input.UserName.IsNull())
                         {
-                            throw ResultOutput.Exception(_adminLocalizer["请输入账号"]);
+                            throw ResultOutput.Exception("请输入账号"]);
                         }
                         user = await userRep.Select.Where(a => a.UserName == input.UserName).ToOneAsync();
                         break;
@@ -537,7 +537,7 @@ public class AuthService : BaseService, IAuthService
                     {
                         if (input.Mobile.IsNull())
                         {
-                            throw ResultOutput.Exception(_adminLocalizer["请输入手机号"]);
+                            throw ResultOutput.Exception("请输入手机号"]);
                         }
                         user = await userRep.Select.Where(a => a.Mobile == input.Mobile).ToOneAsync();
                         break;
@@ -547,7 +547,7 @@ public class AuthService : BaseService, IAuthService
                     {
                         if (input.Email.IsNull())
                         {
-                            throw ResultOutput.Exception(_adminLocalizer["请输入邮箱地址"]);
+                            throw ResultOutput.Exception("请输入邮箱地址"]);
                         }
                         user = await userRep.Select.Where(a => a.Email == input.Email).ToOneAsync();
                         break;
@@ -557,7 +557,7 @@ public class AuthService : BaseService, IAuthService
             var valid = user?.Id > 0;
             if (!valid)
             {
-                throw ResultOutput.Exception(_adminLocalizer["账号不存在"]);
+                throw ResultOutput.Exception("账号不存在"]);
             }
 
             if (valid)
@@ -576,12 +576,12 @@ public class AuthService : BaseService, IAuthService
 
             if (!valid)
             {
-                throw ResultOutput.Exception(_adminLocalizer["账号或密码错误"]);
+                throw ResultOutput.Exception("账号或密码错误"]);
             }
 
             if (!user.Enabled)
             {
-                throw ResultOutput.Exception(_adminLocalizer["账号已停用，禁止登录"]);
+                throw ResultOutput.Exception("账号已停用，禁止登录"]);
             }
             #endregion
 
@@ -597,7 +597,7 @@ public class AuthService : BaseService, IAuthService
                 var tenant = await _tenantRep.Value.Select.WhereDynamic(user.TenantId).ToOneAsync<AuthLoginTenantDto>();
                 if (!(tenant != null && tenant.Enabled))
                 {
-                    throw ResultOutput.Exception(_adminLocalizer["企业已停用，禁止登录"]);
+                    throw ResultOutput.Exception("企业已停用，禁止登录"]);
                 }
                 authLoginOutput.Tenant = tenant;
             }
@@ -663,18 +663,18 @@ public class AuthService : BaseService, IAuthService
             #region 短信验证码验证
             if (input.CodeId.IsNull() || input.Code.IsNull())
             {
-                throw ResultOutput.Exception(_adminLocalizer["验证码错误"]);
+                throw ResultOutput.Exception("验证码错误"]);
             }
             var codeKey = CacheKeys.GetSmsCodeKey(input.Mobile, input.CodeId);
             var code = await Cache.GetAsync(codeKey);
             if (code.IsNull())
             {
-                throw ResultOutput.Exception(_adminLocalizer["验证码错误"]);
+                throw ResultOutput.Exception("验证码错误"]);
             }
             await Cache.DelAsync(codeKey);
             if (code != input.Code)
             {
-                throw ResultOutput.Exception(_adminLocalizer["验证码错误"]);
+                throw ResultOutput.Exception("验证码错误"]);
             }
 
             #endregion
@@ -683,12 +683,12 @@ public class AuthService : BaseService, IAuthService
             var user = await userRep.Select.Where(a => a.Mobile == input.Mobile).ToOneAsync();
             if (!(user?.Id > 0))
             {
-                throw ResultOutput.Exception(_adminLocalizer["账号不存在"]);
+                throw ResultOutput.Exception("账号不存在"]);
             }
 
             if (!user.Enabled)
             {
-                throw ResultOutput.Exception(_adminLocalizer["账号已停用，禁止登录"]);
+                throw ResultOutput.Exception("账号已停用，禁止登录"]);
             }
             #endregion
 
@@ -704,7 +704,7 @@ public class AuthService : BaseService, IAuthService
                 var tenant = await _tenantRep.Value.Select.WhereDynamic(user.TenantId).ToOneAsync<AuthLoginTenantDto>();
                 if (!(tenant != null && tenant.Enabled))
                 {
-                    throw ResultOutput.Exception(_adminLocalizer["企业已停用，禁止登录"]);
+                    throw ResultOutput.Exception("企业已停用，禁止登录"]);
                 }
                 authLoginOutput.Tenant = tenant;
             }
@@ -773,18 +773,18 @@ public class AuthService : BaseService, IAuthService
             #region 邮箱验证码验证
             if (input.CodeId.IsNull() || input.Code.IsNull())
             {
-                throw ResultOutput.Exception(_adminLocalizer["验证码错误"]);
+                throw ResultOutput.Exception("验证码错误"]);
             }
             var codeKey = CacheKeys.GetEmailCodeKey(input.Email, input.CodeId);
             var code = await Cache.GetAsync(codeKey);
             if (code.IsNull())
             {
-                throw ResultOutput.Exception(_adminLocalizer["验证码错误"]);
+                throw ResultOutput.Exception("验证码错误"]);
             }
             await Cache.DelAsync(codeKey);
             if (code != input.Code)
             {
-                throw ResultOutput.Exception(_adminLocalizer["验证码错误"]);
+                throw ResultOutput.Exception("验证码错误"]);
             }
 
             #endregion
@@ -793,12 +793,12 @@ public class AuthService : BaseService, IAuthService
             var user = await userRep.Select.Where(a => a.Email == input.Email).ToOneAsync();
             if (!(user?.Id > 0))
             {
-                throw ResultOutput.Exception(_adminLocalizer["账号不存在"]);
+                throw ResultOutput.Exception("账号不存在"]);
             }
 
             if (!user.Enabled)
             {
-                throw ResultOutput.Exception(_adminLocalizer["账号已停用，禁止登录"]);
+                throw ResultOutput.Exception("账号已停用，禁止登录"]);
             }
             #endregion
 
@@ -814,7 +814,7 @@ public class AuthService : BaseService, IAuthService
                 var tenant = await _tenantRep.Value.Select.WhereDynamic(user.TenantId).ToOneAsync<AuthLoginTenantDto>();
                 if (!(tenant != null && tenant.Enabled))
                 {
-                    throw ResultOutput.Exception(_adminLocalizer["企业已停用，禁止登录"]);
+                    throw ResultOutput.Exception("企业已停用，禁止登录"]);
                 }
                 authLoginOutput.Tenant = tenant;
             }
@@ -860,7 +860,7 @@ public class AuthService : BaseService, IAuthService
     {
         if (input.ConfirmPassword.NotNull() && input.ConfirmPassword != input.NewPassword)
         {
-            throw ResultOutput.Exception(_adminLocalizer["新密码和确认密码不一致"]);
+            throw ResultOutput.Exception("新密码和确认密码不一致"]);
         }
 
         //检查密码格式
@@ -870,23 +870,23 @@ public class AuthService : BaseService, IAuthService
 
         if (input.Email.IsNull())
         {
-            throw ResultOutput.Exception(_adminLocalizer["请输入邮箱地址"]);
+            throw ResultOutput.Exception("请输入邮箱地址"]);
         }
 
         if (input.CodeId.IsNull() || input.Code.IsNull())
         {
-            throw ResultOutput.Exception(_adminLocalizer["验证码错误"]);
+            throw ResultOutput.Exception("验证码错误"]);
         }
         var codeKey = CacheKeys.GetEmailCodeKey(input.Email, input.CodeId);
         var code = await Cache.GetAsync(codeKey);
         if (code.IsNull())
         {
-            throw ResultOutput.Exception(_adminLocalizer["验证码错误"]);
+            throw ResultOutput.Exception("验证码错误"]);
         }
         await Cache.DelAsync(codeKey);
         if (code != input.Code)
         {
-            throw ResultOutput.Exception(_adminLocalizer["验证码错误"]);
+            throw ResultOutput.Exception("验证码错误"]);
         }
 
         #endregion
@@ -899,7 +899,7 @@ public class AuthService : BaseService, IAuthService
 
         if (user == null)
         {
-            throw ResultOutput.Exception(_adminLocalizer["账号不存在"]);
+            throw ResultOutput.Exception("账号不存在"]);
         }
 
         if (user.PasswordEncryptType == PasswordEncryptType.PasswordHasher)
@@ -926,7 +926,7 @@ public class AuthService : BaseService, IAuthService
     {
         if (input.ConfirmPassword.NotNull() && input.ConfirmPassword != input.NewPassword)
         {
-            throw ResultOutput.Exception(_adminLocalizer["新密码和确认密码不一致"]);
+            throw ResultOutput.Exception("新密码和确认密码不一致"]);
         }
 
         //检查密码格式
@@ -936,23 +936,23 @@ public class AuthService : BaseService, IAuthService
 
         if (input.Mobile.IsNull())
         {
-            throw ResultOutput.Exception(_adminLocalizer["请输入手机号"]);
+            throw ResultOutput.Exception("请输入手机号"]);
         }
 
         if (input.CodeId.IsNull() || input.Code.IsNull())
         {
-            throw ResultOutput.Exception(_adminLocalizer["验证码错误"]);
+            throw ResultOutput.Exception("验证码错误"]);
         }
         var codeKey = CacheKeys.GetSmsCodeKey(input.Mobile, input.CodeId);
         var code = await Cache.GetAsync(codeKey);
         if (code.IsNull())
         {
-            throw ResultOutput.Exception(_adminLocalizer["验证码错误"]);
+            throw ResultOutput.Exception("验证码错误"]);
         }
         await Cache.DelAsync(codeKey);
         if (code != input.Code)
         {
-            throw ResultOutput.Exception(_adminLocalizer["验证码错误"]);
+            throw ResultOutput.Exception("验证码错误"]);
         }
 
         #endregion
@@ -965,7 +965,7 @@ public class AuthService : BaseService, IAuthService
 
         if (user == null)
         {
-            throw ResultOutput.Exception(_adminLocalizer["账号不存在"]);
+            throw ResultOutput.Exception("账号不存在"]);
         }
 
         if (user.PasswordEncryptType == PasswordEncryptType.PasswordHasher)
@@ -1000,23 +1000,23 @@ public class AuthService : BaseService, IAuthService
 
         if (input.Email.IsNull())
         {
-            throw ResultOutput.Exception(_adminLocalizer["请输入邮箱地址"]);
+            throw ResultOutput.Exception("请输入邮箱地址"]);
         }
 
         if (input.CodeId.IsNull() || input.Code.IsNull())
         {
-            throw ResultOutput.Exception(_adminLocalizer["验证码错误"]);
+            throw ResultOutput.Exception("验证码错误"]);
         }
         var codeKey = CacheKeys.GetEmailCodeKey(input.Email, input.CodeId);
         var code = await Cache.GetAsync(codeKey);
         if (code.IsNull())
         {
-            throw ResultOutput.Exception(_adminLocalizer["验证码错误"]);
+            throw ResultOutput.Exception("验证码错误"]);
         }
         await Cache.DelAsync(codeKey);
         if (code != input.Code)
         {
-            throw ResultOutput.Exception(_adminLocalizer["验证码错误"]);
+            throw ResultOutput.Exception("验证码错误"]);
         }
 
         #endregion
@@ -1051,23 +1051,23 @@ public class AuthService : BaseService, IAuthService
 
         if (input.Mobile.IsNull())
         {
-            throw ResultOutput.Exception(_adminLocalizer["请输入手机号"]);
+            throw ResultOutput.Exception("请输入手机号"]);
         }
 
         if (input.CodeId.IsNull() || input.Code.IsNull())
         {
-            throw ResultOutput.Exception(_adminLocalizer["验证码错误"]);
+            throw ResultOutput.Exception("验证码错误"]);
         }
         var codeKey = CacheKeys.GetSmsCodeKey(input.Mobile, input.CodeId);
         var code = await Cache.GetAsync(codeKey);
         if (code.IsNull())
         {
-            throw ResultOutput.Exception(_adminLocalizer["验证码错误"]);
+            throw ResultOutput.Exception("验证码错误"]);
         }
         await Cache.DelAsync(codeKey);
         if (code != input.Code)
         {
-            throw ResultOutput.Exception(_adminLocalizer["验证码错误"]);
+            throw ResultOutput.Exception("验证码错误"]);
         }
 
         #endregion
@@ -1096,19 +1096,19 @@ public class AuthService : BaseService, IAuthService
         var userClaims = jwtSecurityToken?.Claims?.ToArray();
         if (userClaims == null || userClaims.Length == 0)
         {
-            throw ResultOutput.Exception(_adminLocalizer["无法解析token"]);
+            throw ResultOutput.Exception("无法解析token"]);
         }
 
         var refreshExpires = userClaims.FirstOrDefault(a => a.Type == ClaimAttributes.RefreshExpires)?.Value;
         if (refreshExpires.IsNull() || refreshExpires.ConvertTo<long>() <= DateTime.Now.ToMilliseconds())
         {
-            throw ResultOutput.Exception(_adminLocalizer["登录信息已过期"]);
+            throw ResultOutput.Exception("登录信息已过期"]);
         }
 
         var userId = userClaims.FirstOrDefault(a => a.Type == ClaimAttributes.UserId)?.Value;
         if (userId.IsNull())
         {
-            throw ResultOutput.Exception(_adminLocalizer["登录信息已失效"]);
+            throw ResultOutput.Exception("登录信息已失效"]);
         }
 
         //验签
@@ -1117,24 +1117,24 @@ public class AuthService : BaseService, IAuthService
         var input = jwtSecurityToken.RawHeader + "." + jwtSecurityToken.RawPayload;
         if (jwtSecurityToken.RawSignature != JwtTokenUtilities.CreateEncodedSignature(input, signingCredentials))
         {
-            throw ResultOutput.Exception(_adminLocalizer["验签失败"]);
+            throw ResultOutput.Exception("验签失败"]);
         }
 
         var user = await LazyGetRequiredService<IUserService>().GetLoginUserAsync(userId.ConvertTo<long>());
         if(!(user?.Id > 0))
         {
-            throw ResultOutput.Exception(_adminLocalizer["账号不存在"]);
+            throw ResultOutput.Exception("账号不存在"]);
         }
         if (!user.Enabled)
         {
-            throw ResultOutput.Exception(_adminLocalizer["账号已停用，禁止登录"]);
+            throw ResultOutput.Exception("账号已停用，禁止登录"]);
         }
 
         if (_appConfig.Value.Value.Tenant)
         {
             if (!(user.Tenant != null && user.Tenant.Enabled))
             {
-                throw ResultOutput.Exception(_adminLocalizer["企业已停用，禁止登录"]);
+                throw ResultOutput.Exception("企业已停用，禁止登录"]);
             }
         }
 

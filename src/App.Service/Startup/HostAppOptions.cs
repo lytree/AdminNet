@@ -80,17 +80,6 @@ public class HostAppOptions
     /// </summary>
     public Action<IFreeSql, DbConfig> ConfigureFreeSql { get; set; }
 
-
-    ///// <summary>
-    ///// 配置动态Api
-    ///// </summary>
-    //public Action<DynamicApiOptions> ConfigureDynamicApi { get; set; }
-
-    /// <summary>
-    /// 配置SwaggerUI
-    /// </summary>
-    //public Action<SwaggerUIOptions> ConfigureSwaggerUI { get; set; }
-
     /// <summary>
     /// 配置雪花漂移算法
     /// </summary>

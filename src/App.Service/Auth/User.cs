@@ -2,7 +2,6 @@
 using App.Repository.Domain;
 using App.Service.Auth;
 using App.Service.Consts;
-using App.Service.Resources;
 using App.Service.Services;
 using App.Service.Tools.Cache;
 using Framework.Repository;
@@ -23,12 +22,10 @@ namespace App.Repository;
 public class User : Server.Core.Auth.IUser
 {
     private readonly IHttpContextAccessor _accessor;
-    private readonly AdminLocalizer _adminLocalizer;
 
-    public User(IHttpContextAccessor accessor, AdminLocalizer adminLocalizer)
+    public User(IHttpContextAccessor accessor)
     {
         _accessor = accessor;
-        _adminLocalizer = adminLocalizer;
     }
 
     /// <summary>
@@ -236,7 +233,7 @@ public class User : Server.Core.Auth.IUser
     {
         if (permissionCode.IsNull())
         {
-            throw new AppException(_adminLocalizer["权限点编码不能为空"]);
+            throw new AppException("权限点编码不能为空");
         }
 
         return HasPermissions([permissionCode]);
@@ -252,7 +249,7 @@ public class User : Server.Core.Auth.IUser
     {
         if (!(permissionCodes?.Length > 0))
         {
-            throw new AppException(_adminLocalizer["权限点编码列表不能为空"]);
+            throw new AppException("权限点编码列表不能为空");
         }
 
         if (PlatformAdmin)

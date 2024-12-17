@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using App.Service.Resources;
+
 using App.Repository.Domain;
 using Framework.OSS.Interface;
 using App.Core.Configs;
@@ -29,21 +29,21 @@ public class FileService : BaseService, IFileService
     private readonly IOSSServiceFactory _oSSServiceFactory;
     private readonly OSSConfig _oSSConfig;
     private readonly IHttpContextAccessor _httpContextAccessor;
-    private readonly AdminLocalizer _adminLocalizer;
+    
 
     public FileService(
         IFileRepository fileRep,
         IOSSServiceFactory oSSServiceFactory,
         IOptions<OSSConfig> oSSConfig,
         IHttpContextAccessor httpContextAccessor,
-        AdminLocalizer adminLocalizer
+        
     )
     {
         _fileRep = fileRep;
         _oSSServiceFactory = oSSServiceFactory;
         _oSSConfig = oSSConfig.Value;
         _httpContextAccessor = httpContextAccessor;
-        _adminLocalizer = adminLocalizer;
+        
     }
 
     /// <summary>
@@ -130,18 +130,18 @@ public class FileService : BaseService, IFileService
         var hasIncludeExtension = localUploadConfig.IncludeExtension?.Length > 0;
         if (hasIncludeExtension && !localUploadConfig.IncludeExtension.Contains(extention))
         {
-            throw new Exception(_adminLocalizer["不允许上传{0}文件格式", extention]);
+            throw new Exception("不允许上传{0}文件格式", extention]);
         }
         var hasExcludeExtension = localUploadConfig.ExcludeExtension?.Length > 0;
         if (hasExcludeExtension && localUploadConfig.ExcludeExtension.Contains(extention))
         {
-            throw new Exception(_adminLocalizer["不允许上传{0}文件格式", extention]);
+            throw new Exception("不允许上传{0}文件格式", extention]);
         }
 
         var fileLenth = file.Length;
         if (fileLenth > localUploadConfig.MaxSize)
         {
-            throw new Exception(_adminLocalizer["文件大小不能超过{0}", new FileSize(localUploadConfig.MaxSize)]);
+            throw new Exception("文件大小不能超过{0}", new FileSize(localUploadConfig.MaxSize)]);
         }
 
         var oSSOptions = _oSSConfig.OSSConfigs.Where(a => a.Enable && a.Provider == _oSSConfig.Provider).FirstOrDefault();
@@ -216,7 +216,7 @@ public class FileService : BaseService, IFileService
 
                 if (url.IsNull())
                 {
-                    throw ResultOutput.Exception(_adminLocalizer["请配置{0}的Url参数", oSSOptions.Provider]);
+                    throw ResultOutput.Exception("请配置{0}的Url参数", oSSOptions.Provider]);
                 }
 
                 var urlProtocol = oSSOptions.IsEnableHttps ? "https" : "http";

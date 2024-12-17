@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Mapster;
 using FreeScheduler;
 using App.Repository.Repositories;
-using App.Service.Resources;
+
 using App.Core.Dto;
 using App.Repository.Domain;
 
@@ -20,18 +20,18 @@ public class TaskService : BaseService, ITaskService
     private readonly Scheduler _scheduler;
     private readonly ITaskRepository _taskRepository;
     private readonly ITaskExtRepository _taskExtRepository;
-    private readonly AdminLocalizer _adminLocalizer;
+    
 
     public TaskService(Scheduler scheduler,
         ITaskRepository taskRepository,
         ITaskExtRepository taskExtRepository,
-        AdminLocalizer adminLocalizer
+        
     )
     {
         _scheduler = scheduler;
         _taskRepository = taskRepository;
         _taskExtRepository = taskExtRepository;
-        _adminLocalizer = adminLocalizer;
+        
     }
 
     /// <summary>
@@ -55,7 +55,7 @@ public class TaskService : BaseService, ITaskService
 
         if (taskInfo == null)
         {
-            throw ResultOutput.Exception(_adminLocalizer["任务不存在"]);
+            throw ResultOutput.Exception("任务不存在"]);
         }
 
         var taskGetOutput = taskInfo.Adapt<TaskGetOutput>();
@@ -137,7 +137,7 @@ public class TaskService : BaseService, ITaskService
     {
         if (input.IntervalArgument.IsNull())
         {
-            throw ResultOutput.Exception(_adminLocalizer["请输入定时参数"]);
+            throw ResultOutput.Exception("请输入定时参数"]);
         }
 
         var scheduler = _scheduler;
@@ -172,7 +172,7 @@ public class TaskService : BaseService, ITaskService
         var entity = await _taskRepository.GetAsync(a => a.Id == input.Id);
         if (entity == null)
         {
-            throw ResultOutput.Exception(_adminLocalizer["任务不存在"]);
+            throw ResultOutput.Exception("任务不存在"]);
         }
 
         if (entity.Status == FreeScheduler.TaskStatus.Running)

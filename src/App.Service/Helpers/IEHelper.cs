@@ -2,7 +2,6 @@
 using Magicodes.ExporterAndImporter.Excel;
 using Microsoft.AspNetCore.Mvc;
 using App.Core.Attributes;
-using App.Service.Resources;
 using Server.Core.Auth;
 using App.Service.Tools.Cache;
 using App.Service.Consts;
@@ -20,15 +19,13 @@ namespace App.Service.Helpers;
 [InjectSingleton]
 public class IEHelper
 {
-    private readonly AdminLocalizer _adminLocalizer;
     private readonly IUser _user;
     private readonly ICacheTool _cache;
 
-    public IEHelper(AdminLocalizer adminLocalizer,
+    public IEHelper(
         IUser user,
         ICacheTool cache)
     {
-        _adminLocalizer = adminLocalizer;
         _user = user;
         _cache = cache;
     }
@@ -59,12 +56,12 @@ public class IEHelper
         await _cache.DelAsync(excelErrorMarkKey);
         if (fileStream == null)
         {
-            throw ResultOutput.Exception(_adminLocalizer["请重新导入数据，再下载错误标记文件"], statusCode: 500);
+            throw ResultOutput.Exception("请重新导入数据，再下载错误标记文件", statusCode: 500);
         }
 
         if (fileName.IsNull())
         {
-            fileName = _adminLocalizer["错误标记文件{0}.xlsx", DateTime.Now.ToString("yyyyMMddHHmmss")];
+            fileName = $"错误标记文件{DateTime.Now.ToString("yyyyMMddHHmmss")}.xlsx";
         }
 
         return new XlsxFileResult(fileStream, fileName);
@@ -84,7 +81,7 @@ public class IEHelper
 
         if (fileName.IsNull())
         {
-            fileName = _adminLocalizer["数据列表{0}.xlsx", DateTime.Now.ToString("yyyyMMddHHmmss")];
+            fileName = $"数据列表{DateTime.Now.ToString("yyyyMMddHHmmss")}.xlsx";
         }
 
         return new XlsxFileResult(result, fileName);
