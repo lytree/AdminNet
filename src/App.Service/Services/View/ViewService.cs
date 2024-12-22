@@ -18,7 +18,7 @@ public class ViewService : BaseService, IViewService
     private readonly IViewRepository _viewRep;
     
 
-    public ViewService(IViewRepository viewRep, )
+    public ViewService(IViewRepository viewRep )
     {
         _viewRep = viewRep;
         

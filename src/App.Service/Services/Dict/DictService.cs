@@ -325,17 +325,17 @@ public class DictService : BaseService, IDictService
     {
         if (await _dictRep.Select.AnyAsync(a => a.DictTypeId == input.DictTypeId && a.Name == input.Name))
         {
-            throw ResultOutput.Exception("字典已存在"]);
+            throw ResultOutput.Exception("字典已存在");
         }
 
         if (input.Code.NotNull() && await _dictRep.Select.AnyAsync(a => a.DictTypeId == input.DictTypeId && a.Code == input.Code))
         {
-            throw ResultOutput.Exception("字典编码已存在"]);
+            throw ResultOutput.Exception("字典编码已存在");
         }
 
         if (input.Value.NotNull() && await _dictRep.Select.AnyAsync(a => a.DictTypeId == input.DictTypeId && a.Value == input.Value))
         {
-            throw ResultOutput.Exception("字典值已存在"]);
+            throw ResultOutput.Exception("字典值已存在");
         }
 
         var entity = Mapper.Map<DictEntity>(input);
@@ -358,22 +358,22 @@ public class DictService : BaseService, IDictService
         var entity = await _dictRep.GetAsync(input.Id);
         if (!(entity?.Id > 0))
         {
-            throw ResultOutput.Exception("字典不存在"]);
+            throw ResultOutput.Exception("字典不存在");
         }
 
         if (await _dictRep.Select.AnyAsync(a => a.Id != input.Id && a.DictTypeId == input.DictTypeId && a.Name == input.Name))
         {
-            throw ResultOutput.Exception("字典已存在"]);
+            throw ResultOutput.Exception("字典已存在");
         }
 
         if (input.Code.NotNull() && await _dictRep.Select.AnyAsync(a => a.Id != input.Id && a.DictTypeId == input.DictTypeId && a.Code == input.Code))
         {
-            throw ResultOutput.Exception("字典编码已存在"]);
+            throw ResultOutput.Exception("字典编码已存在");
         }
 
         if (input.Value.NotNull() && await _dictRep.Select.AnyAsync(a => a.Id != input.Id && a.DictTypeId == input.DictTypeId && a.Value == input.Value))
         {
-            throw ResultOutput.Exception("字典值已存在"]);
+            throw ResultOutput.Exception("字典值已存在");
         }
 
         Mapper.Map(input, entity);

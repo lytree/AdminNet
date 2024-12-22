@@ -145,7 +145,7 @@ public class OrgService : BaseService, IOrgService
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    [AdminTransaction
+    [AdminTransaction]
     public async Task DeleteAsync(long id)
     {
         //本部门下是否有员工
@@ -175,7 +175,7 @@ public class OrgService : BaseService, IOrgService
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    [AdminTransaction
+    [AdminTransaction]
     public async Task SoftDeleteAsync(long id)
     {
         //本部门下是否有员工
