@@ -40,6 +40,7 @@ public class HostApp
         {
             configuration.AddJsonFile(filePath, optional: optional, reloadOnChange: reloadOnChange);
         }
+
     }
     public HostApp()
     {

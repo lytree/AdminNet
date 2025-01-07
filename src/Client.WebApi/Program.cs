@@ -5,6 +5,7 @@ using App.Core.RegisterModules;
 using App.Core.Startup;
 using App.Repository;
 using App.Service;
+using App.Service.Extensions;
 using App.Service.Resources;
 using AspNetCoreRateLimit;
 using Autofac;
@@ -40,7 +41,7 @@ namespace Client.WebApi
 
 
 
-
+            services.AddDb(env, host);
             // Add services to the container.
             services.AddAuthorization();
 
@@ -113,7 +114,7 @@ namespace Client.WebApi
                             // Log the exception somewhere
                             // logger.LogError(contextFeature.Error, "Something went wrong");
 
-                            await context.Response.WriteAsync(ResultOutput.NotOk(contextFeature.Error.Message));
+                            await context.Response.WriteAsync(ResultOutput.NotOk(contextFeature.Error.Message).ToString());
                         }
                     });
                 });
