@@ -8,7 +8,7 @@ using App.Repository.Consts;
 using App.Repository.Domain;
 using App.Service.Attributes;
 using App.Service.Consts;
-using App.Service.Resources;
+
 using Microsoft.AspNetCore.Mvc;
 
 namespace App.Service.Services;
@@ -26,7 +26,7 @@ public class PkgService : BaseService
     private readonly Lazy<IPkgPermissionRepository> _pkgPermissionRep;
     private readonly Lazy<IRolePermissionRepository> _rolePermissionRep;
     private readonly Lazy<IUserRepository> _userRep;
-    private readonly AdminLocalizer _adminLocalizer;
+    
 
     public PkgService(
         IPkgRepository pkgRep,
@@ -35,7 +35,7 @@ public class PkgService : BaseService
         Lazy<IPkgPermissionRepository> pkgPermissionRep,
         Lazy<IRolePermissionRepository> rolePermissionRep,
         Lazy<IUserRepository> userRep,
-        AdminLocalizer adminLocalizer
+        
     )
     {
         _pkgRep = pkgRep;
@@ -44,7 +44,7 @@ public class PkgService : BaseService
         _pkgPermissionRep = pkgPermissionRep;
         _rolePermissionRep = rolePermissionRep;
         _userRep = userRep;
-        _adminLocalizer = adminLocalizer;
+        
     }
 
     /// <summary>
@@ -276,12 +276,12 @@ public class PkgService : BaseService
     {
         if (await _pkgRep.Select.AnyAsync(a => a.ParentId == input.ParentId && a.Name == input.Name))
         {
-            throw ResultOutput.Exception(_adminLocalizer["此套餐名已存在"]);
+            throw ResultOutput.Exception("此套餐名已存在"]);
         }
 
         if (input.Code.NotNull() && await _pkgRep.Select.AnyAsync(a => a.ParentId == input.ParentId && a.Code == input.Code))
         {
-            throw ResultOutput.Exception(_adminLocalizer["此套餐编码已存在"]);
+            throw ResultOutput.Exception("此套餐编码已存在"]);
         }
 
         var entity = Mapper.Map<PkgEntity>(input);
@@ -306,17 +306,17 @@ public class PkgService : BaseService
         var entity = await _pkgRep.GetAsync(input.Id);
         if (!(entity?.Id > 0))
         {
-            throw ResultOutput.Exception(_adminLocalizer["套餐不存在"]);
+            throw ResultOutput.Exception("套餐不存在"]);
         }
 
         if (await _pkgRep.Select.AnyAsync(a => a.ParentId == input.ParentId && a.Id != input.Id && a.Name == input.Name))
         {
-            throw ResultOutput.Exception(_adminLocalizer["此套餐名已存在"]);
+            throw ResultOutput.Exception("此套餐名已存在"]);
         }
 
         if (input.Code.NotNull() && await _pkgRep.Select.AnyAsync(a => a.ParentId == input.ParentId && a.Id != input.Id && a.Code == input.Code))
         {
-            throw ResultOutput.Exception(_adminLocalizer["此套餐编码已存在"]);
+            throw ResultOutput.Exception("此套餐编码已存在"]);
         }
 
         Mapper.Map(input, entity);

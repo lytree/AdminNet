@@ -2,7 +2,7 @@
 using FreeScheduler;
 using Mapster;
 using System.Collections.Generic;
-using App.Service.Resources;
+
 using System;
 using App.Repository.Repositories;
 using App.Core.Dto;
@@ -18,15 +18,15 @@ namespace App.Service.Services;
 public class TaskLogService : BaseService, ITaskLogService
 {
     private readonly Scheduler _scheduler;
-    private readonly AdminLocalizer _adminLocalizer;
+    
     private readonly Lazy<ITaskLogRepository> _taskLogRep;
 
     public TaskLogService(Scheduler scheduler,
-        AdminLocalizer adminLocalizer,
+        ,
         Lazy<ITaskLogRepository> taskLogRep)
     {
         _scheduler = scheduler;
-        _adminLocalizer = adminLocalizer;
+        
         _taskLogRep = taskLogRep;
     }
 
@@ -40,7 +40,7 @@ public class TaskLogService : BaseService, ITaskLogService
     {
         if (!(input.Filter != null && input.Filter.TaskId.NotNull()))
         {
-            throw ResultOutput.Exception(_adminLocalizer["请选择任务"]);
+            throw ResultOutput.Exception("请选择任务"]);
         }
 
         var result = Datafeed.GetLogs(_scheduler, input.Filter.TaskId, input.PageSize, input.CurrentPage);

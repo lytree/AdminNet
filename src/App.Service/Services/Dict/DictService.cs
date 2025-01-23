@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using App.Service.Resources;
+
 using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
@@ -21,17 +21,17 @@ public class DictService : BaseService, IDictService
 {
     private readonly AdminRepositoryBase<DictEntity> _dictRep;
     private readonly AdminRepositoryBase<DictTypeEntity> _dictTypeRep;
-    private readonly AdminLocalizer _adminLocalizer;
+    
     private readonly IEHelper _iEHelper;
 
     public DictService(AdminRepositoryBase<DictEntity> dictRep,
-        AdminRepositoryBase<DictTypeEntity> dictTypeRep,
-        AdminLocalizer adminLocalizer,
+        AdminRepositoryBase<DictTypeEntity> dictTypeRep
+        ,
         IEHelper iEHelper)
     {
         _dictRep = dictRep;
         _dictTypeRep = dictTypeRep;
-        _adminLocalizer = adminLocalizer;
+        
         _iEHelper = iEHelper;
     }
 
@@ -143,7 +143,7 @@ public class DictService : BaseService, IDictService
 
     public async Task<ActionResult> DownloadTemplateAsync()
     {
-        var fileName = _adminLocalizer["数据字典模板{0}.xlsx", DateTime.Now.ToString("yyyyMMddHHmmss")];
+        var fileName = $"数据字典模板{DateTime.Now.ToString("yyyyMMddHHmmss")}.xlsx";
         return await _iEHelper.DownloadTemplateAsync(new DictImport(), fileName);
     }
 
@@ -158,7 +158,7 @@ public class DictService : BaseService, IDictService
     {
         if (fileName.IsNull())
         {
-            fileName = _adminLocalizer["数据字典错误标记{0}.xlsx", DateTime.Now.ToString("yyyyMMddHHmmss")];
+            fileName = $"数据字典错误标记{DateTime.Now.ToString("yyyyMMddHHmmss")}.xlsx";
         }
         return await _iEHelper.DownloadErrorMarkAsync(fileId, fileName);
     }
@@ -183,7 +183,7 @@ public class DictService : BaseService, IDictService
         var dictTypeName = dataList.Count > 0 ? dataList[0].DictTypeName : string.Empty;
 
         //导出数据
-        var fileName = input.FileName.NotNull() ? input.FileName : _adminLocalizer["数据字典-{0}列表{1}.xlsx", dictTypeName, DateTime.Now.ToString("yyyyMMddHHmmss")];
+        var fileName = input.FileName.NotNull() ? input.FileName : $"数据字典-{dictTypeName}列表{DateTime.Now.ToString("yyyyMMddHHmmss")}.xlsx";
 
         return await _iEHelper.ExportDataAsync(dataList, fileName, dictTypeName);
     }
@@ -325,17 +325,17 @@ public class DictService : BaseService, IDictService
     {
         if (await _dictRep.Select.AnyAsync(a => a.DictTypeId == input.DictTypeId && a.Name == input.Name))
         {
-            throw ResultOutput.Exception(_adminLocalizer["字典已存在"]);
+            throw ResultOutput.Exception("字典已存在");
         }
 
         if (input.Code.NotNull() && await _dictRep.Select.AnyAsync(a => a.DictTypeId == input.DictTypeId && a.Code == input.Code))
         {
-            throw ResultOutput.Exception(_adminLocalizer["字典编码已存在"]);
+            throw ResultOutput.Exception("字典编码已存在");
         }
 
         if (input.Value.NotNull() && await _dictRep.Select.AnyAsync(a => a.DictTypeId == input.DictTypeId && a.Value == input.Value))
         {
-            throw ResultOutput.Exception(_adminLocalizer["字典值已存在"]);
+            throw ResultOutput.Exception("字典值已存在");
         }
 
         var entity = Mapper.Map<DictEntity>(input);
@@ -358,22 +358,22 @@ public class DictService : BaseService, IDictService
         var entity = await _dictRep.GetAsync(input.Id);
         if (!(entity?.Id > 0))
         {
-            throw ResultOutput.Exception(_adminLocalizer["字典不存在"]);
+            throw ResultOutput.Exception("字典不存在");
         }
 
         if (await _dictRep.Select.AnyAsync(a => a.Id != input.Id && a.DictTypeId == input.DictTypeId && a.Name == input.Name))
         {
-            throw ResultOutput.Exception(_adminLocalizer["字典已存在"]);
+            throw ResultOutput.Exception("字典已存在");
         }
 
         if (input.Code.NotNull() && await _dictRep.Select.AnyAsync(a => a.Id != input.Id && a.DictTypeId == input.DictTypeId && a.Code == input.Code))
         {
-            throw ResultOutput.Exception(_adminLocalizer["字典编码已存在"]);
+            throw ResultOutput.Exception("字典编码已存在");
         }
 
         if (input.Value.NotNull() && await _dictRep.Select.AnyAsync(a => a.Id != input.Id && a.DictTypeId == input.DictTypeId && a.Value == input.Value))
         {
-            throw ResultOutput.Exception(_adminLocalizer["字典值已存在"]);
+            throw ResultOutput.Exception("字典值已存在");
         }
 
         Mapper.Map(input, entity);

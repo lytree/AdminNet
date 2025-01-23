@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using App.Service.Resources;
+
 using App.Repository.Domain;
 using App.Core.Dto;
 using App.Service.Consts;
@@ -22,7 +22,7 @@ public class RoleService : BaseService, IRoleService
     private readonly IUserRoleRepository _userRoleRep;
     private readonly IRolePermissionRepository _rolePermissionRep;
     private readonly IRoleOrgRepository _roleOrgRep;
-    private readonly AdminLocalizer _adminLocalizer;
+    
 
     public RoleService(
         IRoleRepository roleRep,
@@ -30,7 +30,7 @@ public class RoleService : BaseService, IRoleService
         IUserRoleRepository userRoleRep,
         IRolePermissionRepository rolePermissionRep,
         IRoleOrgRepository roleOrgRep,
-        AdminLocalizer adminLocalizer
+        
     )
     {
         _roleRep = roleRep;
@@ -38,7 +38,7 @@ public class RoleService : BaseService, IRoleService
         _userRoleRep = userRoleRep;
         _rolePermissionRep = rolePermissionRep;
         _roleOrgRep = roleOrgRep;
-        _adminLocalizer = adminLocalizer;
+        
     }
 
     /// <summary>
@@ -192,12 +192,12 @@ public class RoleService : BaseService, IRoleService
     {
         if (await _roleRep.Select.AnyAsync(a => a.ParentId == input.ParentId && a.Name == input.Name))
         {
-            throw ResultOutput.Exception(_adminLocalizer["此{0}已存在", input.Type == RoleType.Group ? "分组" : "角色"]);
+            throw ResultOutput.Exception("此{0}已存在", input.Type == RoleType.Group ? "分组" : "角色"]);
         }
 
         if (input.Code.NotNull() && await _roleRep.Select.AnyAsync(a => a.ParentId == input.ParentId && a.Code == input.Code))
         {
-            throw ResultOutput.Exception(_adminLocalizer["此{0}编码已存在", input.Type == RoleType.Group ? "分组" : "角色"]);
+            throw ResultOutput.Exception("此{0}编码已存在", input.Type == RoleType.Group ? "分组" : "角色"]);
         }
 
         var entity = Mapper.Map<RoleEntity>(input);
@@ -226,17 +226,17 @@ public class RoleService : BaseService, IRoleService
         var entity = await _roleRep.GetAsync(input.Id);
         if (!(entity?.Id > 0))
         {
-            throw ResultOutput.Exception(_adminLocalizer["角色不存在"]);
+            throw ResultOutput.Exception("角色不存在"]);
         }
 
         if (await _roleRep.Select.AnyAsync(a => a.ParentId == input.ParentId && a.Id != input.Id && a.Name == input.Name))
         {
-            throw ResultOutput.Exception(_adminLocalizer["此{0}已存在", input.Type == RoleType.Group ? "分组" : "角色"]);
+            throw ResultOutput.Exception("此{0}已存在", input.Type == RoleType.Group ? "分组" : "角色"]);
         }
 
         if (input.Code.NotNull() && await _roleRep.Select.AnyAsync(a => a.ParentId == input.ParentId && a.Id != input.Id && a.Code == input.Code))
         {
-            throw ResultOutput.Exception(_adminLocalizer["此{0}编码已存在", input.Type == RoleType.Group ? "分组" : "角色"]);
+            throw ResultOutput.Exception("此{0}编码已存在", input.Type == RoleType.Group ? "分组" : "角色"]);
         }
 
         Mapper.Map(input, entity);
@@ -350,7 +350,7 @@ public class RoleService : BaseService, IRoleService
         var entity = await _roleRep.GetAsync(input.RoleId);
         if (!(entity?.Id > 0))
         {
-            throw ResultOutput.Exception(_adminLocalizer["角色不存在"]);
+            throw ResultOutput.Exception("角色不存在"]);
         }
 
         Mapper.Map(input, entity);

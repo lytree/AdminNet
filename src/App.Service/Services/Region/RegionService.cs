@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Yitter.IdGenerator;
-using App.Service.Resources;
+
 using App.Repository.Repositories;
 using App.Repository.Domain;
 using App.Core.Dto;
@@ -18,12 +18,12 @@ namespace App.Service.Services;
 public class RegionService : BaseService
 {
     private readonly AdminRepositoryBase<RegionEntity> _regionRep;
-    private readonly AdminLocalizer _adminLocalizer;
+    
 
-    public RegionService(AdminRepositoryBase<RegionEntity> regionRep, AdminLocalizer adminLocalizer)
+    public RegionService(AdminRepositoryBase<RegionEntity> regionRep, )
     {
         _regionRep = regionRep;
-        _adminLocalizer = adminLocalizer;
+        
     }
 
 
@@ -125,12 +125,12 @@ public class RegionService : BaseService
 
         if (await regionRep.Select.AnyAsync(a => a.ParentId == input.ParentId && a.Name == input.Name))
         {
-            throw ResultOutput.Exception(_adminLocalizer["此地区名已存在"]);
+            throw ResultOutput.Exception("此地区名已存在"]);
         }
 
         if (input.Code.NotNull() && await regionRep.Select.AnyAsync(a => a.ParentId == input.ParentId && a.Code == input.Code))
         {
-            throw ResultOutput.Exception(_adminLocalizer["此地区代码已存在"]);
+            throw ResultOutput.Exception("此地区代码已存在"]);
         }
 
         var entity = Mapper.Map<RegionEntity>(input);
@@ -155,17 +155,17 @@ public class RegionService : BaseService
         var entity = await regionRep.GetAsync(input.Id);
         if (entity == null)
         {
-            throw ResultOutput.Exception(_adminLocalizer["地区不存在"]);
+            throw ResultOutput.Exception("地区不存在"]);
         }
 
         if (await regionRep.Select.AnyAsync(a => a.ParentId == input.ParentId && a.Id != input.Id && a.Name == input.Name))
         {
-            throw ResultOutput.Exception(_adminLocalizer["此地区名已存在"]);
+            throw ResultOutput.Exception("此地区名已存在"]);
         }
 
         if (input.Code.NotNull() && await regionRep.Select.AnyAsync(a => a.ParentId == input.ParentId && a.Id != input.Id && a.Code == input.Code))
         {
-            throw ResultOutput.Exception(_adminLocalizer["此地区代码已存在"]);
+            throw ResultOutput.Exception("此地区代码已存在"]);
         }
 
         Mapper.Map(input, entity);

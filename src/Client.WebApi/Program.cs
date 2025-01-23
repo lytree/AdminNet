@@ -5,14 +5,13 @@ using App.Core.RegisterModules;
 using App.Core.Startup;
 using App.Repository;
 using App.Service;
-using App.Service.Extensions;
-using App.Service.Resources;
 using AspNetCoreRateLimit;
 using Autofac;
 using Autofac.Core;
 using Autofac.Extensions.DependencyInjection;
 using Client.WebApi.Middlewares;
 using Client.WebApi.Routes;
+using Framework;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Scalar.AspNetCore;
@@ -42,7 +41,7 @@ namespace Client.WebApi
             var env = builder.Environment;
             var configuration = builder.Configuration;
 
-            //Ìí¼ÓÅäÖÃ
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
             if (env.EnvironmentName.NotNull())
             {
@@ -58,23 +57,23 @@ namespace Client.WebApi
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddOpenApiDocument();
-            //Ê¹ÓÃAutofacÈÝÆ÷
-            builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
-            //ÅäÖÃAutofacÈÝÆ÷
-            builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
-            {
-                // ÉúÃüÖÜÆÚ×¢Èë
-                builder.RegisterModule(new LifecycleModule([]));
+            //Ê¹ï¿½ï¿½Autofacï¿½ï¿½ï¿½ï¿½
+            //builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+            ////ï¿½ï¿½ï¿½ï¿½Autofacï¿½ï¿½ï¿½ï¿½
+            //builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
+            //{
+            //    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½
+            //    builder.RegisterModule(new LifecycleModule([]));
 
-                // ¿ØÖÆÆ÷×¢Èë
-                //builder.RegisterModule(new ControllerModule());
+            //    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½
+            //    //builder.RegisterModule(new ControllerModule());
 
-                // Ä£¿é×¢Èë
-                builder.RegisterModule(new RepositoryRegisterModule());
-                // Ä£¿é×¢Èë
-                builder.RegisterModule(new ServiceRegisterModule());
-                //_hostAppOptions?.ConfigureAutofacContainer?.Invoke(builder, hostAppContext);
-            });
+            //    // Ä£ï¿½ï¿½×¢ï¿½ï¿½
+            //    builder.RegisterModule(new RepositoryRegisterModule());
+            //    // Ä£ï¿½ï¿½×¢ï¿½ï¿½
+            //    builder.RegisterModule(new ServiceRegisterModule());
+            //    //_hostAppOptions?.ConfigureAutofacContainer?.Invoke(builder, hostAppContext);
+            //});
 
 
             // needed to store rate limit counters and ip rules
@@ -96,10 +95,8 @@ namespace Client.WebApi
             services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
             var appConfig = AppInfo.GetOptions<AppConfig>();
             services.AddSingleton(appConfig);
-            services.AddSingleton<AdminLocalizer>();
             var app = builder.Build();
             var ser = app.Services;
-
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
