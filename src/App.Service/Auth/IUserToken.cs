@@ -6,7 +6,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.Repository;
+namespace App.Service.Auth;
 
 public interface IUserToken
 {

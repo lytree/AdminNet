@@ -1,5 +1,6 @@
 ﻿using App.Core.Exceptions;
 using App.Repository.Domain;
+using App.Repository.Repositories;
 using App.Service.Auth;
 using App.Service.Consts;
 using App.Service.Resources;
@@ -14,13 +15,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.Repository;
+namespace App.Service;
 
 
 /// <summary>
 /// 用户信息
 /// </summary>
-public class User : Server.Core.Auth.IUser
+public class User : IUser
 {
     private readonly IHttpContextAccessor _accessor;
     private readonly AdminLocalizer _adminLocalizer;
@@ -185,7 +186,7 @@ public class User : Server.Core.Auth.IUser
     /// 获得数据权限
     /// </summary>
     /// <returns></returns>
-    DataPermissionDto GetDataPermission()
+    DataPermissionOutput GetDataPermission()
     {
         var cache = _accessor?.HttpContext?.RequestServices.GetRequiredService<ICacheTool>();
         if (cache == null)
@@ -194,14 +195,14 @@ public class User : Server.Core.Auth.IUser
         }
         else
         {
-            return cache.Get<DataPermissionDto>(CacheKeys.GetDataPermissionKey(Id));
+            return cache.Get<DataPermissionOutput>(CacheKeys.GetDataPermissionKey(Id));
         }
     }
 
     /// <summary>
     /// 数据权限
     /// </summary>
-    public virtual DataPermissionDto DataPermission => GetDataPermission();
+    public virtual DataPermissionOutput DataPermission => GetDataPermission();
 
     /// <summary>
     /// 获得用户权限
@@ -225,7 +226,7 @@ public class User : Server.Core.Auth.IUser
     /// </summary>
     public virtual UserGetPermissionOutput UserPermission => GetUserPermission();
 
-    UserPermissionDto Server.Core.Auth.IUser.UserPermission => throw new NotImplementedException();
+
 
     /// <summary>
     /// 检查用户是否拥有某个权限点

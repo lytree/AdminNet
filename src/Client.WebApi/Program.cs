@@ -25,13 +25,23 @@ namespace Client.WebApi
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            var hostOptions = new HostAppOptions { };
+
+
+
+
+
+
+
+            var host = new HostApp(hostOptions);
+
+
+
 
             var services = builder.Services;
             var env = builder.Environment;
             var configuration = builder.Configuration;
 
-            var host = new HostApp(new HostAppOptions { });
-            host.ConfigureApplication(builder, Assembly.GetCallingAssembly());
             //ÃÌº”≈‰÷√
             configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
             if (env.EnvironmentName.NotNull())
@@ -41,7 +51,7 @@ namespace Client.WebApi
 
 
 
-            services.AddDb(env, host);
+            services.AddDb(env, hostOptions);
             // Add services to the container.
             services.AddAuthorization();
 
@@ -89,7 +99,7 @@ namespace Client.WebApi
             services.AddSingleton<AdminLocalizer>();
             var app = builder.Build();
             var ser = app.Services;
-            host.ConfigureApplication(app);
+
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {

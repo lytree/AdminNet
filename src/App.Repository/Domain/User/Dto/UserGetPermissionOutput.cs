@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace App.Service.Services;
+namespace App.Repository.Domain;
+
 
 /// <summary>
 /// 用户权限
@@ -29,7 +34,7 @@ public class UserGetPermissionOutput
     /// <summary>
     /// 接口列表
     /// </summary>
-    public List<Models.ApiModel> Apis {  get; set; }
+    public List<Models.ApiModel> Apis { get; set; }
 
     /// <summary>
     /// 权限点编码列表

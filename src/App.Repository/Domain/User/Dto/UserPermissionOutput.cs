@@ -9,7 +9,7 @@ namespace App.Repository.Domain;
 /// <summary>
 /// 用户权限
 /// </summary>
-public class UserPermissionDto
+public class UserPermissionOutput
 {
     public static class Models
     {

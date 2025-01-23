@@ -51,13 +51,4 @@ public class HostApp
         _hostAppOptions = hostAppOptions;
     }
 
-
-    public void ConfigureApplication(WebApplication app)
-    {
-        app.ConfigureApplication();
-    }
-    public void ConfigureApplication(WebApplicationBuilder build, Assembly assembly)
-    {
-        build.ConfigureApplication(assembly);
-    }
 }

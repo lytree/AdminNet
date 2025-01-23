@@ -1,5 +1,6 @@
 ﻿using App.Core.Dto;
 using App.Repository.Domain;
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ public interface IUserService
 
     Task<AuthLoginOutput> GetLoginUserAsync(long id);
 
-    Task<DataPermissionDto> GetDataPermissionAsync(string? apiPath);
+    Task<DataPermissionOutput> GetDataPermissionAsync(string? apiPath);
 
     Task<long> AddAsync(UserAddInput input);
 

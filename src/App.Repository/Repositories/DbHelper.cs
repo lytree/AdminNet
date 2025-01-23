@@ -4,8 +4,6 @@ using Framework.Repository.Entities;
 using FreeSql;
 using System.Reflection;
 using Framework;
-using Framework.Repository;
-using App.Core.Startup;
 using App.Core.Configs;
 using App.Service;
 using App.Repository.Consts;
@@ -13,7 +11,7 @@ using App.Repository.Domain;
 using FreeSql.Aop;
 using FreeSql.DataAnnotations;
 using Yitter.IdGenerator;
-using StackExchange.Profiling;
+using App.Repository.Repositories;
 namespace App.Repository;
 
 
@@ -110,10 +108,10 @@ public class DbHelper
     /// <param name="db"></param>
     /// <param name="appConfig"></param>
     /// <param name="dbConfig"></param>
-    public static void ConfigEntity(IFreeSql db, AppConfig appConfig = null, DbConfig dbConfig = null)
+    public static void ConfigEntity(IFreeSql db, DbConfig dbConfig = null)
     {
         //租户生成和操作租户Id
-        if (!appConfig.Tenant)
+        if (!dbConfig.Tenant)
         {
             var iTenant = nameof(ITenant);
             var tenantId = nameof(ITenant.TenantId);
@@ -141,13 +139,12 @@ public class DbHelper
     /// <param name="timeOffset"></param>
     /// <param name="user"></param>
     /// <param name="dbConfig"></param>
-    public static void AuditValue(AuditValueEventArgs e, TimeSpan timeOffset, IUser iuser, DbConfig dbConfig)
+    public static void AuditValue(AuditValueEventArgs e, TimeSpan timeOffset, IUser user, DbConfig dbConfig)
     {
         if (e.Property == null)
         {
             return;
         }
-        var user = iuser as User;
         //数据库时间
         if ((e.Column.CsType == typeof(DateTime) || e.Column.CsType == typeof(DateTime?))
         && e.Property.GetCustomAttribute<ServerTimeAttribute>(false) is ServerTimeAttribute serverTimeAttribute)
@@ -476,7 +473,7 @@ public class DbHelper
     /// <param name="dbConfig"></param>
     /// <returns></returns>
     /// <exception cref="Exception"></exception>
-    public static async Task GenerateDataAsync(IFreeSql db,  DbConfig dbConfig = null)
+    public static async Task GenerateDataAsync(IFreeSql db, DbConfig dbConfig = null)
     {
         try
         {
@@ -512,11 +509,11 @@ public class DbHelper
     /// <param name="dbConfig"></param>
     /// <param name="appConfig"></param>
     /// <param name="hostAppOptions"></param>
-    public static void RegisterDb(
-        FreeSqlCloud freeSqlCloud,
-        User user,AppConfig appConfig,
-        DbConfig dbConfig, HostAppOptions hostAppOptions
-    )
+    public static void RegisterDb(FreeSqlCloud freeSqlCloud, IUser user, DbConfig dbConfig,
+        Action<FreeSqlBuilder, DbConfig> configureFreeSqlBuilder,
+        Action<IFreeSql, DbConfig> configurePreFreeSql,
+        Action<IFreeSql, DbConfig> configureFreeSqlSyncStructure,
+        Action<IFreeSql, DbConfig> configureFreeSql)
     {
         //注册数据库
         var idelTime = dbConfig.IdleTime.HasValue && dbConfig.IdleTime.Value > 0 ? TimeSpan.FromMinutes(dbConfig.IdleTime.Value) : TimeSpan.MaxValue;
@@ -555,11 +552,11 @@ public class DbHelper
 
             #endregion 监听所有命令
 
-            hostAppOptions?.ConfigureFreeSqlBuilder?.Invoke(freeSqlBuilder, dbConfig);
+            configureFreeSqlBuilder?.Invoke(freeSqlBuilder, dbConfig);
 
             var fsql = freeSqlBuilder.Build();
 
-            hostAppOptions?.ConfigurePreFreeSql?.Invoke(fsql, dbConfig);
+            configurePreFreeSql?.Invoke(fsql, dbConfig);
 
             //生成数据
             if (dbConfig.GenerateData && !dbConfig.CreateDb && !dbConfig.SyncData)
@@ -580,7 +577,7 @@ public class DbHelper
             //同步结构
             if (dbConfig.SyncStructure)
             {
-                SyncStructure(fsql, dbConfig: dbConfig, configureFreeSqlSyncStructure: hostAppOptions?.ConfigureFreeSqlSyncStructure);
+                SyncStructure(fsql, dbConfig: dbConfig, configureFreeSqlSyncStructure: configureFreeSqlSyncStructure);
             }
 
             //同步数据
@@ -601,7 +598,7 @@ public class DbHelper
             fsql.GlobalFilter.ApplyOnly<IDelete>(FilterNames.Delete, a => a.IsDeleted == false);
 
             //租户过滤器
-            if (appConfig.Tenant)
+            if (dbConfig.Tenant)
             {
                 fsql.GlobalFilter.ApplyOnly<ITenant>(FilterNames.Tenant, a => a.TenantId == user.TenantId);
             }
@@ -648,32 +645,32 @@ public class DbHelper
             #endregion
 
             //配置实体
-            ConfigEntity(fsql, appConfig, dbConfig);
+            ConfigEntity(fsql, dbConfig);
 
             #region 监听Curd操作
 
-            if (dbConfig.Curd)
-            {
-                fsql.Aop.CurdBefore += (s, e) =>
-                {
-                    if (appConfig.MiniProfiler)
-                    {
-                        MiniProfiler.Current.CustomTiming("CurdBefore", e.Sql);
-                    }
-                    Console.WriteLine($"{e.Sql}{Environment.NewLine}");
-                };
-                fsql.Aop.CurdAfter += (s, e) =>
-                {
-                    if (appConfig.MiniProfiler)
-                    {
-                        MiniProfiler.Current.CustomTiming("CurdAfter", $"{e.ElapsedMilliseconds}");
-                    }
-                };
-            }
+            //if (dbConfig.Curd)
+            //{
+            //    fsql.Aop.CurdBefore += (s, e) =>
+            //    {
+            //        if (appConfig.MiniProfiler)
+            //        {
+            //            MiniProfiler.Current.CustomTiming("CurdBefore", e.Sql);
+            //        }
+            //        Console.WriteLine($"{e.Sql}{Environment.NewLine}");
+            //    };
+            //    fsql.Aop.CurdAfter += (s, e) =>
+            //    {
+            //        if (appConfig.MiniProfiler)
+            //        {
+            //            MiniProfiler.Current.CustomTiming("CurdAfter", $"{e.ElapsedMilliseconds}");
+            //        }
+            //    };
+            //}
 
             #endregion 监听Curd操作
 
-            hostAppOptions?.ConfigureFreeSql?.Invoke(fsql, dbConfig);
+            configureFreeSql?.Invoke(fsql, dbConfig);
 
             return fsql;
         }, idelTime);

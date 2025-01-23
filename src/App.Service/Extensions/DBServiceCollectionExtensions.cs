@@ -1,10 +1,10 @@
 ﻿using App.Core.Configs;
 using App.Core.Startup;
 using App.Repository;
+using App.Repository.Repositories;
 using FreeSql;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Server.Core.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +28,9 @@ public static class DBServiceCollectionExtensions
         var appConfig = AppInfo.GetOptions<AppConfig>();
         var user = services.BuildServiceProvider().GetService<IUser>();
         var freeSqlCloud = appConfig.DistributeKey.IsNull() ? new FreeSqlCloud() : new FreeSqlCloud(appConfig.DistributeKey);
-        DbHelper.RegisterDb(freeSqlCloud, user as User, appConfig, dbConfig, hostAppOptions);
+        DbHelper.RegisterDb(freeSqlCloud, user, dbConfig, hostAppOptions.ConfigureFreeSqlBuilder, hostAppOptions.ConfigurePreFreeSql,
+        hostAppOptions.ConfigureFreeSqlSyncStructure,
+        hostAppOptions.ConfigureFreeSql);
 
         //运行主库
         var masterDb = freeSqlCloud.Use(dbConfig.Key);
@@ -40,7 +42,9 @@ public static class DBServiceCollectionExtensions
         {
             foreach (var db in dbConfig.Dbs)
             {
-                DbHelper.RegisterDb(freeSqlCloud, user as User, appConfig, dbConfig, null);
+                DbHelper.RegisterDb(freeSqlCloud, user, dbConfig, hostAppOptions.ConfigureFreeSqlBuilder, hostAppOptions.ConfigurePreFreeSql,
+                hostAppOptions.ConfigureFreeSqlSyncStructure,
+                hostAppOptions.ConfigureFreeSql);
                 //运行当前库
                 var currentDb = freeSqlCloud.Use(db.Key);
                 currentDb.Select<object>();

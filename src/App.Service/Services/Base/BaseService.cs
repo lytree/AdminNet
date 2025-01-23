@@ -5,12 +5,11 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using MapsterMapper;
 using App.Service.Tools.Cache;
-using Microsoft.AspNetCore.Mvc;
-using Server.Core.Auth;
+using App.Repository.Repositories;
 
 namespace App.Service.Services;
 
-public abstract class BaseService: IBaseService
+public abstract class BaseService : IBaseService
 {
     protected readonly object ServiceProviderLock = new object();
     protected IDictionary<Type, object> CachedServices = new Dictionary<Type, object>();
@@ -69,7 +68,7 @@ public abstract class BaseService: IBaseService
     /// </summary>
     /// <typeparam name="TService">服务接口</typeparam>
     /// <returns></returns>
-    
+
     public virtual TService LazyGetRequiredService<TService>()
     {
         return (TService)LazyGetRequiredService(typeof(TService));
@@ -80,7 +79,7 @@ public abstract class BaseService: IBaseService
     /// </summary>
     /// <param name="serviceType">服务类型</param>
     /// <returns></returns>
-    
+
     public virtual object LazyGetRequiredService(Type serviceType)
     {
         return CachedServices.GetOrAdd(serviceType, () => ServiceProvider.GetRequiredService(serviceType));

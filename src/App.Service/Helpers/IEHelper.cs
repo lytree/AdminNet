@@ -3,7 +3,6 @@ using Magicodes.ExporterAndImporter.Excel;
 using Microsoft.AspNetCore.Mvc;
 using App.Core.Attributes;
 using App.Service.Resources;
-using Server.Core.Auth;
 using App.Service.Tools.Cache;
 using App.Service.Consts;
 using App.Core.Dto;
@@ -11,6 +10,7 @@ using App.Service.Services;
 using Magicodes.ExporterAndImporter.Core.Models;
 using Microsoft.AspNetCore.Http;
 using System.Text;
+using App.Repository.Repositories;
 
 namespace App.Service.Helpers;
 

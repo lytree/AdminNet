@@ -1,4 +1,3 @@
-using Client.Blazor.Data;
 using Microsoft.AspNetCore.Identity;
 
 namespace Client.Blazor.Components.Account

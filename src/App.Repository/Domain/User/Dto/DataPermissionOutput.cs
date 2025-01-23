@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace App.Repository.Domain;
 
-public class DataPermissionDto
+public class DataPermissionOutput
 {
     /// <summary>
     /// 部门Id
