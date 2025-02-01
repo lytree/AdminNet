@@ -1,79 +1,8 @@
 <Project>
+  <Import Project="$(RepoRoot)build\Directory.Packages.All.props"/>
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
-    <NoWarn>$(NoWarn);NU1507</NoWarn>
   </PropertyGroup>
-  <PropertyGroup>
-    <DotnetVersion>net8.0</DotnetVersion>
-    <FreesqlVersion>3.5.102</FreesqlVersion>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageVersion Include="AngleSharp" Version="1.1.2" />
-    <PackageVersion Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.1" />
-    <PackageVersion Include="AspNetCoreRateLimit" Version="5.0.0" />
-    <PackageVersion Include="Autofac" Version="8.1.1" />
-    <PackageVersion Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
-    <PackageVersion Include="Autofac.Extras.DynamicProxy" Version="7.1.0" />
-    <PackageVersion Include="BouncyCastle.Cryptography" Version="2.5.0" />
-    <PackageVersion Include="Castle.Core" Version="5.1.1" />
-    <PackageVersion Include="Castle.Core.AsyncInterceptor" Version="2.1.0" />
-    <PackageVersion Include="FluentValidation.AspNetCore" Version="11.3.0" />
-    <PackageVersion Include="FreeSql" Version="3.5.102" />
-    <PackageVersion Include="FreeSql.Cloud" Version="1.9.1" />
-    <PackageVersion Include="FreeSql.Provider.Sqlite" Version="$(FreesqlVersion)" />
-    <PackageVersion Include="FreeSql.DbContext" Version="3.5.102" />
-    <PackageVersion Include="FreeSql.Repository" Version="3.5.102" />
-    <PackageVersion Include="Cronos" Version="0.8.4" />
-    <PackageVersion Include="DotNetCore.CAP" Version="8.3.2" />
-    <PackageVersion Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
-    <PackageVersion Include="Mapster" Version="7.4.0" />
-    <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="8.0.11" />
-    <PackageVersion Include="Microsoft.Extensions.Caching.Abstractions" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.1" />
-    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyModel" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Hosting.Systemd" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Hosting.WindowsServices" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Options" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Configuration" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
-    <PackageVersion Include="Microsoft.Win32.Registry" Version="5.0.0" />
-    <PackageVersion Include="Microsoft.Windows.CsWin32" Version="0.3.49-beta" />
-    <PackageVersion Include="MiniProfiler.AspNetCore.Mvc" Version="4.5.4" />
-    <PackageVersion Include="NRedisStack" Version="0.13.1" />
-    <PackageVersion Include="NSwag.AspNetCore" Version="14.2.0" />
-    <PackageVersion Include="Scalar.AspNetCore" Version="1.2.48" />
-    <PackageVersion Include="Serilog" Version="4.1.0" />
-    <PackageVersion Include="Serilog.AspNetCore" Version="8.0.3" />
-    <PackageVersion Include="Serilog.Enrichers.Context" Version="4.6.5" />
-    <PackageVersion Include="Serilog.Enrichers.Environment" Version="3.0.1" />
-    <PackageVersion Include="Serilog.Enrichers.Process" Version="3.0.0" />
-    <PackageVersion Include="Serilog.Enrichers.Thread" Version="4.0.0" />
-    <PackageVersion Include="Serilog.Exceptions" Version="8.4.0" />
-    <PackageVersion Include="Serilog.Expressions" Version="5.0.0" />
-    <PackageVersion Include="Serilog.Extensions.Hosting" Version="8.0.0" />
-    <PackageVersion Include="Serilog.Extensions.Logging" Version="8.0.0" />
-    <PackageVersion Include="Serilog.Sinks.Async" Version="2.1.0" />
-    <PackageVersion Include="Serilog.Sinks.Console" Version="6.0.0" />
-    <PackageVersion Include="Serilog.Sinks.File" Version="6.0.0" />
-    <PackageVersion Include="SixLabors.ImageSharp" Version="3.1.6" />
-    <PackageVersion Include="SixLabors.ImageSharp.Drawing" Version="2.1.4" />
-    <PackageVersion Include="Swashbuckle.AspNetCore" Version="7.1.0" />
-    <PackageVersion Include="Swashbuckle.AspNetCore.Swagger" Version="7.1.0" />
-    <PackageVersion Include="Swashbuckle.AspNetCore.SwaggerGen" Version="7.1.0" />
-    <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="8.3.0" />
-    <PackageVersion Include="System.Security.AccessControl" Version="6.0.0" />
-    <PackageVersion Include="UAParser" Version="3.1.47" />
-    <PackageVersion Include="Yitter.IdGenerator" Version="1.0.14" />
-  </ItemGroup>
+
 </Project>
