@@ -4,3 +4,6 @@
 [submodule "plugins"]
 	path = plugins
 	url = https://github.com/lytree/Admin.Plugins.git
+[submodule "build"]
+	path = plugins
+	url = https://github.com/lytree/BuildRepository.git
